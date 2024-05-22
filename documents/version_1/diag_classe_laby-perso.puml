@@ -1,0 +1,30 @@
+@startuml
+class Labyrinthe{
++MUR : char
++PJ : char
++VIDE : char
++HAUT : String
++BAS : String
++GAUCHE : String
++DROITE : String
++murs : boolean[][]
++getSuivant(x : int, y : int, action : String) : int[]
++Labyrinthe(nom : String)
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLength() : int
++gerMur(x : int, y : int) : boolean
+}
+
+class Perso{
++x : int
++y : int
++Perso(dx : int, dy : int)
++etrePresent(dx : int, dy : int) : boolean
++getX() : int
++getY() : int
+}
+
+Labyrinthe "1" --> "1" Perso : "+pj"
+@enduml

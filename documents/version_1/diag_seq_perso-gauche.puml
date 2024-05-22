@@ -1,0 +1,13 @@
+@startuml
+participant main
+participant laby as "laby : Labyrinthe"
+participant pj as "pj : Perso"
+main -> laby : deplacerPerso(GAUCHE)
+activate laby
+laby -> laby : suivante = getSuivant(courante[0], courante[1], GAUCHE)
+laby -> pj : x = suivante[0] y = suivante[1]
+activate pj
+pj --> laby
+deactivate pj
+laby --> main
+@enduml

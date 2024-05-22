@@ -1,0 +1,53 @@
+@startuml
+
+package javafx.application{
+class Application{
+}
+}
+
+
+package moteurJeu{
+
+class MoteurJeu{
+- <static> width: double
+- <static> height: double
+- <static> FPS: int
++ <static> launch(jeu: Jeu, dessin: DessinJeu)
++ <static> setTaille(width: double, height: double)
++ <static> setFPS(FPS: int)
++ start(primaryStage: Stage)
++ startAnimation(canvas: Canvas)
+}
+
+Application <|-- MoteurJeu
+
+
+
+interface Jeu{
++ init()
++ update(secondes: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+MoteurJeu "1" --> "1" Jeu : - <static> jeu
+
+
+interface DessinJeu{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+
+MoteurJeu "1" --> "1" DessinJeu : - <static> dessin
+
+class Clavier{
+- haut: boolean
+- bas: boolean
+- gauche: boolean
+- droite: boolean
++ appuyerTouche(event : KeyEvent)
++ relacherTouche(event : KeyEvent)
+}
+
+MoteurJeu "1" --> "1" Clavier : - clavier
+}
+
+@enduml

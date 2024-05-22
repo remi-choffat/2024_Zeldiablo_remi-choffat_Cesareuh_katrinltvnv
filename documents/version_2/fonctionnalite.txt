@@ -1,0 +1,32 @@
+1. Donner une position initiale au monstre
+- Descriptif :
+  - le monstre débute sur une case décrite dans le fichier labyrinthe.
+- Critères de validation :
+  - le monstre doit avoir une position initiale.
+  - le monstre se trouve sur la case indiquée dans le fichier labyrinthe.
+  - le monstre est représenté par le caractère 'M' dans le fichier labyrinthe.
+  - le monstre ne se trouve pas sur la même case que le personnage.
+
+2. Afficher le monstre
+- Descriptif :
+  - le jeu doit afficher le monstre à sa position.
+- Critères de validation :
+  - le monstre doit être affiché à la bonne position dans le labyrinthe.
+  - le monstre sera représenté sous la forme d'un cercle violet de la taille du personnage.
+
+3. Considérer le monstre dans les déplacements du personnage
+- Descriptif :
+  - lorsque le jeu évolue, le personnage ne peut pas se déplacer sur la case du monstre.
+- Critères de validation :
+  - le monstre constitue un obstacle pour le personnage.
+  - le monstre et le personnage ne peuvent pas se trouver sur la même case.
+  - le personnage ne peut pas traverser la case du monstre
+
+4. Déplacer le monstre (optionnel en fonction avancée)
+- Descriptif :
+  - lorsque le jeu évolue, le monstre choisit une case adjacente de manière aléatoire et tente de s'y déplacer.
+- Critères de validation :
+  - le monstre doit se déplacer sur une case adjacente. Il considère les 4 directions de déplacement possibles.
+  - le monstre ne peut pas se déplacer sur mur. S'il tente de se déplacer sur cette case, il ne bouge pas.
+  - le monstre ne peut pas se trouver sur la même case que le personnage.
+

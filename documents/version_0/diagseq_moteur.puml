@@ -1,0 +1,71 @@
+@startuml
+hide footbox
+
+participant "main:Main" as main
+participant "moteur:MoteurJeu" as GameEngine
+participant "dessin:DessinJeu" as r #FF8888
+participant "jeu:Jeu" as game #FF8888
+participant "clavier:Clavier" as clavier
+participant "canvas:Canvas" as canvas
+actor "joueur" as joueur
+
+activate joueur #00FF00
+
+create game
+main-> game : new
+
+
+create r
+main-> r :new 
+
+main -> GameEngine : setTaille(width,height)
+activate GameEngine
+main <-- GameEngine
+deactivate GameEngine
+
+main-> GameEngine : setTaille(fps)
+activate GameEngine
+main <-- GameEngine
+deactivate GameEngine
+
+main-> GameEngine : launch(jeu,dessin)
+
+activate GameEngine #0000FF
+
+create clavier
+GameEngine -> clavier : new
+
+create canvas
+GameEngine -> canvas : new
+
+loop Timer
+
+joueur -> clavier : appuyerTouche(keyevent)
+activate clavier #00FF00
+joueur <-- clavier
+deactivate clavier
+
+
+GameEngine -> game : update(duree, clavier)
+activate game #0000FF
+
+GameEngine <-- game
+deactivate game
+
+
+
+
+GameEngine -> r : drawGame(g,canvas)
+activate r #0000FF
+
+GameEngine <-- r
+deactivate r
+
+end
+
+
+
+main<-- GameEngine
+deactivate GameEngine
+deactivate joueur
+@enduml

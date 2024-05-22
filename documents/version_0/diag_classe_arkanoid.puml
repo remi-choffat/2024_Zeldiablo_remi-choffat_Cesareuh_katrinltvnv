@@ -1,0 +1,63 @@
+@startuml
+
+package moteurJeu {
+
+interface Jeu{
++ init()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+
+interface DessinJeu {
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+}
+
+package gameArkanoid{
+
+class ArkanoidJeu{
++ init()
++ ArkanoidGame()
++ update(seconds: double, clavier: Clavier)
++ etreFini(): boolean
+}
+
+Jeu <|.. ArkanoidJeu
+
+class Raquette{
+- posX: double
+- posY: double
+- vx: double
+- width: double
++ Raquette(width: double, height: double)
++ allerDroite(width: int, seconds: double)
++ allerGauche(width: int, seconds: double)
+}
+
+ArkanoidJeu "1" --> "1" Raquette : -raquette
+
+class Balle{
+- posX, posY: double
+- vx,vy: double
+- width: double
+- dessous: boolean
++ Balle(width: double, height: double)
++ evoluer(seconds: double)
++ collision(raquette: Raquette)
+}
+
+
+ArkanoidJeu "1" --> "1" Balle : -balle
+
+
+class ArkanoidDessin{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+
+DessinJeu <|.. ArkanoidDessin
+ArkanoidJeu <. ArkanoidDessin:uses
+}
+
+@enduml
+

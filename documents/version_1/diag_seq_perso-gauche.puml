@@ -1,5 +1,5 @@
 @startuml
-participant main
+participant main as "main : Main"
 participant laby as "laby : Labyrinthe"
 participant pj as "pj : Perso"
 main -> laby : deplacerPerso(GAUCHE)
@@ -13,4 +13,5 @@ activate pj
 pj --> laby
 deactivate pj
 laby --> main
+deactivate laby
 @enduml

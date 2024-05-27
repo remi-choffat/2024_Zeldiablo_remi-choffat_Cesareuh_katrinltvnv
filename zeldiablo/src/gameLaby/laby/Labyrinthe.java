@@ -19,7 +19,7 @@ public class Labyrinthe {
    public static final char VIDE = '.';
 
    /**
-    * constantes actions possibles
+    * Constantes actions possibles
     */
    public static final String HAUT = "Haut";
    public static final String BAS = "Bas";
@@ -37,7 +37,7 @@ public class Labyrinthe {
    public boolean[][] murs;
 
    /**
-    * retourne la case suivante selon une actions
+    * retourne la case suivante selon une action
     *
     * @param x      case depart
     * @param y      case depart
@@ -76,7 +76,7 @@ public class Labyrinthe {
     * @throws IOException probleme a la lecture / ouverture
     */
    public Labyrinthe(String nom) throws IOException {
-      // ouvrir fichier
+      // ouverture fichier
       FileReader fichier = new FileReader(nom);
       BufferedReader bfRead = new BufferedReader(fichier);
 
@@ -96,7 +96,7 @@ public class Labyrinthe {
       // stocke les indices courants
       int numeroLigne = 0;
 
-      // parcours le fichier
+      // parcourt le fichier
       while (ligne != null) {
 
          // parcours de la ligne
@@ -117,7 +117,7 @@ public class Labyrinthe {
                   break;
 
                default:
-                  throw new Error("caractere inconnu " + c);
+                  throw new Error("Caractère inconnu : " + c);
             }
          }
 

@@ -1,0 +1,58 @@
+@startuml
+package moteurJeu {
+interface Jeu{
++update(secondes : double, clavier : Clavier)
++init()
++etreFini() : boolean
+}
+
+interface DessinJeu{
++dessinerJeu(jeu : Jeu, canvas : Canvas)
+}
+}
+
+package gameLaby {
+class Labyrinthe{
++MUR : char
++PJ : char
++VIDE : char
++HAUT : String
++BAS : String
++GAUCHE : String
++DROITE : String
++murs : boolean[][]
++getSuivant(x : int, y : int, action : String) : int[]
++Labyrinthe(nom : String)
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLength() : int
++gerMur(x : int, y : int) : boolean
+}
+
+class Perso{
++x : int
++y : int
++Perso(dx : int, dy : int)
++etrePresent(dx : int, dy : int) : boolean
++getX() : int
++getY() : int
+}
+
+
+class LabyJeu{
++update(secondes : double, clavier : Clavier)
++init()
++etreFini() : boolean
+}
+
+class LabyDessin{
++dessinerJeu(jeu : Jeu, canvas : Canvas)
+}
+}
+
+Labyrinthe "1" --> "1" Perso : "+pj"
+LabyJeu "1" --> "1" Labyrinthe : "+laby"
+Jeu <|.. LabyJeu
+DessinJeu <|.. LabyDessin
+@enduml

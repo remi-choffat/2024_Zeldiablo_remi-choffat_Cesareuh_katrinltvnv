@@ -1,0 +1,55 @@
+@startuml
+participant main as "main : MainLaby"
+participant moteur as "moteur : MoteurJeu"
+participant dessin as "dessin : LabyDessin"
+participant jeu as "jeu : LabyJeu"
+participant clavier as "clavier : Clavier"
+participant canvas as "canvas : Canvas"
+participant laby as "laby : Labyrinthe"
+participant pj as "pj : Perso"
+actor joueur as "Joueur"
+activate joueur
+create jeu
+main -> jeu : new
+create dessin
+main -> dessin : new
+main -> moteur : setTaille(width, height)
+activate moteur
+moteur --> main
+deactivate moteur
+main -> moteur : setFPS(fps)
+activate moteur
+moteur --> main
+deactivate moteur
+main -> moteur : launch(jeu, dessin)
+activate moteur
+create clavier
+moteur -> clavier : new
+create canvas
+moteur -> canvas : new
+loop
+joueur -> clavier : appuyerTouche(KeyEvent)
+moteur -> jeu : update(durée, clavier)
+activate jeu
+jeu -> clavier
+activate clavier
+clavier --> jeu : direction
+deactivate clavier
+jeu -> laby : deplacerPerso(direction)
+activate laby
+laby -> pj : deplacer
+activate pj
+pj --> laby
+deactivate pj
+laby --> jeu
+deactivate laby
+deactivate jeu
+moteur -> canvas : dessiner(laby)
+activate canvas
+canvas --> moteur
+deactivate canvas
+end
+moteur --> main
+deactivate moteur
+deactivate joueur
+@enduml

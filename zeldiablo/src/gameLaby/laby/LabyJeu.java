@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class LabyJeu implements moteurJeu.Jeu {
 
-   private final Labyrinthe laby;
+    public final Labyrinthe laby;
 
    public LabyJeu() throws IOException {
       laby = new Labyrinthe("labySimple/laby1.txt");

@@ -11,8 +11,8 @@ public class Perso extends Vivant{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy, int pv) {
-        super(dx,dy,pv);
+    public Perso(int dx, int dy) {
+        super(dx,dy,1,10);
     }
 
     @Override

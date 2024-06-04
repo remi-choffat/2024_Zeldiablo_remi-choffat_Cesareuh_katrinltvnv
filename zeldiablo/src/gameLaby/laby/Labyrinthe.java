@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Représente un labyrinthe avec
@@ -43,7 +44,9 @@ public class Labyrinthe {
    /**
     * les murs du labyrinthe
     */
-   public boolean[][] murs;
+   public static boolean[][] murs;
+
+   public static ArrayList<Deplacable> deplacables = new ArrayList<>();
 
    /**
     * retourne la case suivante selon une action
@@ -122,13 +125,13 @@ public class Labyrinthe {
                   // pas de mur
                   this.murs[colonne][numeroLigne] = false;
                   // ajoute PJ
-                  this.pj = new Perso(colonne, numeroLigne, 10);
+                  this.pj = new Perso(colonne, numeroLigne);
                   break;
                case MONSTRE:
                   // pas de mur
                   this.murs[colonne][numeroLigne] = false;
                   // ajoute monstre
-                  Monstre m = new Monstre(colonne, numeroLigne, 2);
+                  Monstre m = new Monstre(colonne, numeroLigne);
                   // ajoute monstre a la liste
                   if (this.monstres == null) {
                      this.monstres = new Monstre[1];
@@ -163,51 +166,13 @@ public class Labyrinthe {
     * @param action une des actions possibles
     */
    public void deplacerPerso(String action) {
-      int[] courante = {this.pj.x, this.pj.y};
-      int[] suivante = getSuivant(courante[0], courante[1], action);
+      System.out.println("Pv : "+ pj.getPv());
 
-      // si la position suivante est un mur
-      if (this.murs[suivante[0]][suivante[1]]) {
-         return;
-      }
-
-      // si un monstre est present a la position suivante
-      for (Monstre monstre : this.monstres) {
-         if (monstre.etrePresent(suivante[0], suivante[1])) {
-            monstre.infligerDegats(pj);
-            return;
-         }
-      }
-
-      // si ce n'est pas un mur et qu'aucun monstre n'est present -> deplacer le personnage
-      this.pj.x = suivante[0];
-      this.pj.y = suivante[1];
-
-      deplacerMonstres();
-   }
-
-   /**
-    * deplace les monstres
-    */
-   public void deplacerMonstres() {
-      String[] actions = {HAUT, BAS, GAUCHE, DROITE};
-      for (Monstre monstre : this.monstres) {
-         String action = actions[(int) (Math.random() * actions.length)];
-         int[] courante = {monstre.x, monstre.y};
-         int[] suivante = getSuivant(courante[0], courante[1], action);
-         if (this.murs[suivante[0]][suivante[1]]) {
-            continue;
-         }
-         for (Monstre m : this.monstres) {
-            if (m.etrePresent(suivante[0], suivante[1])) {
-               return;
-            }
-         }
-         monstre.x = suivante[0];
-         monstre.y = suivante[1];
+      pj.setDirection(action);
+      for(Deplacable d : deplacables){
+          d.deplacer();
       }
    }
-
 
    /**
     * jamais fini

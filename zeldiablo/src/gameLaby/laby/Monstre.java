@@ -1,5 +1,6 @@
 package gameLaby.laby;
 
+
 /**
  * Représente un monstre
  */
@@ -11,8 +12,8 @@ public class Monstre extends Vivant{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Monstre(int dx, int dy, int pv){
-        super(dx,dy,pv);
+    public Monstre(int dx, int dy){
+        super(dx,dy,1,2);
     }
 
     /**
@@ -25,6 +26,14 @@ public class Monstre extends Vivant{
     @Override
     public boolean etrePresent(int dx, int dy) {
         return super.etrePresent(dx, dy);
+    }
+
+    public void deplacer() {
+        String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
+        String direction = actions[(int) (Math.random() * actions.length-.001)];
+        this.setDirection(direction);
+
+        super.deplacer();
     }
 
     public void infligerDegats(Vivant v){

@@ -1,73 +1,54 @@
 @startuml
-package moteurJeu {
-interface Jeu{
-+update(secondes : double, clavier : Clavier)
-+init()
-+etreFini() : boolean
+
+abstract class Deplacable{
++dx : int
++dy : int
++getX() : int
++getY() : int
++etrePresent(dx : int, dy : int) : boolean
++{abstract}deplacer(dx : int, dy : int)
++{abstract}collision(objet : Deplacable)
 }
 
-interface DessinJeu{
-+dessinerJeu(jeu : Jeu, canvas : Canvas)
-}
-}
 
-package gameLaby {
-class Labyrinthe{
-+MUR : char
-+PJ : char
-+VIDE : char
-+HAUT : String
-+BAS : String
-+GAUCHE : String
-+DROITE : String
-+murs : boolean[][]
-+getSuivant(x : int, y : int, action : String) : int[]
-+Labyrinthe(nom : String)
-+deplacerPerso(action : String)
-+etreFini() : boolean
-+getLengthY() : int
-+getLength() : int
-+gerMur(x : int, y : int) : boolean
-}
 
 class Perso{
 +Perso(dx : int, dy : int)
 +infligerDegats(v : Vivant)
-+subirDegats(degats : int)
-}
-
-class LabyJeu{
-+update(secondes : double, clavier : Clavier)
-+init()
-+etreFini() : boolean
-}
-
-class LabyDessin{
-+dessinerJeu(jeu : Jeu, canvas : Canvas)
 }
 
 class Monstre{
 +Monstre(dx : int, dy : int)
 +infligerDegats(v : Vivant)
-+subirDegats(degats : int)
 }
 
 abstract class Vivant{
-+x : int
-+y : int
-+etrePresent(dx : int, dy : int) : boolean
-+getX() : int
-+getY() : int
 +{abstract}infligerDegats(v : Vivant)
-+{abstract}subirDegats(degats : int)
-}
++subirDegats(degats : int)
 }
 
-Labyrinthe "1" --> "1" Perso : "+pj"
-Labyrinthe "1" --> "*" Monstre : "+monstres"
+interface Victime {
++subirDegats(degats : int)
+}
+
+abstract class Attaque {
++{abstract}infligerDegats(v : Vivant)
++collision(objet : Deplacable)
+}
+
+class Fleche {
++deplacer(dx : int, dy : int)
+}
+
+abstract class Ennemi {
+}
+
+Deplacable <|-- Fleche
+Deplacable <|-- Vivant
 Perso --|> Vivant
-Monstre --|> Vivant
-LabyJeu "1" --> "1" Labyrinthe : "+laby"
-Jeu <|.. LabyJeu
-DessinJeu <|.. LabyDessin
+Monstre --|> Ennemi
+Ennemi --|> Vivant
+Vivant ..|> Victime
+Vivant --|> Attaque
+Fleche --|> Attaque
 @enduml

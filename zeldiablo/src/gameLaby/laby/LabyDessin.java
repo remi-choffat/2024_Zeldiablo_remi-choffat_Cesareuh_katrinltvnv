@@ -23,7 +23,7 @@ public class LabyDessin implements DessinJeu {
       for (int l = 0; l < laby.getLengthY(); l++) {
          for (int c = 0; c < laby.getLength(); c++) {
             w = Math.ceil(canvas.getWidth() / laby.getLength());
-            h = Math.ceil(canvas.getHeight() / laby.getLengthY());
+            h = w;
             x = Math.ceil(w * c);
             y = Math.ceil(h * l);
 
@@ -37,10 +37,12 @@ public class LabyDessin implements DessinJeu {
                gc.fillOval(x, y, w, h);
             }
 
-            for (Monstre monstre : laby.monstres) {
-               if (monstre.etrePresent(c, l)) {
-                  gc.setFill(Color.BLUE);
-                  gc.fillOval(x, y, w, h);
+            if(laby.monstres != null) {
+               for (Monstre monstre : laby.monstres) {
+                  if (monstre.etrePresent(c, l)) {
+                     gc.setFill(Color.BLUE);
+                     gc.fillOval(x, y, w, h);
+                  }
                }
             }
          }

@@ -10,7 +10,7 @@ public class LabyJeu implements moteurJeu.Jeu {
    boolean deplacement = false;
 
    public LabyJeu() throws IOException {
-      laby = new Labyrinthe("labySimple/labyMonstre.txt");
+      laby = new Labyrinthe("labySimple/laby0.txt");
    }
 
    @Override

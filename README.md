@@ -14,3 +14,6 @@ AC4 - Développer des interfaces utilisateurs
 * [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/) : Implémentation du moteur de jeu
 * [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et déplacements
 
+# TODO
+- [ ] Mathieu : implémenter la classe `Deplacable`
+- [ ] Rémi : gestion des morts

@@ -181,6 +181,30 @@ public class Labyrinthe {
       // si ce n'est pas un mur et qu'aucun monstre n'est present -> deplacer le personnage
       this.pj.x = suivante[0];
       this.pj.y = suivante[1];
+
+      deplacerMonstres();
+   }
+
+   /**
+    * deplace les monstres
+    */
+   public void deplacerMonstres() {
+      String[] actions = {HAUT, BAS, GAUCHE, DROITE};
+      for (Monstre monstre : this.monstres) {
+         String action = actions[(int) (Math.random() * actions.length)];
+         int[] courante = {monstre.x, monstre.y};
+         int[] suivante = getSuivant(courante[0], courante[1], action);
+         if (this.murs[suivante[0]][suivante[1]]) {
+            continue;
+         }
+         for (Monstre m : this.monstres) {
+            if (m.etrePresent(suivante[0], suivante[1])) {
+               return;
+            }
+         }
+         monstre.x = suivante[0];
+         monstre.y = suivante[1];
+      }
    }
 
 

@@ -32,8 +32,9 @@ class Labyrinthe{
 
 class Perso{
 +Perso(dx : int, dy : int)
++infligerDegats(v : Vivant)
++subirDegats(degats : int)
 }
-
 
 class LabyJeu{
 +update(secondes : double, clavier : Clavier)
@@ -47,14 +48,18 @@ class LabyDessin{
 
 class Monstre{
 +Monstre(dx : int, dy : int)
++infligerDegats(v : Vivant)
++subirDegats(degats : int)
 }
 
-class Vivant{
+abstract class Vivant{
 +x : int
 +y : int
 +etrePresent(dx : int, dy : int) : boolean
 +getX() : int
 +getY() : int
++{abstract}infligerDegats(v : Vivant)
++{abstract}subirDegats(degats : int)
 }
 }
 

@@ -5,9 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * classe labyrinthe. represente un labyrinthe avec
- * <ul> des murs </ul>
- * <ul> un personnage (x,y) </ul>
+ * Représente un labyrinthe avec
+ * <ul>
+ *    <li> un personnage </li>
+ *    <li> des monstres </li>
+ *    <li> des murs </li>
+ * </ul>
  */
 public class Labyrinthe {
 
@@ -28,7 +31,7 @@ public class Labyrinthe {
    public static final String DROITE = "Droite";
 
    /**
-    * attribut du personnage
+    * Personnage
     */
    public Perso pj;
 

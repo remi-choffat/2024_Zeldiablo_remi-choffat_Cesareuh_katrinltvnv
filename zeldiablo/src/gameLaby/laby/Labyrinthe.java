@@ -166,12 +166,21 @@ public class Labyrinthe {
       // calcule case suivante
       int[] suivante = getSuivant(courante[0], courante[1], action);
 
-      // si ce n'est pas un mur, on effectue le deplacement
-      if (!this.murs[suivante[0]][suivante[1]]) {
-         // on met a jour personnage
-         this.pj.x = suivante[0];
-         this.pj.y = suivante[1];
+      // si la position suivante est un mur
+      if (this.murs[suivante[0]][suivante[1]]) {
+         return;
       }
+
+      // si un monstre est present a la position suivante
+      for (Monstre monstre : this.monstres) {
+         if (monstre.etrePresent(suivante[0], suivante[1])) {
+            return;
+         }
+      }
+
+      // si ce n'est pas un mur et qu'aucun monstre n'est present -> deplacer le personnage
+      this.pj.x = suivante[0];
+      this.pj.y = suivante[1];
    }
 
 

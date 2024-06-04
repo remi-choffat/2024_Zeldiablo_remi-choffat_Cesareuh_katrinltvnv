@@ -42,4 +42,5 @@ public class Monstre extends Position{
     public int getY() {
         return y;
     }
+
 }

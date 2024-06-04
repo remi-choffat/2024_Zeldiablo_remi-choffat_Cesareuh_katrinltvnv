@@ -14,7 +14,7 @@ public class Main {
         //affiche le labyrinthe charge
         for (int y = 0; y < laby.getLengthY(); y++) {
             // affiche la ligne
-            for (int x = 0; x < laby.getLength(); x++) {
+            for (int x = 0; x < laby.getLengthX(); x++) {
                 if (laby.getMur(x, y))
                     System.out.print('X');
                 else

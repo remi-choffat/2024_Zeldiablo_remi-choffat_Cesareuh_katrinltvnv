@@ -21,8 +21,8 @@ public class LabyDessin implements DessinJeu {
 
       gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
       for (int l = 0; l < laby.getLengthY(); l++) {
-         for (int c = 0; c < laby.getLength(); c++) {
-            w = Math.ceil(canvas.getWidth() / laby.getLength());
+         for (int c = 0; c < laby.getLengthX(); c++) {
+            w = Math.ceil(canvas.getWidth() / laby.getLengthX());
             h = w;
             x = Math.ceil(w * c);
             y = Math.ceil(h * l);

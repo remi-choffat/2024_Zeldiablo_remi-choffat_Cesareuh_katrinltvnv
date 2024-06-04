@@ -160,10 +160,7 @@ public class Labyrinthe {
     * @param action une des actions possibles
     */
    public void deplacerPerso(String action) {
-      // case courante
       int[] courante = {this.pj.x, this.pj.y};
-
-      // calcule case suivante
       int[] suivante = getSuivant(courante[0], courante[1], action);
 
       // si la position suivante est un mur
@@ -235,7 +232,7 @@ public class Labyrinthe {
     *
     * @return taille selon X
     */
-   public int getLength() {
+   public int getLengthX() {
       return murs.length;
    }
 

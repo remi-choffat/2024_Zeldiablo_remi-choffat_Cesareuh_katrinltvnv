@@ -17,6 +17,7 @@ public class Labyrinthe {
    public static final char MUR = 'X';
    public static final char PJ = 'P';
    public static final char VIDE = '.';
+   public static final char MONSTRE = 'M';
 
    /**
     * Constantes actions possibles
@@ -30,6 +31,11 @@ public class Labyrinthe {
     * attribut du personnage
     */
    public Perso pj;
+
+   /**
+    * Liste de monstres
+    */
+   public Monstre[] monstres;
 
    /**
     * les murs du labyrinthe
@@ -63,7 +69,7 @@ public class Labyrinthe {
             x--;
             break;
          default:
-            throw new Error("action inconnue");
+            throw new Error("Action inconnue");
       }
       return new int[]{x, y};
    }
@@ -114,6 +120,22 @@ public class Labyrinthe {
                   this.murs[colonne][numeroLigne] = false;
                   // ajoute PJ
                   this.pj = new Perso(colonne, numeroLigne);
+                  break;
+               case MONSTRE:
+                  // pas de mur
+                  this.murs[colonne][numeroLigne] = false;
+                  // ajoute monstre
+                  Monstre m = new Monstre(colonne, numeroLigne);
+                  // ajoute monstre a la liste
+                  if (this.monstres == null) {
+                     this.monstres = new Monstre[1];
+                     this.monstres[0] = m;
+                  } else {
+                     Monstre[] newMonstres = new Monstre[this.monstres.length + 1];
+                     System.arraycopy(this.monstres, 0, newMonstres, 0, this.monstres.length);
+                     newMonstres[this.monstres.length] = m;
+                     this.monstres = newMonstres;
+                  }
                   break;
 
                default:

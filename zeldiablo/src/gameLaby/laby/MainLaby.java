@@ -7,7 +7,7 @@ public class MainLaby {
         LabyJeu jeu = new LabyJeu();
         LabyDessin dessin = new LabyDessin();
 
-        moteurJeu.MoteurJeu.setTaille(200, 200);
+        moteurJeu.MoteurJeu.setTaille(600, 600);
         moteurJeu.MoteurJeu.setFPS(20);
         moteurJeu.MoteurJeu.launch(jeu, dessin);
     }

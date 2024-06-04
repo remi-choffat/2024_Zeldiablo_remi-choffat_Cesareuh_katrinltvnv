@@ -32,6 +32,7 @@ public class LabyJeu implements moteurJeu.Jeu {
             laby.deplacerPerso(Labyrinthe.BAS);
          }
       }
+      deplacement = (clavier.droite || clavier.gauche || clavier.haut || clavier.bas);
    }
 
    @Override

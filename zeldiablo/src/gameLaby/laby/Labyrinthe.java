@@ -122,13 +122,13 @@ public class Labyrinthe {
                   // pas de mur
                   this.murs[colonne][numeroLigne] = false;
                   // ajoute PJ
-                  this.pj = new Perso(colonne, numeroLigne);
+                  this.pj = new Perso(colonne, numeroLigne, 10);
                   break;
                case MONSTRE:
                   // pas de mur
                   this.murs[colonne][numeroLigne] = false;
                   // ajoute monstre
-                  Monstre m = new Monstre(colonne, numeroLigne);
+                  Monstre m = new Monstre(colonne, numeroLigne, 2);
                   // ajoute monstre a la liste
                   if (this.monstres == null) {
                      this.monstres = new Monstre[1];
@@ -174,6 +174,7 @@ public class Labyrinthe {
       // si un monstre est present a la position suivante
       for (Monstre monstre : this.monstres) {
          if (monstre.etrePresent(suivante[0], suivante[1])) {
+            monstre.infligerDegats(pj);
             return;
          }
       }

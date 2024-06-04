@@ -3,13 +3,14 @@ package gameLaby.laby;
 /**
  * Classe pour representer une position dans un labyrinthe
  */
-public class Position {
+public abstract class Vivant {
 
     /**
      * position dans un labyrinthe
      */
     int x;
     int y;
+    int pv;
 
     /**
      * constructeur
@@ -17,9 +18,10 @@ public class Position {
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Position(int dx, int dy) {
+    public Vivant(int dx, int dy, int pv) {
         this.x = dx;
         this.y = dy;
+        this.pv = pv;
     }
 
     /**
@@ -32,6 +34,11 @@ public class Position {
     public boolean etrePresent(int dx, int dy) {
 
         return (this.x == dx && this.y == dy);
+    }
+
+    public abstract void infligerDegats(Vivant v);
+    public void subirDegats(int d){
+        this.pv -= d;
     }
 
     /**

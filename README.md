@@ -5,4 +5,5 @@
 
 # Versions
 [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/)
+[Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/)
 

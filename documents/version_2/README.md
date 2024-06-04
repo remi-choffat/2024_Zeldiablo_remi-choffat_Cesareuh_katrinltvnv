@@ -1,7 +1,8 @@
 # Version 2
+
 ## Objectif
 ### Résumé
-Le but de cette première itération est d'ajouter un monstre et de corriger les déplacements afin que le personnage se déplace case par case et qu'on utilise les flèches pour se déplacer.   
+Le but de cette première itération est d'ajouter un monstre et de corriger les déplacements afin que le personnage se déplace case par case et qu'on utilise les flèches pour se déplacer.
 ### 1. Donner une position initiale au monstre
 - Descriptif :
   - le monstre débute sur une case décrite dans le fichier labyrinthe.
@@ -33,10 +34,13 @@ Le but de cette première itération est d'ajouter un monstre et de corriger les
   - le monstre doit se déplacer sur une case adjacente. Il considère les 4 directions de déplacement possibles.
   - le monstre ne peut pas se déplacer sur mur. S'il tente de se déplacer sur cette case, il ne bouge pas.
   - le monstre ne peut pas se trouver sur la même case que le personnage.
+
 ## Répartition des tâches
-Rémi : réalisation des diagrammes   
-Kateryna : Ajout de la classe `Monstre`   
-Mathieu : Correction des déplacements   
+Rémi : Réalisation des diagrammes et ajout de l'affichage des monstres.  
+Kateryna : Ajout de la classe `Monstre`.  
+Mathieu : Correction des déplacements du personnage.
+
 ## Diagrammes
-### Diagramme initial
+### Diagrammes de classe
+#### Diagramme initial
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_classe_initial_v2.png" alt="Diagramme de classe"></img>

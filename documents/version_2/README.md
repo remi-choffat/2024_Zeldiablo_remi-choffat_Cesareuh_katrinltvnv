@@ -38,3 +38,5 @@ Rémi : réalisation des diagrammes
 Kateryna : Ajout de la classe `Monstre`   
 Mathieu : Correction des déplacements   
 ## Diagrammes
+### Diagramme initial
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_classe_initial_v2.png" alt="Diagramme de classe"></img>

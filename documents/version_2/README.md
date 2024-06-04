@@ -1,3 +1,6 @@
+# Version 2
+## Objectif
+Le but de cette première itération est d'ajouter un monstre et de corriger les déplacements afin que le personnage se déplace case par case et qu'on utilise les flèches pour se déplacer.   
 1. Donner une position initiale au monstre
 - Descriptif :
   - le monstre débute sur une case décrite dans le fichier labyrinthe.
@@ -29,4 +32,8 @@
   - le monstre doit se déplacer sur une case adjacente. Il considère les 4 directions de déplacement possibles.
   - le monstre ne peut pas se déplacer sur mur. S'il tente de se déplacer sur cette case, il ne bouge pas.
   - le monstre ne peut pas se trouver sur la même case que le personnage.
-
+## Répartition des tâches
+Rémi : réalisation des diagrammes   
+Kateryna : Ajout de la classe `Monstre`   
+Mathieu : Correction des déplacements   
+## Diagrammes

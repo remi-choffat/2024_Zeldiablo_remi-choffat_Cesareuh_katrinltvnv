@@ -8,8 +8,7 @@ import java.util.ArrayList;
 /**
  * Représente un labyrinthe avec
  * <ul>
- *    <li> un personnage </li>
- *    <li> des monstres </li>
+ *    <li> des éléments déplaçables (personnage, monstres...) </li>
  *    <li> des murs </li>
  * </ul>
  */
@@ -32,20 +31,18 @@ public class Labyrinthe {
    public static final String DROITE = "Droite";
 
    /**
-    * Personnage
-    */
-   public Perso pj;
-
-   /**
-    * Liste de monstres
-    */
-   public Monstre[] monstres;
-
-   /**
     * les murs du labyrinthe
     */
    public static boolean[][] murs;
 
+   /**
+    * Personnage
+    */
+   public static Perso pj;
+
+   /**
+    * Liste des éléments Déplaçables
+    */
    public static ArrayList<Deplacable> deplacables = new ArrayList<>();
 
    /**
@@ -75,7 +72,7 @@ public class Labyrinthe {
             x--;
             break;
          default:
-            throw new Error("Action inconnue");
+            throw new Error("Action inconnue : " + action);
       }
       return new int[]{x, y};
    }
@@ -99,8 +96,8 @@ public class Labyrinthe {
       nbColonnes = Integer.parseInt(bfRead.readLine());
 
       // creation labyrinthe vide
-      this.murs = new boolean[nbColonnes][nbLignes];
-      this.pj = null;
+      murs = new boolean[nbColonnes][nbLignes];
+      deplacables = new ArrayList<>();
 
       // lecture des cases
       String ligne = bfRead.readLine();
@@ -116,32 +113,22 @@ public class Labyrinthe {
             char c = ligne.charAt(colonne);
             switch (c) {
                case MUR:
-                  this.murs[colonne][numeroLigne] = true;
+                  murs[colonne][numeroLigne] = true;
                   break;
                case VIDE:
-                  this.murs[colonne][numeroLigne] = false;
+                  murs[colonne][numeroLigne] = false;
                   break;
                case PJ:
                   // pas de mur
-                  this.murs[colonne][numeroLigne] = false;
+                  murs[colonne][numeroLigne] = false;
                   // ajoute PJ
-                  this.pj = new Perso(colonne, numeroLigne);
+                  pj = new Perso(colonne, numeroLigne);
                   break;
                case MONSTRE:
                   // pas de mur
-                  this.murs[colonne][numeroLigne] = false;
+                  murs[colonne][numeroLigne] = false;
                   // ajoute monstre
-                  Monstre m = new Monstre(colonne, numeroLigne);
-                  // ajoute monstre a la liste
-                  if (this.monstres == null) {
-                     this.monstres = new Monstre[1];
-                     this.monstres[0] = m;
-                  } else {
-                     Monstre[] newMonstres = new Monstre[this.monstres.length + 1];
-                     System.arraycopy(this.monstres, 0, newMonstres, 0, this.monstres.length);
-                     newMonstres[this.monstres.length] = m;
-                     this.monstres = newMonstres;
-                  }
+                  new Monstre(colonne, numeroLigne);
                   break;
 
                default:
@@ -166,11 +153,11 @@ public class Labyrinthe {
     * @param action une des actions possibles
     */
    public void deplacerPerso(String action) {
-      System.out.println("Pv : "+ pj.getPv());
+      System.out.println("Pv : " + pj.getPv());
 
       pj.setDirection(action);
-      for(Deplacable d : deplacables){
-          d.deplacer();
+      for (Deplacable d : deplacables) {
+         d.deplacer();
       }
    }
 
@@ -214,6 +201,6 @@ public class Labyrinthe {
     */
    public boolean getMur(int x, int y) {
       // utilise le tableau de boolean
-      return this.murs[x][y];
+      return murs[x][y];
    }
 }

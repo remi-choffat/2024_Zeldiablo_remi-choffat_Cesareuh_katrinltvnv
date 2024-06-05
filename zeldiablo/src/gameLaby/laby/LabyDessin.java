@@ -32,15 +32,18 @@ public class LabyDessin implements DessinJeu {
                gc.fillRect(x, y, w, h);
             }
 
-            if (laby.pj.etrePresent(c, l)) {
-               gc.setFill(Color.RED);
-               gc.fillOval(x, y, w, h);
-            }
-
-            if(laby.monstres != null) {
-               for (Monstre monstre : laby.monstres) {
-                  if (monstre.etrePresent(c, l)) {
-                     gc.setFill(Color.BLUE);
+            if (Labyrinthe.deplacables != null) {
+               for (Deplacable deplacable : Labyrinthe.deplacables) {
+                  if (deplacable.etrePresent(c, l)) {
+                     if (deplacable instanceof Perso) {
+                        gc.setFill(Color.RED);
+                     } else {
+                        if (deplacable instanceof Monstre) {
+                           gc.setFill(Color.BLUE);
+                        } else {
+                           gc.setFill(Color.YELLOW);
+                        }
+                     }
                      gc.fillOval(x, y, w, h);
                   }
                }

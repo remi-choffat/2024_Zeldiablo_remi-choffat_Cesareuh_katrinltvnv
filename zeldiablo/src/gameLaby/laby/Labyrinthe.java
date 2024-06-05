@@ -153,11 +153,23 @@ public class Labyrinthe {
     * @param action une des actions possibles
     */
    public void deplacerPerso(String action) {
-      System.out.println("Pv : " + pj.getPv());
-
+      // Change la direction du personnage
       pj.setDirection(action);
+      // Déplace tous les objets déplaçables
       for (Deplacable d : deplacables) {
          d.deplacer();
+         // Si un être vivant n'a plus de point de vie, on le supprime
+         if (d instanceof Vivant && ((Vivant) d).getPv() <= 0) {
+            deplacables.remove(d);
+         }
+         // On affiche en console les points de vie des êtres vivants
+         assert d instanceof Vivant;
+         System.out.println("Pv " + d.getClass().getSimpleName() + " : " + ((Vivant) d).getPv());
+      }
+      // Si le personnage n'a plus de point de vie, on arrête le jeu
+      if (pj.getPv() <= 0) {
+         System.out.println("Game Over");
+         System.exit(0);
       }
    }
 

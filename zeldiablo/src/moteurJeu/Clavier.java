@@ -4,73 +4,82 @@ import javafx.scene.input.KeyEvent;
 
 public class Clavier {
 
-    /**
-     * controle appuyes
-     */
-    public boolean haut, bas, gauche, droite;
+   /**
+    * controle appuyes
+    */
+   public boolean haut, bas, gauche, droite, space;
 
-    /**
-     * stocke les commandes
-     *
-     * @param event evenement clavier
-     */
-    public void appuyerTouche(KeyEvent event) {
+   /**
+    * stocke les commandes
+    *
+    * @param event evenement clavier
+    */
+   public void appuyerTouche(KeyEvent event) {
 
-        switch (event.getCode()) {
+      switch (event.getCode()) {
 
-            // si touche bas
-            case S, DOWN:
-                this.bas = true;
-                break;
+         // si touche bas
+         case S, DOWN:
+            this.bas = true;
+            break;
 
-            // si touche haut
-            case Z, UP:
-                this.haut = true;
-                break;
+         // si touche haut
+         case Z, UP:
+            this.haut = true;
+            break;
 
-            // si touche gauche
-            case Q, LEFT:
-                this.gauche = true;
-                break;
+         // si touche gauche
+         case Q, LEFT:
+            this.gauche = true;
+            break;
 
-            // si touche droite
-            case D, RIGHT:
-                this.droite = true;
-                break;
+         // si touche droite
+         case D, RIGHT:
+            this.droite = true;
+            break;
 
-        }
 
-    }
+         // si touche espace
+         case SPACE:
+            this.space = true;
+            break;
+      }
 
-    /**
-     * stocke les commandes
-     *
-     * @param event evenement clavier
-     */
-    public void relacherTouche(KeyEvent event) {
+   }
 
-        switch (event.getCode()) {
+   /**
+    * stocke les commandes
+    *
+    * @param event evenement clavier
+    */
+   public void relacherTouche(KeyEvent event) {
 
-            // si touche bas
-            case S, DOWN:
-                this.bas = false;
-                break;
+      switch (event.getCode()) {
 
-            // si touche haut
-            case Z, UP:
-                this.haut = false;
-                break;
+         // si touche bas
+         case S, DOWN:
+            this.bas = false;
+            break;
 
-            // si touche gauche
-            case Q, LEFT:
-                this.gauche = false;
-                break;
+         // si touche haut
+         case Z, UP:
+            this.haut = false;
+            break;
 
-            // si touche droite
-            case D, RIGHT:
-                this.droite = false;
-                break;
+         // si touche gauche
+         case Q, LEFT:
+            this.gauche = false;
+            break;
 
-        }
-    }
+         // si touche droite
+         case D, RIGHT:
+            this.droite = false;
+            break;
+
+         // si touche espace
+         case SPACE:
+            this.space = false;
+            break;
+      }
+   }
 }

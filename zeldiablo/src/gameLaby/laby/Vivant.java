@@ -40,11 +40,15 @@ public abstract class Vivant extends Deplacable {
       this.pv -= d;
    }
 
+   /**
+    * collision avec un deplacable
+    *
+    * @param d deplacable en collision
+    */
    public void collision(Deplacable d) {
       if (d instanceof Vivant) {
          this.infligerDegats((Vivant) d);
       }
-
    }
 
    public int getPv() {

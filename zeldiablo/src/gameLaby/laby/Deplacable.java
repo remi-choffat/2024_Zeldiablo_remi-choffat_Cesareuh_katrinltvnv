@@ -5,6 +5,7 @@ public abstract class Deplacable {
    private int y;
    private final int nb_mouvements;
    private String direction = "";
+   private boolean toucherMur = false;
 
    /**
     * constructeur
@@ -41,6 +42,15 @@ public abstract class Deplacable {
    }
 
    /**
+    * Renvoie la direction du déplacement
+    *
+    * @return direction du déplacement
+    */
+   public String getDirection() {
+      return this.direction;
+   }
+
+   /**
     * deplace l'élément en fonction de sa direction et des obstacles
     */
    public void deplacer() {
@@ -48,6 +58,7 @@ public abstract class Deplacable {
          int[] suivante = Labyrinthe.getSuivant(this.x, this.y, this.direction);
 
          if (Labyrinthe.murs[suivante[0]][suivante[1]]) {
+            this.toucherMur = true;
             return;
          }
 
@@ -64,6 +75,7 @@ public abstract class Deplacable {
          }
          this.x = suivante[0];
          this.y = suivante[1];
+         this.toucherMur = false;
       }
 
    }

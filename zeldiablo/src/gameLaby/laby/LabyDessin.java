@@ -41,7 +41,12 @@ public class LabyDessin implements DessinJeu {
                         if (deplacable instanceof Monstre) {
                            gc.setFill(Color.BLUE);
                         } else {
-                           gc.setFill(Color.YELLOW);
+                           if (deplacable instanceof Fleche) {
+                              gc.setFill(Color.GREEN);
+                              gc.setStroke(Color.BLUEVIOLET);
+                           } else {
+                              gc.setFill(Color.YELLOW);
+                           }
                         }
                      }
                      gc.fillOval(x, y, w, h);

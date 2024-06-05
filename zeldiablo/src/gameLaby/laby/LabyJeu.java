@@ -31,6 +31,10 @@ public class LabyJeu implements moteurJeu.Jeu {
          if (clavier.bas) {
             laby.deplacerPerso(Labyrinthe.BAS);
          }
+
+         if (clavier.space) {
+            Labyrinthe.pj.lancerFleche();
+         }
       }
       deplacement = (clavier.droite || clavier.gauche || clavier.haut || clavier.bas);
    }

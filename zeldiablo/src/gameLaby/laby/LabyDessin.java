@@ -11,6 +11,12 @@ import moteurJeu.Jeu;
 
 public class LabyDessin implements DessinJeu {
 
+   /**
+    * Dessine l'etat du jeu
+    *
+    * @param jeu    jeu a afficher
+    * @param canvas canvas dans lequel dessiner l'etat du jeu
+    */
    @Override
    public void dessinerJeu(Jeu jeu, Canvas canvas) {
 
@@ -30,30 +36,21 @@ public class LabyDessin implements DessinJeu {
             x = Math.ceil(w * c);
             y = Math.ceil(h * l);
 
+            // Dessine les murs
             if (laby.getMur(c, l)) {
                gc.setFill(Color.BLACK);
                gc.fillRect(x, y, w, h);
             }
 
+            // Dessine chaque entité
             if (Labyrinthe.entites != null) {
-               // Dessine les entités
                for (Entite entite : Labyrinthe.entites) {
                   if (entite.etrePresent(c, l)) {
-                     if (entite instanceof Perso) {
-                        gc.setFill(Color.RED);
-                     } else if (entite instanceof Monstre) {
-                        gc.setFill(Color.BLUE);
-                     } else if (entite instanceof Fleche) {
-                        ImageView iv = getImageView((Fleche) entite);
-                        SnapshotParameters params = new SnapshotParameters();
-                        params.setFill(Color.TRANSPARENT);
-                        Image rotatedImage = iv.snapshot(params, null);
-                        gc.drawImage(rotatedImage, x, y, w, h); // Dessine l'image
-                        continue;
-                     } else {
-                        gc.setFill(Color.YELLOW);
-                     }
-                     gc.fillOval(x, y, w, h);
+                     ImageView iv = getImageView(entite);
+                     SnapshotParameters params = new SnapshotParameters();
+                     params.setFill(Color.TRANSPARENT);
+                     Image rotatedImage = iv.snapshot(params, null);
+                     gc.drawImage(rotatedImage, x, y, w, h); // Dessine l'image
                      // Affiche la barre de vie
                      if (entite instanceof Vivant v) {
                         int healthSize = 7;
@@ -69,17 +66,43 @@ public class LabyDessin implements DessinJeu {
       }
    }
 
-   private static ImageView getImageView(Fleche entite) {
-      String direction = entite.getDirection();
-      Image fleche = new Image("file:images/fleche.png");
-      ImageView iv = new ImageView(fleche);
-      double rotate = switch (direction) {
-         case Labyrinthe.DROITE -> 90;
-         case Labyrinthe.GAUCHE -> 270;
-         case Labyrinthe.BAS -> 180;
-         default -> 0;
-      };
-      iv.setRotate(rotate); // Applique la rotation
+   /**
+    * Renvoie l'ImageView correspondant à l'entité
+    *
+    * @param entite entité à afficher
+    * @return ImageView correspondant à l'entité
+    */
+   private static ImageView getImageView(Entite entite) {
+
+      // Si l'ImageView n'est pas encore initialisée, on la crée à partir de l'image correspondante
+      if (entite.getImageView() == null) {
+         Image image = new Image("file:images/" + entite.getClass().getSimpleName() + ".png");
+         ImageView iv = new ImageView(image);
+         entite.setImageView(iv);
+      }
+
+      // Récupère l'ImageView de l'entité
+      ImageView iv = entite.getImageView();
+
+      // Applique les transformations en fonction de la direction de l'entité
+      if (entite instanceof Deplacable) {
+         String direction = ((Deplacable) entite).getDirection();
+         if (entite instanceof Fleche) {
+            double rotate = switch (direction) {
+               case Labyrinthe.DROITE -> 90;
+               case Labyrinthe.GAUCHE -> 270;
+               case Labyrinthe.BAS -> 180;
+               default -> 0;
+            };
+            iv.setRotate(rotate); // Applique la rotation
+         } else {
+            if (Labyrinthe.GAUCHE.equals(direction)) {
+               iv.setScaleX(-1); // Applique l'effet miroir
+            } else if (Labyrinthe.DROITE.equals(direction)) {
+               iv.setScaleX(1); // Réinitialise l'effet miroir
+            }
+         }
+      }
       return iv;
    }
 }

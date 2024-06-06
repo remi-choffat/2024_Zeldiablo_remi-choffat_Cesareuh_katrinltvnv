@@ -1,8 +1,12 @@
 package gameLaby.laby;
 
+import javafx.scene.image.ImageView;
+
 public abstract class Entite {
+
    private int x;
    private int y;
+   private ImageView imageView;
 
    /**
     * constructeur
@@ -74,5 +78,23 @@ public abstract class Entite {
     */
    public void setY(int y) {
       this.y = y;
+   }
+
+   /**
+    * * Renvoie l'ImageView correspondant à l'entité
+    *
+    * @return ImageView correspondant à l'entité
+    */
+   public ImageView getImageView() {
+      return this.imageView;
+   }
+
+   /**
+    * Modifie l'ImageView
+    *
+    * @param imageView nouvelle valeur de l'ImageView
+    */
+   public void setImageView(ImageView imageView) {
+      this.imageView = imageView;
    }
 }

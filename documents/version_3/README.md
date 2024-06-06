@@ -3,7 +3,7 @@
 ## Objectif
 ### Résumé
 
-### Fonctionnalités
+## Fonctionnalités
  - [ ] 1.8 Gestion d'un labyrinthe multi-étages
 Le labyrinthe est constitué de plusieurs étages. Chaque étage correspond à un niveau
 particulier. Des escaliers permettent de passer d'un étage à un autre.
@@ -18,7 +18,6 @@ de vie.
 descriptif du niveau.
 * Le Héros arrive aux mêmes coordonnées dans l'étage supérieur/inférieur après
 avoir emprunté les escaliers.
-#### Modifié
 * ~~Les escaliers peuvent être de deux types : un escalier qui monte ou un escalier qui descend.~~ 
 * Les escaliers envoient vers le niveau suivant. 
 * ~~Les escaliers sont empruntables dans les deux sens : un escalier qui monte vers un étage possède un escalier qui descend à la même position dans l'étage supérieur (et inversement).~~

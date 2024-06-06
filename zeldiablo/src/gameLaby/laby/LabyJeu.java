@@ -36,7 +36,7 @@ public class LabyJeu implements moteurJeu.Jeu {
             Labyrinthe.pj.lancerFleche();
          }
       }
-      deplacement = (clavier.droite || clavier.gauche || clavier.haut || clavier.bas);
+      deplacement = (clavier.droite || clavier.gauche || clavier.haut || clavier.bas || clavier.space);
    }
 
    @Override

@@ -11,7 +11,7 @@ public class Fleche extends Deplacable implements Attaque {
     * @param y position selon y
     */
    public Fleche(int x, int y) {
-      super(x, y, 2);
+      super(x, y, 1);
    }
 
    /**
@@ -36,5 +36,10 @@ public class Fleche extends Deplacable implements Attaque {
          this.infligerDegats((Vivant) d);
       }
       this.toRemove = true;
+   }
+
+   public boolean supprimer(){
+      int [] suivante = Labyrinthe.getSuivant(getX(), getY(), getDirection());
+      return (this.toRemove || (Labyrinthe.murs[suivante[0]][suivante[1]]));
    }
 }

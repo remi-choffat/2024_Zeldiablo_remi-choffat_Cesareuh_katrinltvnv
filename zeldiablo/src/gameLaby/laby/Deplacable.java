@@ -31,6 +31,7 @@ public abstract class Deplacable {
    public boolean etrePresent(int dx, int dy) {
       return (this.x == dx && this.y == dy);
    }
+   public abstract boolean supprimer();
 
    /**
     * Change la direction du déplacement
@@ -77,8 +78,8 @@ public abstract class Deplacable {
          this.y = suivante[1];
          this.toucherMur = false;
       }
-
    }
+
 
    ;
 

@@ -164,30 +164,12 @@ public class Labyrinthe {
          d.deplacer();
          // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
          if (d instanceof Vivant v) {
-            if (v.getPv() <= 0) {
-               toRemove.add(d);
-            }
             // On affiche en console les points de vie des êtres vivants
             System.out.println("Pv " + d.getClass().getSimpleName() + " : " + v.getPv());
-         } else if (d instanceof Fleche f) {
-            // Si la flèche est sur un mur, on la supprime
-            if (murs[f.getX()][f.getY()]) {
-               toRemove.add(d);
-            }
-            // Si la flèche est devant un mur en direction du mur, on la supprime
-            if (f.getDirection().equals(HAUT) && murs[f.getX()][f.getY() - 1]) {
-               toRemove.add(d);
-            } else if (f.getDirection().equals(BAS) && murs[f.getX()][f.getY() + 1]) {
-               toRemove.add(d);
-            } else if (f.getDirection().equals(GAUCHE) && murs[f.getX() - 1][f.getY()]) {
-               toRemove.add(d);
-            } else if (f.getDirection().equals(DROITE) && murs[f.getX() + 1][f.getY()]) {
-               toRemove.add(d);
-            }
-            // Si la flèche doit être supprimée, on l'ajoute à la liste des éléments à supprimer
-            if (f.toRemove) {
-               toRemove.add(d);
-            }
+         }
+
+         if(d.supprimer()){
+            toRemove.add(d);
          }
       }
 

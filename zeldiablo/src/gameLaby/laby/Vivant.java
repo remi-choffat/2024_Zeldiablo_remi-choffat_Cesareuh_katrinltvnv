@@ -6,9 +6,10 @@ package gameLaby.laby;
 public abstract class Vivant extends Deplacable implements Attaque, Victime {
 
    /**
-    * position dans un labyrinthe
+    *  Nombre de points de vie de l'être vivant
     */
-   int pv;
+   private int pv;
+   private final int initialPv;
 
    /**
     * constructeur
@@ -21,6 +22,7 @@ public abstract class Vivant extends Deplacable implements Attaque, Victime {
    public Vivant(int dx, int dy, int mv, int pv) {
       super(dx, dy, mv);
       this.pv = pv;
+      this.initialPv = pv;
    }
 
    /**
@@ -43,6 +45,11 @@ public abstract class Vivant extends Deplacable implements Attaque, Victime {
       }
    }
 
+   @Override
+   public boolean supprimer() {
+      return this.getPv() <= 0;
+   }
+
    /**
     * Renvoie le nombre de points de vie
     *
@@ -50,6 +57,10 @@ public abstract class Vivant extends Deplacable implements Attaque, Victime {
     */
    public int getPv() {
       return this.pv;
+   }
+
+   public int getInitialPv() {
+      return this.initialPv;
    }
 
 }

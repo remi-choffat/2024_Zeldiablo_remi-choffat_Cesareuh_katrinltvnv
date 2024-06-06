@@ -1,7 +1,10 @@
 package gameLaby.laby;
 
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
@@ -33,6 +36,7 @@ public class LabyDessin implements DessinJeu {
             }
 
             if (Labyrinthe.entites != null) {
+               // Dessine les entités
                for (Entite entite : Labyrinthe.entites) {
                   if (entite.etrePresent(c, l)) {
                      if (entite instanceof Perso) {
@@ -40,12 +44,17 @@ public class LabyDessin implements DessinJeu {
                      } else if (entite instanceof Monstre) {
                         gc.setFill(Color.BLUE);
                      } else if (entite instanceof Fleche) {
-                        gc.setFill(Color.GREEN);
-                        gc.setStroke(Color.BLUEVIOLET);
+                        ImageView iv = getImageView((Fleche) entite);
+                        SnapshotParameters params = new SnapshotParameters();
+                        params.setFill(Color.TRANSPARENT);
+                        Image rotatedImage = iv.snapshot(params, null);
+                        gc.drawImage(rotatedImage, x, y, w, h); // Dessine l'image
+                        continue;
                      } else {
                         gc.setFill(Color.YELLOW);
                      }
                      gc.fillOval(x, y, w, h);
+                     // Affiche la barre de vie
                      if (entite instanceof Vivant v) {
                         int healthSize = 7;
                         gc.setFill(Color.RED);
@@ -58,5 +67,19 @@ public class LabyDessin implements DessinJeu {
             }
          }
       }
+   }
+
+   private static ImageView getImageView(Fleche entite) {
+      String direction = entite.getDirection();
+      Image fleche = new Image("file:images/fleche.png");
+      ImageView iv = new ImageView(fleche);
+      double rotate = switch (direction) {
+         case Labyrinthe.DROITE -> 90;
+         case Labyrinthe.GAUCHE -> 270;
+         case Labyrinthe.BAS -> 180;
+         default -> 0;
+      };
+      iv.setRotate(rotate); // Applique la rotation
+      return iv;
    }
 }

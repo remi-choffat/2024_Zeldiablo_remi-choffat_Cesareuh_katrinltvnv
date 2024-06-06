@@ -46,7 +46,22 @@ class Fleche {
 }
 
 class Escalier{
+-inxLevel : int
++supprimer()
 +collision(objet : Entite)
++nextLevel()
+}
+
+class Labyrinthe{
++murs : boolean[][]
++getSuivant(x : int, y : int, action : String) : int[]
++Labyrinthe(nom : String)
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLengthX() : int
++gerMur(x : int, y : int) : boolean
++changerLabyrinthe(inxLevel : int)
 }
 
 Entite <|-- Deplacable
@@ -58,4 +73,6 @@ Vivant ..|> Victime
 Vivant ..|> Attaque
 Fleche ..|> Attaque
 Entite <|-- Escalier
+Entite "*" <-- "1" Labyrinthe : entites
+Labyrinthe "1" --> "1" Perso : perso
 @enduml

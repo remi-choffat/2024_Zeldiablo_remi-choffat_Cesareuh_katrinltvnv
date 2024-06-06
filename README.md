@@ -19,3 +19,4 @@ AC4 - Développer des interfaces utilisateurs
 - [X] Revoir le code pour les flèches
 - [ ] Faire les diagrammes de séquence
 - [ ] Ajouter des tests unitaires
+- [ ] Équilibrer les dégâts et les points de vie

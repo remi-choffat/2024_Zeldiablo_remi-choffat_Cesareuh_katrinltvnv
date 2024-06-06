@@ -36,11 +36,12 @@ Le but de cette première itération est d'ajouter un monstre et de corriger les
   - le monstre ne peut pas se trouver sur la même case que le personnage.
 
 ## Répartition des tâches
-Rémi : Réalisation des diagrammes et ajout de l'affichage des monstres.  
+Rémi : Réalisation des diagrammes, ajout de l'affichage des monstres, création des flèches.  
 Kateryna : Ajout de la classe `Monstre`.  
-Mathieu : Correction des déplacements du personnage.
+Mathieu : Correction des déplacements du personnage, ajout des barres de vie.
 
 ## Diagrammes
-### Diagrammes de classe
-#### Diagramme initial
+### Diagramme de classe
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_classe_v2.png" alt="Diagramme de classe"></img>
+### Diagramme de séquence - Lancer une flèche
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_seq_lancerFleche.png" alt="Diagramme de séquence"></img>

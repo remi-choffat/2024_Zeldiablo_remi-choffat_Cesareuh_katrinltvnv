@@ -21,7 +21,6 @@ class Monstre{
 }
 
 abstract class Vivant{
-+{abstract}infligerDegats(v : Vivant)
 +subirDegats(degats : int)
 +collision(objet : Deplacable)
 }

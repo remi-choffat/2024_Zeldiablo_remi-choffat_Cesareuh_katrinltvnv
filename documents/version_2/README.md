@@ -43,4 +43,4 @@ Mathieu : Correction des déplacements du personnage.
 ## Diagrammes
 ### Diagrammes de classe
 #### Diagramme initial
-<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_classe_initial_v2.png" alt="Diagramme de classe"></img>
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_2/diag_classe_v2.png" alt="Diagramme de classe"></img>

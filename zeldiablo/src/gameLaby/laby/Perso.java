@@ -29,10 +29,14 @@ public class Perso extends Vivant {
     * lance une flèche
     */
    public void lancerFleche() {
+      // Si le personnage a une direction
       if (!this.getDirection().equals("")) {
          int[] pos = Labyrinthe.getSuivant(this.getX(), this.getY(), this.getDirection());
-         Fleche f = new Fleche(pos[0], pos[1]);
-         f.setDirection(this.getDirection());
+         // Si la case suivante n'est pas un mur
+         if (!Labyrinthe.murs[pos[0]][pos[1]]) {
+            Fleche f = new Fleche(pos[0], pos[1]);
+            f.setDirection(this.getDirection());
+         }
       }
    }
 

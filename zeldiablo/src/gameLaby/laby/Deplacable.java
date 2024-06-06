@@ -1,6 +1,6 @@
 package gameLaby.laby;
 
-public abstract class Deplacable {
+public abstract class Deplacable extends Entite {
    private int x;
    private int y;
    private final int nb_mouvements;
@@ -15,23 +15,9 @@ public abstract class Deplacable {
     * @param mv nombre de mouvements
     */
    public Deplacable(int x, int y, int mv) {
-      this.x = x;
-      this.y = y;
+      super(x, y);
       this.nb_mouvements = mv;
-      Labyrinthe.deplacables.add(this);
    }
-
-   /**
-    * permet de savoir si l'élément est présent en x,y
-    *
-    * @param dx position testee
-    * @param dy position testee
-    * @return true si quelqu'un est bien en (dx,dy)
-    */
-   public boolean etrePresent(int dx, int dy) {
-      return (this.x == dx && this.y == dy);
-   }
-   public abstract boolean supprimer();
 
    /**
     * Change la direction du déplacement
@@ -56,7 +42,7 @@ public abstract class Deplacable {
     */
    public void deplacer() {
       for (int i = 0; i < this.nb_mouvements; i++) {
-         int[] suivante = Labyrinthe.getSuivant(this.x, this.y, this.direction);
+         int[] suivante = Labyrinthe.getSuivant(this.getX(), this.getY(), this.direction);
 
          if (Labyrinthe.murs[suivante[0]][suivante[1]]) {
             this.toucherMur = true;
@@ -67,43 +53,17 @@ public abstract class Deplacable {
             return;
          }
 
-         for (Deplacable d : Labyrinthe.deplacables) {
+         for (Entite d : Labyrinthe.entites) {
             if (d.etrePresent(suivante[0], suivante[1])) {
                this.collision(d);
                d.collision(this);
                return;
             }
          }
-         this.x = suivante[0];
-         this.y = suivante[1];
+         this.setX(suivante[0]);
+         this.setY(suivante[1]);
          this.toucherMur = false;
       }
    }
 
-
-   ;
-
-   /**
-    * gère la collision avec un autre élément
-    *
-    * @param d élément avec lequel il y a collision
-    */
-   public abstract void collision(Deplacable d);
-
-   /**
-    * @return position x dans un labyrinthe
-    */
-   public int getX() {
-      // getter
-      return this.x;
-   }
-
-
-   /**
-    * @return position y dans un labyrinthe
-    */
-   public int getY() {
-      //getter
-      return this.y;
-   }
 }

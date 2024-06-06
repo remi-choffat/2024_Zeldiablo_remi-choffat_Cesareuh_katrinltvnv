@@ -26,20 +26,21 @@ public class Fleche extends Deplacable implements Attaque {
    }
 
    /**
-    * collision avec un deplacable
+    * collision avec une entité
     *
-    * @param d deplacable en collision
+    * @param d entité en collision
     */
    @Override
-   public void collision(Deplacable d) {
+   public void collision(Entite d) {
       if (d instanceof Vivant) {
          this.infligerDegats((Vivant) d);
       }
       this.toRemove = true;
    }
 
-   public boolean supprimer(){
-      int [] suivante = Labyrinthe.getSuivant(getX(), getY(), getDirection());
+   public boolean supprimer() {
+      int[] suivante = Labyrinthe.getSuivant(getX(), getY(), getDirection());
       return (this.toRemove || (Labyrinthe.murs[suivante[0]][suivante[1]]));
    }
+
 }

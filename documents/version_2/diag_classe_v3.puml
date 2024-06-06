@@ -1,0 +1,61 @@
+@startuml
+
+abstract class Entite{
++dx : int
++dy : int
++getX() : int
++getY() : int
++setX(x : int)
++setY(y : int)
++etrePresent(dx : int, dy : int) : boolean
++{abstract}collision(objet : Entite)
+}
+
+abstract class Deplacable{
++deplacer(dx : int, dy : int)
++setDirection(direction String)
++getDirection() : String
+}
+
+class Perso{
++Perso(dx : int, dy : int)
++infligerDegats(v : Vivant)
++lancerFleche()
+}
+
+class Monstre{
++Monstre(dx : int, dy : int)
++infligerDegats(v : Vivant)
+}
+
+abstract class Vivant{
++subirDegats(degats : int)
++collision(objet : Entite)
+}
+
+interface Victime {
++subirDegats(degats : int)
+}
+
+interface Attaque {
++infligerDegats(v : Vivant)
+}
+
+class Fleche {
++collision(objet : Entite)
+}
+
+class Escalier{
++collision(objet : Entite)
+}
+
+Entite <|-- Deplacable
+Deplacable <|-- Fleche
+Deplacable <|-- Vivant
+Perso --|> Vivant
+Monstre --|> Vivant
+Vivant ..|> Victime
+Vivant ..|> Attaque
+Fleche ..|> Attaque
+Entite <|-- Escalier
+@enduml

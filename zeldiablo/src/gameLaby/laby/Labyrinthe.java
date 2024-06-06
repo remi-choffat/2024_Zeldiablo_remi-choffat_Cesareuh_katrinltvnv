@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * Représente un labyrinthe avec
  * <ul>
  *    <li> des éléments déplaçables (personnage, monstres...) </li>
+ *    <li> des éléments non déplaçables (escaliers) </li>
  *    <li> des murs </li>
  * </ul>
  */
@@ -43,7 +44,7 @@ public class Labyrinthe {
    /**
     * Liste des éléments Déplaçables
     */
-   public static ArrayList<Deplacable> deplacables = new ArrayList<>();
+   public static ArrayList<Entite> entites = new ArrayList<>();
 
    /**
     * retourne la case suivante selon une action
@@ -97,7 +98,7 @@ public class Labyrinthe {
 
       // creation labyrinthe vide
       murs = new boolean[nbColonnes][nbLignes];
-      deplacables = new ArrayList<>();
+      entites = new ArrayList<>();
 
       // lecture des cases
       String ligne = bfRead.readLine();
@@ -157,25 +158,26 @@ public class Labyrinthe {
       pj.setDirection(action);
 
       // Liste pour stocker les éléments à supprimer
-      ArrayList<Deplacable> toRemove = new ArrayList<>();
+      ArrayList<Entite> toRemove = new ArrayList<>();
 
       // Déplace tous les objets déplaçables
-      for (Deplacable d : deplacables) {
-         d.deplacer();
-         // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
-         if (d instanceof Vivant v) {
-            // On affiche en console les points de vie des êtres vivants
-            System.out.println("Pv " + d.getClass().getSimpleName() + " : " + v.getPv());
-         }
+      for (Entite d : entites) {
+         if (d instanceof Deplacable) {
+            ((Deplacable) d).deplacer();
+            // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
+            if (d instanceof Vivant v) {
+               // On affiche en console les points de vie des êtres vivants
+               System.out.println("Pv " + d.getClass().getSimpleName() + " : " + v.getPv());
+            }
 
-         if(d.supprimer()){
-            toRemove.add(d);
+            if (d.supprimer()) {
+               toRemove.add(d);
+            }
          }
       }
-      System.out.println(deplacables.size());
 
       // Supprime les éléments de la liste deplacables qui sont morts
-      deplacables.removeAll(toRemove);
+      entites.removeAll(toRemove);
 
       // Si le personnage n'a plus de point de vie, on arrête le jeu
       if (pj.getPv() <= 0) {

@@ -62,12 +62,12 @@ public class Tests_V2 {
         try {
             Labyrinthe laby = new Labyrinthe("./labySimple/labyBase.txt");
             laby.pj.lancerFleche();
-            assertEquals(4, laby.deplacables.size());
+            assertEquals(4, laby.entites.size());
             laby.pj.setDirection(Labyrinthe.HAUT);
             laby.pj.lancerFleche();
-            assertEquals(5, laby.deplacables.size());
+            assertEquals(5, laby.entites.size());
             laby.deplacerPerso(Labyrinthe.HAUT);
-            assertEquals(4, laby.deplacables.size());
+            assertEquals(4, laby.entites.size());
         }catch(IOException e){
             fail();
         }

@@ -72,8 +72,11 @@ public class Labyrinthe {
             // on diminue colonne
             x--;
             break;
+            /*
          default:
             throw new Error("Action inconnue : " + action);
+
+             */
       }
       return new int[]{x, y};
    }
@@ -151,11 +154,8 @@ public class Labyrinthe {
     * deplace le personnage en fonction de l'action.
     * gere la collision avec les murs
     *
-    * @param action une des actions possibles
     */
-   public void deplacerPerso(String action) {
-      // Change la direction du personnage
-      pj.setDirection(action);
+   public void updateLaby() {
 
       // Liste pour stocker les éléments à supprimer
       ArrayList<Entite> toRemove = new ArrayList<>();

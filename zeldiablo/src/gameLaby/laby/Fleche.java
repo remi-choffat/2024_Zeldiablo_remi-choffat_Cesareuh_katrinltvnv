@@ -10,8 +10,9 @@ public class Fleche extends Deplacable implements Attaque {
     * @param x position selon x
     * @param y position selon y
     */
-   public Fleche(int x, int y) {
+   public Fleche(int x, int y, String direction) {
       super(x, y, 1);
+      this.setDirection(direction);
    }
 
    /**
@@ -40,7 +41,11 @@ public class Fleche extends Deplacable implements Attaque {
 
    public boolean supprimer() {
       int[] suivante = Labyrinthe.getSuivant(getX(), getY(), getDirection());
-      return (this.toRemove || (Labyrinthe.murs[suivante[0]][suivante[1]]));
+      boolean mort = this.toRemove || (Labyrinthe.murs[suivante[0]][suivante[1]]);
+      if (mort) {
+         Labyrinthe.pj.peutLancerFleche = true;
+      }
+      return mort;
    }
 
 }

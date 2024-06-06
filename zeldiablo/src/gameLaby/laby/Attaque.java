@@ -2,6 +2,6 @@ package gameLaby.laby;
 
 public interface Attaque {
 
-   public void infligerDegats(Vivant v);
+   void infligerDegats(Vivant v);
 
 }

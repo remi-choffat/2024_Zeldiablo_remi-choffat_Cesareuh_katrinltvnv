@@ -3,7 +3,7 @@ package gameLaby.laby;
 /**
  * Classe pour représenter un élément vivant dans un labyrinthe
  */
-public abstract class Vivant extends Deplacable implements Attaque {
+public abstract class Vivant extends Deplacable implements Attaque, Victime {
 
    /**
     * position dans un labyrinthe
@@ -22,14 +22,6 @@ public abstract class Vivant extends Deplacable implements Attaque {
       super(dx, dy, mv);
       this.pv = pv;
    }
-
-
-   /**
-    * inflige des degats a un vivant
-    *
-    * @param v vivant a attaquer
-    */
-   public abstract void infligerDegats(Vivant v);
 
    /**
     * Subit des degats d'une source
@@ -51,6 +43,11 @@ public abstract class Vivant extends Deplacable implements Attaque {
       }
    }
 
+   /**
+    * Renvoie le nombre de points de vie
+    *
+    * @return nombre de points de vie
+    */
    public int getPv() {
       return this.pv;
    }

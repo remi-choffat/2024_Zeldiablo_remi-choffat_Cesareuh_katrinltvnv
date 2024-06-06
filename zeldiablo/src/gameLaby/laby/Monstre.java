@@ -28,6 +28,10 @@ public class Monstre extends Vivant {
       return super.etrePresent(dx, dy);
    }
 
+   /**
+    * deplace le monstre
+    * le monstre se déplace aléatoirement
+    */
    public void deplacer() {
       String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
       String direction = actions[(int) (Math.random() * actions.length - .001)];
@@ -36,6 +40,10 @@ public class Monstre extends Vivant {
       super.deplacer();
    }
 
+   /**
+    * inflige des dégats à un vivant
+    * @param v vivant à attaquer
+    */
    public void infligerDegats(Vivant v) {
       v.subirDegats(1);
    }

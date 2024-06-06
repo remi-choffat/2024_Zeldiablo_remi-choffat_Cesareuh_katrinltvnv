@@ -1,7 +1,5 @@
 package gameLaby.laby;
 
-import java.util.Objects;
-
 /**
  * Représente le personnage du jeu
  */
@@ -17,11 +15,19 @@ public class Perso extends Vivant {
       super(dx, dy, 1, 10);
    }
 
+   /**
+    * inflige des dégats à un vivant
+    *
+    * @param v vivant à attaquer
+    */
    @Override
    public void infligerDegats(Vivant v) {
       v.subirDegats(1);
    }
 
+   /**
+    * lance une flèche
+    */
    public void lancerFleche() {
       if (!this.getDirection().equals("")) {
          int[] pos = Labyrinthe.getSuivant(this.getX(), this.getY(), this.getDirection());

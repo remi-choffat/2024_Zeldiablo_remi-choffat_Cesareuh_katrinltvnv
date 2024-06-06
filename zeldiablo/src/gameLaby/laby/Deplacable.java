@@ -5,7 +5,6 @@ public abstract class Deplacable extends Entite {
    private int y;
    private final int nb_mouvements;
    private String direction = "";
-   private boolean toucherMur = false;
 
    /**
     * constructeur
@@ -45,7 +44,6 @@ public abstract class Deplacable extends Entite {
          int[] suivante = Labyrinthe.getSuivant(this.getX(), this.getY(), this.direction);
 
          if (Labyrinthe.murs[suivante[0]][suivante[1]]) {
-            this.toucherMur = true;
             return;
          }
 
@@ -62,7 +60,6 @@ public abstract class Deplacable extends Entite {
          }
          this.setX(suivante[0]);
          this.setY(suivante[1]);
-         this.toucherMur = false;
       }
    }
 

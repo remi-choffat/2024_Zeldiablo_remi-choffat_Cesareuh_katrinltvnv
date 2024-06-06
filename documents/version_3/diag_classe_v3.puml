@@ -1,14 +1,17 @@
 @startuml
 
 abstract class Entite{
-+dx : int
-+dy : int
+-dx : int
+-dy : int
+-imageView : ImageView
 +getX() : int
 +getY() : int
 +setX(x : int)
 +setY(y : int)
 +etrePresent(dx : int, dy : int) : boolean
 +{abstract}collision(objet : Entite)
++getImageView() : ImageView
++setImageView(imageView : ImageView)
 }
 
 abstract class Deplacable{

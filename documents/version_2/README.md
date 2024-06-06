@@ -3,7 +3,10 @@
 ## Objectif
 ### Résumé
 Le but de cette première itération est d'ajouter un monstre et de corriger les déplacements afin que le personnage se déplace case par case et qu'on utilise les flèches pour se déplacer.
-### 1. Donner une position initiale au monstre
+Nous avons également ajouté des barres de vie pour le personnage et le monstre.
+De plus, le personnage dispose de flèches qu'il peut lancer pour attaquer le monstre.
+### Critères de validation pour l'ajout des Monstres
+#### 1. Donner une position initiale au monstre
 - Descriptif :
   - le monstre débute sur une case décrite dans le fichier labyrinthe.
 - Critères de validation :
@@ -12,14 +15,14 @@ Le but de cette première itération est d'ajouter un monstre et de corriger les
   - le monstre est représenté par le caractère 'M' dans le fichier labyrinthe.
   - le monstre ne se trouve pas sur la même case que le personnage.
 
-### 2. Afficher le monstre
+#### 2. Afficher le monstre
 - Descriptif :
   - le jeu doit afficher le monstre à sa position.
 - Critères de validation :
   - le monstre doit être affiché à la bonne position dans le labyrinthe.
   - le monstre sera représenté sous la forme d'un cercle violet de la taille du personnage.
 
-### 3. Considérer le monstre dans les déplacements du personnage
+#### 3. Considérer le monstre dans les déplacements du personnage
 - Descriptif :
   - lorsque le jeu évolue, le personnage ne peut pas se déplacer sur la case du monstre.
 - Critères de validation :
@@ -27,7 +30,7 @@ Le but de cette première itération est d'ajouter un monstre et de corriger les
   - le monstre et le personnage ne peuvent pas se trouver sur la même case.
   - le personnage ne peut pas traverser la case du monstre
 
-### 4. Déplacer le monstre (optionnel en fonction avancée)
+#### 4. Déplacer le monstre (optionnel en fonction avancée)
 - Descriptif :
   - lorsque le jeu évolue, le monstre choisit une case adjacente de manière aléatoire et tente de s'y déplacer.
 - Critères de validation :

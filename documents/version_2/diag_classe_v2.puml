@@ -13,6 +13,7 @@ abstract class Deplacable{
 class Perso{
 +Perso(dx : int, dy : int)
 +infligerDegats(v : Vivant)
++lancerFleche()
 }
 
 class Monstre{

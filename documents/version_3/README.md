@@ -36,9 +36,12 @@ Les niveaux ne sont pas stockés en mémoire, mais le labyrinthe est généré a
 * les critères de validation sont à détailler en fonction de la méthode de génération suivie.
 
 ### - Améliorations diverses
- - [ ] Déplacement en temps réel
+ - [X] Déplacement en temps réel
+ - [X] Équilibrage des dégats et des points de vie
+ - [ ] Vitesse des objets `Deplacable`
+ - [ ] Mouvements fluides
  - [ ] Changement de l'aspect des flèches
- - [ ] Équilibrage des dégats et des points de vie
+
 
 ## Répartition des tâches
 Rémi : Création classe `Entite`, Diagrammes    

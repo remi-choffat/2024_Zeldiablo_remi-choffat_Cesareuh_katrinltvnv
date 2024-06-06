@@ -6,11 +6,9 @@ abstract class Deplacable{
 +getX() : int
 +getY() : int
 +etrePresent(dx : int, dy : int) : boolean
-+{abstract}deplacer(dx : int, dy : int)
++deplacer(dx : int, dy : int)
 +{abstract}collision(objet : Deplacable)
 }
-
-
 
 class Perso{
 +Perso(dx : int, dy : int)
@@ -25,30 +23,26 @@ class Monstre{
 abstract class Vivant{
 +{abstract}infligerDegats(v : Vivant)
 +subirDegats(degats : int)
++collision(objet : Deplacable)
 }
 
 interface Victime {
 +subirDegats(degats : int)
 }
 
-abstract class Attaque {
-+{abstract}infligerDegats(v : Vivant)
-+collision(objet : Deplacable)
+interface Attaque {
++infligerDegats(v : Vivant)
 }
 
 class Fleche {
-+deplacer(dx : int, dy : int)
-}
-
-abstract class Ennemi {
++collision(objet : Deplacable)
 }
 
 Deplacable <|-- Fleche
 Deplacable <|-- Vivant
 Perso --|> Vivant
-Monstre --|> Ennemi
-Ennemi --|> Vivant
+Monstre --|> Vivant
 Vivant ..|> Victime
-Vivant --|> Attaque
-Fleche --|> Attaque
+Vivant ..|> Attaque
+Fleche ..|> Attaque
 @enduml

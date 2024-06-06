@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Représente le personnage du jeu
  */
-public class Perso extends Vivant implements Attaque {
+public class Perso extends Vivant {
 
    /**
     * constructeur
@@ -23,7 +23,7 @@ public class Perso extends Vivant implements Attaque {
    }
 
    public void lancerFleche() {
-      if (!Objects.equals(this.getDirection(), "")) {
+      if (!this.getDirection().equals("")) {
          int[] pos = Labyrinthe.getSuivant(this.getX(), this.getY(), this.getDirection());
          Fleche f = new Fleche(pos[0], pos[1]);
          f.setDirection(this.getDirection());

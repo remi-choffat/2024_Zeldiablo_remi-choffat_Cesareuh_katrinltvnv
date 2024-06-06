@@ -3,7 +3,7 @@ package gameLaby.laby;
 /**
  * Classe pour représenter un élément vivant dans un labyrinthe
  */
-public abstract class Vivant extends Deplacable {
+public abstract class Vivant extends Deplacable implements Attaque {
 
    /**
     * position dans un labyrinthe

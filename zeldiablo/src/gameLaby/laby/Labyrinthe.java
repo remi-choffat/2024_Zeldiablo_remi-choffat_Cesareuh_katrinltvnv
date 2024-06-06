@@ -53,7 +53,7 @@ public class Labyrinthe {
     * @param action action effectuee
     * @return case suivante
     */
-   static int[] getSuivant(int x, int y, String action) {
+   public static int[] getSuivant(int x, int y, String action) {
       switch (action) {
          case HAUT:
             // on monte une ligne
@@ -172,6 +172,7 @@ public class Labyrinthe {
             toRemove.add(d);
          }
       }
+      System.out.println(deplacables.size());
 
       // Supprime les éléments de la liste deplacables qui sont morts
       deplacables.removeAll(toRemove);

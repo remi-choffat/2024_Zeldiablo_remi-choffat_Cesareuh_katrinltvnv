@@ -1,11 +1,6 @@
-9
-18
-XXXXXXXXXXXXXXXXXX
-X...X....X...M.XXX
-X..X.............X
-X.....X..X.....XXX
-XX..M....XX...MXXX
-X........X.....X.X
-X........X.....X.X
-X........X.P.....X
-XXXXXXXXXXXXXXXXXX
+4
+4
+XXXX
+XP.X
+X..X
+XXXX

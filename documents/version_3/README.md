@@ -36,8 +36,8 @@ Critères de validation
  - [ ] Équilibrage des dégats et des points de vie
 
 ## Répartition des tâches
-Rémi :     
-Kateryna :     
+Rémi : Création classe `Entite`, Diagrammes    
+Kateryna : Gestion d'un labyrinthe multi-étages    
 Mathieu : Génération automatique de labyrinthe    
 
 ## Diagrammes

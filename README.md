@@ -12,11 +12,5 @@ AC4 - Développer des interfaces utilisateurs
 
 ## Versions
 * [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/) : Implémentation du moteur de jeu
-* [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et déplacements
-
-## TODO
-- [X] Modifier le diagramme de classe
-- [X] Revoir le code pour les flèches
-- [ ] Faire les diagrammes de séquence
-- [ ] Ajouter des tests unitaires
-- [ ] Équilibrer les dégâts et les points de vie
+* [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et flèches
+* [Version 3](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_3/) : Génération des niveaux

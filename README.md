@@ -1,4 +1,5 @@
 # SAÉ Développement d'une application
+
 ## Projet Zeldiablo 🎮
 ### Compétences évaluées 🎓
 >→ Développer des applications informatiques simples  
@@ -12,17 +13,27 @@ Ce projet a été réalisé dans le cadre de la SAE2.01. Le but est de créer un
 Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il doit tuer tous les monstres. Un fois tous les monstres tués, il peut accéder aux escaliers afin d'accéder au niveau suivant généré aléatoirement et contenant plus de monstres.
 #### Touches ⌨️
 
- * Déplacements :⬅️  ⬇️  ⬆️  ➡️
+ * Déplacements : ⬅️  ⬇️  ⬆️  ➡️
  * Tirer une flèche : Espace
 
-
-
-## Auteurs ✏️
-[Rémi Choffat](https://github.com/remi-choffat) 🐢, [Mathieu Graff](https://github.com/Cesareuh) 🐧 et [Kateryna Babachanakh](https://github.com/katrinltvnv) 🦋 
+## Fonctionnalités implémentées 🛠️
+- [X] 1.2 Collision avec les Murs
+- [X] 1.8 Gestion d'un labyrinthe multi-étages
+- [X] 1.9 Génération automatique de labyrinthe
+- [X] 2.2 Déplacement aléatoire des monstres
+- [X] 3.1 Collision avec un monstre
+- [X] 5.1 Attaque des monstres
+- [X] 5.4 Attaques directionnelles
+- [X] 5.5 Mort des monstres
+- [X] 6.1 Fin du jeu : mort du héros
+- [X] 8.1 Attaque à distance du joueur
 
 ## Versions 🖥️
 * [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/) : Implémentation du moteur de jeu
 * [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et flèches
 * [Version 3](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_3/) : Passage à un niveau supérieur
 * [Version 4](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_4/) : Génération automatique des labyrinthes
+
+## Auteurs ✏️
+[Rémi Choffat](https://github.com/remi-choffat) 🐢, [Mathieu Graff](https://github.com/Cesareuh) 🐧 et [Kateryna Babachanakh](https://github.com/katrinltvnv) 🦋 
 

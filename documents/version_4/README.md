@@ -2,36 +2,55 @@
 
 ## Objectif
 
-L'objectif est d'implémenter une gestion des niveaux en générant des labyrinthes aléatoires.
+L'objectif est d'implémenter une gestion des niveaux en générant des labyrinthes aléatoires, et de rendre les déplacements des monstres intelligents.
 
 ## Fonctionnalités
 
 ### - 1.9 Génération automatique de labyrinthe
 
 Les niveaux ne sont pas stockés en mémoire, mais le labyrinthe est généré automatiquement par le jeu (ce qui permet
-d'avoir des parties à chaque fois différentes)   
-Pour générer ce labyrinthe, nous avons utilisé l'algorithme de Prims
+d'avoir des parties à chaque fois différentes).   
+Pour générer ce labyrinthe, nous avons utilisé l'algorithme de Prims.
 
 #### Critères de validation :
-
-##### Base
 
 * Les monstres, les objets et le héros sont bien placés sur des cases vides
 * Vous pourrez vous inspirer de la page
   suivante [Création labyrinthe](http://www.encyclopedie-incomplete.com/?Modelisation-et-Creation-d-un)
 * les critères de validation sont à détailler en fonction de la méthode de génération suivie.
 
+### - 2.4 Monstres au comportement intelligent
+
+A chaque fois que les monstres se déplacent, ils se rapprochent dans la direction du
+héros en prenant en compte la présence des murs.
+
+#### Critères de validation :
+
+* Avant son déplacement, le monstre détermine le meilleur chemin pour atteindre
+le héros.
+* Le monstre prend en compte les obstacles qui le concernent pour trouver le meilleur
+chemin.
+* Lorsqu'il se déplace, le monstre suit eectivement le meilleur chemin et parvient
+jusqu'au héros même s'il y a des obstacles.
+
 ### - Améliorations diverses
 
-- [ ] Vitesse des objets `Deplacable`
-- [ ] Mouvements fluides
-- [ ] Images pour toutes les entités
+- [ ] Placement aléatoire des monstres et de la sortie 🤪
+- [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
+- [ ] Mouvements fluides 🐇
+- [ ] Système de points 💯 :  
+      - Augmentent beaucoup si le perso tue un monstre  
+      - Augmentent un peu si le perso atteint la sortie  
+      - Diminuent quand un monstre est tué par une autre entité que le perso  
+- [ ] Images pour toutes les entités 🖼️
+- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre 🙋🏿‍♂️
+- [ ] Fonctionnalité 11.3 - Gestion d'un menu 📋
 
 ## Répartition des tâches
 
-Rémi :  
-Kateryna :  
-Mathieu :  
+Rémi :  Placement des entités sur le labyrinthe, Système de points  
+Kateryna :  Gestion du menu  
+Mathieu :  Génération du labyrinthe, Intelligence des monstres  
 
 ## Diagrammes
 

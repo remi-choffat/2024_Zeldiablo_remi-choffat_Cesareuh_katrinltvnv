@@ -1,0 +1,94 @@
+@startuml
+
+abstract class Entite{
+-dx : int
+-dy : int
+-imageView : ImageView
++getX() : int
++getY() : int
++setX(x : int)
++setY(y : int)
++etrePresent(dx : int, dy : int) : boolean
++{abstract}collision(objet : Entite)
++getImageView() : ImageView
++setImageView(imageView : ImageView)
+}
+
+abstract class Deplacable{
++deplacer(dx : int, dy : int)
++setDirection(direction String)
++getDirection() : String
+}
+
+class Perso{
++Perso(dx : int, dy : int)
++infligerDegats(v : Vivant)
++lancerFleche()
+}
+
+class Monstre{
++Monstre(dx : int, dy : int)
++infligerDegats(v : Vivant)
+}
+
+abstract class Vivant{
++subirDegats(degats : int)
++collision(objet : Entite)
+}
+
+interface Victime {
++subirDegats(degats : int)
+}
+
+interface Attaque {
++infligerDegats(v : Vivant)
+}
+
+class Fleche {
++collision(objet : Entite)
+}
+
+class Escalier{
+-inxLevel : int
++debloque : boolean
++supprimer()
++collision(objet : Entite)
+}
+
+class Labyrinthe{
++murs : boolean[][]
++getSuivant(x : int, y : int, action : String) : int[]
++Labyrinthe(nom : String)
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLengthX() : int
++gerMur(x : int, y : int) : boolean
++updateLaby()
++changerNiveau(inxLevel : int)
+}
+
+class GenerationLaby {
+-murs_a_ajouter : ArrayList<ArrayList<Integer>>
+-murs : boolean[][]
++creer() : boolean[][]
+-ajouterMurs(x : int, y : int)
+-ajouter(x : int, y : int)
+-ajoutable(x : int, y : int) : boolean
+}
+
+Entite <|-- Deplacable
+Deplacable <|-- Fleche
+Deplacable <|-- Vivant
+Perso --|> Vivant
+Monstre --|> Vivant
+Vivant ..|> Victime
+Vivant ..|> Attaque
+Fleche ..|> Attaque
+Entite <|-- Escalier
+Entite "*" <-- "1" Labyrinthe : entites
+Labyrinthe "1" --> "1" Perso : perso
+Labyrinthe "1" --> "1" Labyrinthe : currentLabyrinthe
+Labyrinthe "1" --> "*" Labyrinthe : allLevels
+GenerationLaby -- Labyrinthe : murs
+@enduml

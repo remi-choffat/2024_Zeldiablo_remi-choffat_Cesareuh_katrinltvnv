@@ -86,11 +86,6 @@ public class Labyrinthe {
             // on diminue colonne
             x--;
             break;
-            /*
-         default:
-            throw new Error("Action inconnue : " + action);
-
-             */
       }
       return new int[]{x, y};
    }

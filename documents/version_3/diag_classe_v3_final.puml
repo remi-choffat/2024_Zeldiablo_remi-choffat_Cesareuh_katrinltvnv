@@ -3,12 +3,15 @@
 abstract class Entite{
 -dx : int
 -dy : int
+-<b>imageView : ImageView</b>
 +getX() : int
 +getY() : int
 +setX(x : int)
 +setY(y : int)
 +etrePresent(dx : int, dy : int) : boolean
 +{abstract}collision(objet : Entite)
++<b>getImageView() : ImageView</b>
++<b>setImageView(imageView : ImageView)</b>
 }
 
 abstract class Deplacable{
@@ -49,7 +52,7 @@ class Escalier{
 -inxLevel : int
 +supprimer()
 +collision(objet : Entite)
-+nextLevel()
++<b><s>nextLevel()</s></b>
 }
 
 class Labyrinthe{
@@ -61,7 +64,8 @@ class Labyrinthe{
 +getLengthY() : int
 +getLengthX() : int
 +gerMur(x : int, y : int) : boolean
-+changerLabyrinthe(inxLevel : int)
++<b>updateLaby()</b>
++<b>changerNiveau</b>(inxLevel : int)
 }
 
 Entite <|-- Deplacable

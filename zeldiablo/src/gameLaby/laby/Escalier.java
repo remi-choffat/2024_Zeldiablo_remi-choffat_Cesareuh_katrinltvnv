@@ -3,11 +3,13 @@ package gameLaby.laby;
 import java.io.IOException;
 
 /**
- * Class Escalier
+ * Représente un Escalier
  */
 public class Escalier extends Entite {
 
-   // l'indice de niveau
+   /**
+    * Indice du niveau
+    */
    private final int inxLevel;
 
    /**

@@ -82,4 +82,6 @@ Mathieu : Génération automatique de labyrinthe, Readme
 
 #### Diagramme final
 
-<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_classe_final_v3.png" alt="Diagramme de classe final"></img>
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_classe_v3_final.png" alt="Diagramme de classe final"></img>
+
+### Diagrammes de séquence

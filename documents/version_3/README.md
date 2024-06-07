@@ -7,7 +7,7 @@ aléatoires
 
 ## Fonctionnalités
 
-### - 1.8 Gestion d'un labyrinthe multi-étages
+### - 1.8 Gestion d'un labyrinthe multi-étages (Terminé)
 
 Le labyrinthe est constitué de plusieurs étages. Chaque étage correspond à un niveau
 particulier. Des escaliers permettent de passer d'un étage à un autre.
@@ -40,7 +40,7 @@ particulier. Des escaliers permettent de passer d'un étage à un autre.
 
 * L'escalier apparaît quand le joueur a tué tous les monstres
 
-### - 1.9 Génération automatique de labyrinthe
+### - 1.9 Génération automatique de labyrinthe (En cours d'implémentation)
 
 Les niveaux ne sont pas stockés en mémoire, mais le labyrinthe est généré automatiquement par le jeu (ce qui permet
 d'avoir des parties à chaque fois différentes)   

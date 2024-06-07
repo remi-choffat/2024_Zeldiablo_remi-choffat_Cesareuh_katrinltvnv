@@ -172,23 +172,15 @@ public class Labyrinthe {
     * @throws IOException              si probleme a la lecture du fichier
     */
    public static void changerNiveau(int levelIndex) throws IllegalArgumentException, IOException {
-      /*
       new Labyrinthe("labySimple/laby" + levelIndex + ".txt");
       if (levelIndex < 0 || levelIndex >= allLevels.size()) {
          throw new IllegalArgumentException("Le niveau " + levelIndex + " n'existe pas");
       }
       currentLabyrinthe = allLevels.get(levelIndex);
-      entites.add(persoNiveauActuel);
-      pj = persoNiveauActuel;
-      while (currentLabyrinthe.getMur(pj.getX(), pj.getY())) {
-         // Si la position de départ est un mur, trouve une nouvelle position
-         pj.setX((pj.getX() + 1) % currentLabyrinthe.getLengthX());
-         pj.setY((pj.getY() + 1) % currentLabyrinthe.getLengthY());
-      }
+      entites.add(pj);
 
-       */
 
-      GenerationLaby.creer();
+      //GenerationLaby.creer();
       System.out.println("Passage au niveau " + levelIndex);
    }
 

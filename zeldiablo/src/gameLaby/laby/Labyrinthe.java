@@ -176,15 +176,8 @@ public class Labyrinthe {
       if (levelIndex < 0 || levelIndex >= allLevels.size()) {
          throw new IllegalArgumentException("Le niveau " + levelIndex + " n'existe pas");
       }
-      Perso persoNiveauActuel = pj;
       currentLabyrinthe = allLevels.get(levelIndex);
-      entites.add(persoNiveauActuel);
-      pj = persoNiveauActuel;
-      while (currentLabyrinthe.getMur(pj.getX(), pj.getY())) {
-         // Si la position de départ est un mur, trouve une nouvelle position
-         pj.setX((pj.getX() + 1) % currentLabyrinthe.getLengthX());
-         pj.setY((pj.getY() + 1) % currentLabyrinthe.getLengthY());
-      }
+      entites.add(pj);
       System.out.println("Passage au niveau " + levelIndex);
    }
 

@@ -22,6 +22,8 @@ public class Labyrinthe {
    public static final char PJ = 'P';
    public static final char VIDE = '.';
    public static final char MONSTRE = 'M';
+   public static final char ESCALIER_MONTANT = 'U';
+   public static final char ESCALIER_DESCENDANT = 'D';
 
    /**
     * Constantes actions possibles
@@ -45,6 +47,19 @@ public class Labyrinthe {
     * Liste des éléments Déplaçables
     */
    public static ArrayList<Entite> entites = new ArrayList<>();
+
+
+   /**
+    * Liste de tous les niveaux
+    * contient tous les niveaux de labyrinthe
+    */
+   public static ArrayList<Labyrinthe> allLevels = new ArrayList<>();
+
+   /**
+    * Labyrinthe actuel
+    */
+   public static Labyrinthe currentLabyrinthe;
+
 
    /**
     * retourne la case suivante selon une action
@@ -134,7 +149,14 @@ public class Labyrinthe {
                   // ajoute monstre
                   new Monstre(colonne, numeroLigne);
                   break;
-
+               case ESCALIER_MONTANT:
+                  murs[colonne][numeroLigne] = false;
+                  new Escalier(colonne, numeroLigne, allLevels.size(), true);
+                  break;
+               case ESCALIER_DESCENDANT:
+                  murs[colonne][numeroLigne] = false;
+                  new Escalier(colonne, numeroLigne, allLevels.size(), false);
+                  break;
                default:
                   throw new Error("Caractère inconnu : " + c);
             }
@@ -147,8 +169,20 @@ public class Labyrinthe {
 
       // ferme fichier
       bfRead.close();
+
+      allLevels.add(this);
+
    }
 
+   /**
+    * Charge un niveau specifique
+    *
+    * @param levelIndex l'index du niveau a charger
+    * @return le labyrinthe correspondant au niveau
+    */
+   public static Labyrinthe loadLevel(int levelIndex) {
+      return allLevels.get(levelIndex);
+   }
 
    /**
     * deplace le personnage en fonction de l'action.

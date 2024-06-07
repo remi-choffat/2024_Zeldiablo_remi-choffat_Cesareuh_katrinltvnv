@@ -6,6 +6,6 @@ X..X.............X
 X.....X..X.....XXX
 XX..M....XX...MXXX
 X........X.....X.X
-X........X.....X.X
+U........X.....X.X
 X........X.P.....X
 XXXXXXXXXXXXXXXXXX

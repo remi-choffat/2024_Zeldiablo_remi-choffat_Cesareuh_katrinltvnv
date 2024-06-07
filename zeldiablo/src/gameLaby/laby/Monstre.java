@@ -13,7 +13,7 @@ public class Monstre extends Vivant {
     * @param dy position selon y
     */
    public Monstre(int dx, int dy) {
-      super(dx, dy, 1, 4);
+      super(dx, dy, 1, 2);
    }
 
    /**
@@ -42,7 +42,6 @@ public class Monstre extends Vivant {
 
    /**
     * inflige des dégats à un vivant
-    *
     * @param v vivant à attaquer
     */
    public void infligerDegats(Vivant v) {

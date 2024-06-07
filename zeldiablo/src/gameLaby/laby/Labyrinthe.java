@@ -160,6 +160,8 @@ public class Labyrinthe {
       // ferme fichier
       bfRead.close();
 
+      // ajoute le labyrinthe
+      allLevels.add(this);
    }
 
    /**

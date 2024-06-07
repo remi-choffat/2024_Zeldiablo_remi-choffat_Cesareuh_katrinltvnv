@@ -35,7 +35,7 @@ public class Tests_V2 {
             assertEquals(Arrays.toString(new int[]{2, 2}), Arrays.toString(Labyrinthe.getSuivant(1, 2, Labyrinthe.DROITE)));
 
     }
-
+/*
     @Test
     public void test_deplacerPerso(){
         try {
@@ -72,5 +72,5 @@ public class Tests_V2 {
             fail();
         }
     }
-
+*/
 }

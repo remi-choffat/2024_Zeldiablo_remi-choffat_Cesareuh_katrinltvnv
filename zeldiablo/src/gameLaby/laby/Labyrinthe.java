@@ -160,8 +160,6 @@ public class Labyrinthe {
       // ferme fichier
       bfRead.close();
 
-      allLevels.add(this);
-
    }
 
    /**
@@ -192,7 +190,7 @@ public class Labyrinthe {
     * deplace le personnage en fonction de l'action.
     * gere la collision avec les murs
     */
-   public void updateLaby() {
+   public static void updateLaby() {
 
       // Liste pour stocker les éléments à supprimer
       ArrayList<Entite> toRemove = new ArrayList<>();

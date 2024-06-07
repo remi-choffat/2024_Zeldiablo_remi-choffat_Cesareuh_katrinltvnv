@@ -46,8 +46,8 @@ jusqu'au héros même s'il y a des obstacles.
       - Le perso gagne des points de vie quand il termine le niveau (+4)  
 - [ ] Gestion du stock de flèches : à chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
 - [ ] Images pour toutes les entités 🖼️
-- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre 🙋🏿‍♂️ : Intensité selon niveau
-- [ ] Fonctionnalité 11.3 - Gestion d'un menu 📋
+- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau 🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
+- [ ] **Fonctionnalité 11.3 - Gestion d'un menu 📋**
 
 ## Répartition des tâches
 

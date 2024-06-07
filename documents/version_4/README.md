@@ -30,7 +30,7 @@ héros en prenant en compte la présence des murs.
 le héros.
 * Le monstre prend en compte les obstacles qui le concernent pour trouver le meilleur
 chemin.
-* Lorsqu'il se déplace, le monstre suit eectivement le meilleur chemin et parvient
+* Lorsqu'il se déplace, le monstre suit effectivement le meilleur chemin et parvient
 jusqu'au héros même s'il y a des obstacles.
 
 ### - Améliorations diverses
@@ -38,12 +38,15 @@ jusqu'au héros même s'il y a des obstacles.
 - [ ] Placement aléatoire des monstres et de la sortie 🤪
 - [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
 - [ ] Mouvements fluides 🐇
-- [ ] Système de points 💯 :  
-      - Augmentent beaucoup si le perso tue un monstre  
-      - Augmentent un peu si le perso atteint la sortie  
-      - Diminuent quand un monstre est tué par une autre entité que le perso  
+- [ ] Ajout d'un système de points (score) 💯 :  
+      - Augmentent beaucoup si le perso tue un monstre (+10)  
+      - Augmentent un peu si le perso atteint la sortie (+5)  
+      - Diminuent quand un monstre est tué par une autre entité que le perso (-2)  
+- [ ] Système de points de vie :  
+      - Le perso gagne des points de vie quand il termine le niveau (+4)  
+- [ ] Gestion du stock de flèches : à chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
 - [ ] Images pour toutes les entités 🖼️
-- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre 🙋🏿‍♂️
+- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre 🙋🏿‍♂️ : Intensité selon niveau
 - [ ] Fonctionnalité 11.3 - Gestion d'un menu 📋
 
 ## Répartition des tâches

@@ -79,4 +79,6 @@ Fleche ..|> Attaque
 Entite <|-- Escalier
 Entite "*" <-- "1" Labyrinthe : entites
 Labyrinthe "1" --> "1" Perso : perso
+Labyrinthe "1" --> "1" Labyrinthe : <b>currentLabyrinthe</b>
+Labyrinthe "1" --> "*" Labyrinthe : <b>allLevels</b>
 @enduml

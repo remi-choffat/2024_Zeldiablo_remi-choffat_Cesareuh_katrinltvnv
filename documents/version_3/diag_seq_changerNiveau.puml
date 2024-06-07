@@ -1,0 +1,21 @@
+@startuml
+participant laby as "Labyrinthe"
+participant perso as "perso : Personnage"
+participant escalier as "escalier : Escalier"
+activate laby
+laby -> perso : deplacer()
+activate perso
+perso -> escalier : collision(perso)
+deactivate perso
+activate escalier
+escalier -> laby : changerNiveau(newLevel : int)
+deactivate escalier
+laby -> laby : new()
+activate laby
+laby -> perso
+activate perso
+perso --> laby : Labyrinthe.pj = perso
+deactivate perso
+deactivate laby
+deactivate laby
+@enduml

@@ -11,6 +11,7 @@ public class Escalier extends Entite {
     * Indice du niveau
     */
    private final int inxLevel;
+   private boolean sup = false;
 
    /**
     * Indique si l'escalier est debloqué
@@ -36,7 +37,7 @@ public class Escalier extends Entite {
     */
    @Override
    public boolean supprimer() {
-      return false;
+      return sup;
    }
 
    /**
@@ -51,6 +52,7 @@ public class Escalier extends Entite {
          int newLevel = this.inxLevel + 1;
          try {
             Labyrinthe.changerNiveau(newLevel);
+            sup = true;
          } catch (IOException e) {
             System.out.println("Erreur lors du changement du niveau " + newLevel);
          }

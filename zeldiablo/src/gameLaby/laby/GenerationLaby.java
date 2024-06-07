@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class GenerationLaby {
     private static ArrayList<ArrayList<Integer>> murs_a_ajouter;
-    private static boolean[][] murs = Labyrinthe.murs;
+    private static boolean[][] murs = new boolean[22][11];
 
-    public static void creer(){
+    public static boolean[][] creer(){
         murs_a_ajouter = new ArrayList<ArrayList<Integer>>();
+
         for(int x = 0; x < murs.length; x++){
-            for(int y = 0; x < murs[x].length; y++){
+            for(int y = 0; y < murs[x].length; y++){
                 murs[x][y] = true;
             }
         }
@@ -26,6 +27,7 @@ public class GenerationLaby {
             murs_a_ajouter.remove(index);
         }
 
+        return murs;
     }
 
     public static void ajouterMurs(int x, int y){
@@ -63,9 +65,8 @@ public class GenerationLaby {
             int index = (int)(Math.random() * deuxieme_pos.size()-1);
             if(base_pos.get(0)[0] == deuxieme_pos.get(index)[0] || base_pos.get(0)[1] == deuxieme_pos.get(index)[1]){
                 murs[x][y] = false;
-                murs[deuxieme_pos.get(index)[0]][deuxieme_pos.get(index)[1]] = true;
+                murs[deuxieme_pos.get(index)[0]][deuxieme_pos.get(index)[1]] = false;
                 ajouterMurs(deuxieme_pos.get(index)[0], deuxieme_pos.get(index)[1]);
-                compteur++;
             }
             deuxieme_pos.remove(index);
         }
@@ -76,7 +77,7 @@ public class GenerationLaby {
         for(int i = x -1; i <= x+1; i++){
             for(int j = y -1; j <= y+1; j++){
                 if(i > 0 && i < murs.length-1 && j > 0 && j < murs[0].length-1){
-                    if(murs[i][j]){
+                    if(!murs[i][j]){
                         compteur++;
                     }
                 }

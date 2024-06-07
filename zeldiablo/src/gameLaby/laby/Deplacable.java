@@ -41,6 +41,7 @@ public abstract class Deplacable extends Entite {
     */
    public void deplacer() {
       for (int i = 0; i < this.nb_mouvements; i++) {
+         int[] avant = {this.getX(), this.getY()};
          int[] suivante = Labyrinthe.getSuivant(this.getX(), this.getY(), this.direction);
 
          if (Labyrinthe.murs[suivante[0]][suivante[1]]) {
@@ -51,20 +52,25 @@ public abstract class Deplacable extends Entite {
             return;
          }
 
+
+         // On déplace l'élément
+         this.setX(suivante[0]);
+         this.setY(suivante[1]);
+
          for (Entite d : Labyrinthe.entites) {
-            if (d.etrePresent(suivante[0], suivante[1])) {
+            if (d.etrePresent(suivante[0], suivante[1]) && d != this) {
                this.collision(d);
                d.collision(this);
                // Les escaliers ne bloquent pas le passage
                if (!(d instanceof Escalier)) {
+                  // On remet à la position initiale
+                  this.setX(avant[0]);
+                  this.setY(avant[1]);
                   return;
                }
             }
          }
 
-         // On déplace l'élément
-         this.setX(suivante[0]);
-         this.setY(suivante[1]);
       }
    }
 

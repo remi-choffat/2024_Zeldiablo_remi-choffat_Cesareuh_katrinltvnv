@@ -98,6 +98,7 @@ public class Labyrinthe {
     * @throws IOException probleme a la lecture / ouverture
     */
    public Labyrinthe(String nom) throws IOException {
+      /*
       // ouverture fichier
       FileReader fichier = new FileReader(nom);
       BufferedReader bfRead = new BufferedReader(fichier);
@@ -107,6 +108,7 @@ public class Labyrinthe {
       nbLignes = Integer.parseInt(bfRead.readLine());
       // lecture nbcolonnes
       nbColonnes = Integer.parseInt(bfRead.readLine());
+
 
       // creation labyrinthe vide
       murs = new boolean[nbColonnes][nbLignes];
@@ -162,6 +164,12 @@ public class Labyrinthe {
 
       // ajoute le labyrinthe
       allLevels.add(this);
+
+       */
+
+      pj = new Perso(1, 1);
+      murs = GenerationLaby.creer();
+
    }
 
    /**
@@ -172,6 +180,7 @@ public class Labyrinthe {
     * @throws IOException              si probleme a la lecture du fichier
     */
    public static void changerNiveau(int levelIndex) throws IllegalArgumentException, IOException {
+      /*
       new Labyrinthe("labySimple/laby" + levelIndex + ".txt");
       if (levelIndex < 0 || levelIndex >= allLevels.size()) {
          throw new IllegalArgumentException("Le niveau " + levelIndex + " n'existe pas");
@@ -179,8 +188,9 @@ public class Labyrinthe {
       currentLabyrinthe = allLevels.get(levelIndex);
       entites.add(pj);
 
+       */
 
-      //GenerationLaby.creer();
+      murs = GenerationLaby.creer();
       System.out.println("Passage au niveau " + levelIndex);
    }
 
@@ -189,18 +199,19 @@ public class Labyrinthe {
     * gere la collision avec les murs
     */
    public static void updateLaby() {
+      System.out.println("x : " + pj.getX() + " y : " + pj.getY() + " ");
 
       // Liste pour stocker les éléments à supprimer
       ArrayList<Entite> toRemove = new ArrayList<>();
 
       // Déplace tous les objets déplaçables
-      for (Entite d : entites) {
-         if (d instanceof Deplacable) {
-            ((Deplacable) d).deplacer();
+      for (Entite e : entites) {
+         if (e instanceof Deplacable) {
+            ((Deplacable) e).deplacer();
             // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
-            if (d.supprimer()) {
-               toRemove.add(d);
-            }
+         }
+         if (e.supprimer()) {
+            toRemove.add(e);
          }
       }
 

@@ -22,8 +22,7 @@ public class Labyrinthe {
    public static final char PJ = 'P';
    public static final char VIDE = '.';
    public static final char MONSTRE = 'M';
-   public static final char ESCALIER_MONTANT = 'U';
-   public static final char ESCALIER_DESCENDANT = 'D';
+   public static final char ESCALIER = 'E';
 
    /**
     * Constantes actions possibles
@@ -149,13 +148,9 @@ public class Labyrinthe {
                   // ajoute monstre
                   new Monstre(colonne, numeroLigne);
                   break;
-               case ESCALIER_MONTANT:
+               case ESCALIER:
                   murs[colonne][numeroLigne] = false;
-                  new Escalier(colonne, numeroLigne, allLevels.size(), true);
-                  break;
-               case ESCALIER_DESCENDANT:
-                  murs[colonne][numeroLigne] = false;
-                  new Escalier(colonne, numeroLigne, allLevels.size(), false);
+                  new Escalier(colonne, numeroLigne, allLevels.size());
                   break;
                default:
                   throw new Error("Caractère inconnu : " + c);
@@ -172,19 +167,25 @@ public class Labyrinthe {
 
       allLevels.add(this);
 
-      System.out.println(allLevels.size());
-      System.out.println(allLevels.get(0));
-
    }
 
    /**
-    * Charge un niveau specifique
+    * change le niveau
     *
-    * @param levelIndex l'index du niveau a charger
-    * @return le labyrinthe correspondant au niveau
+    * @param levelIndex index du niveau
+    * @throws IllegalArgumentException si le niveau n'existe pas
+    * @throws IOException              si probleme a la lecture du fichier
     */
-   public static Labyrinthe loadLevel(int levelIndex) {
-      return allLevels.get(levelIndex);
+   public static void changerNiveau(int levelIndex) throws IllegalArgumentException, IOException {
+      new Labyrinthe("labySimple/laby" + levelIndex + ".txt");
+      if (levelIndex < 0 || levelIndex >= allLevels.size()) {
+         throw new IllegalArgumentException("Le niveau " + levelIndex + " n'existe pas");
+      }
+      Perso persoNiveauActuel = pj;
+      currentLabyrinthe = allLevels.get(levelIndex);
+      entites.add(persoNiveauActuel);
+      pj = persoNiveauActuel;
+      System.out.println("Passage au niveau " + levelIndex);
    }
 
    /**
@@ -201,11 +202,6 @@ public class Labyrinthe {
          if (d instanceof Deplacable) {
             ((Deplacable) d).deplacer();
             // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
-            if (d instanceof Vivant v) {
-               // On affiche en console les points de vie des êtres vivants
-               System.out.println("Pv " + d.getClass().getSimpleName() + " : " + v.getPv());
-            }
-
             if (d.supprimer()) {
                toRemove.add(d);
             }

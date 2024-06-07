@@ -24,11 +24,13 @@ class Perso{
 +Perso(dx : int, dy : int)
 +infligerDegats(v : Vivant)
 +lancerFleche()
++deplacer()
 }
 
 class Monstre{
 +Monstre(dx : int, dy : int)
 +infligerDegats(v : Vivant)
++deplacer()
 }
 
 abstract class Vivant{

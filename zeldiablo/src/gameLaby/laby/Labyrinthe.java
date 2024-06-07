@@ -1,7 +1,5 @@
 package gameLaby.laby;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -98,74 +96,6 @@ public class Labyrinthe {
     * @throws IOException probleme a la lecture / ouverture
     */
    public Labyrinthe(String nom) throws IOException {
-      /*
-      // ouverture fichier
-      FileReader fichier = new FileReader(nom);
-      BufferedReader bfRead = new BufferedReader(fichier);
-
-      int nbLignes, nbColonnes;
-      // lecture nblignes
-      nbLignes = Integer.parseInt(bfRead.readLine());
-      // lecture nbcolonnes
-      nbColonnes = Integer.parseInt(bfRead.readLine());
-
-
-      // creation labyrinthe vide
-      murs = new boolean[nbColonnes][nbLignes];
-      entites = new ArrayList<>();
-
-      // lecture des cases
-      String ligne = bfRead.readLine();
-
-      // stocke les indices courants
-      int numeroLigne = 0;
-
-      // parcourt le fichier
-      while (ligne != null) {
-
-         // parcours de la ligne
-         for (int colonne = 0; colonne < ligne.length(); colonne++) {
-            char c = ligne.charAt(colonne);
-            switch (c) {
-               case MUR:
-                  murs[colonne][numeroLigne] = true;
-                  break;
-               case VIDE:
-                  murs[colonne][numeroLigne] = false;
-                  break;
-               case PJ:
-                  // pas de mur
-                  murs[colonne][numeroLigne] = false;
-                  // ajoute PJ
-                  pj = new Perso(colonne, numeroLigne);
-                  break;
-               case MONSTRE:
-                  // pas de mur
-                  murs[colonne][numeroLigne] = false;
-                  // ajoute monstre
-                  new Monstre(colonne, numeroLigne);
-                  break;
-               case ESCALIER:
-                  murs[colonne][numeroLigne] = false;
-                  new Escalier(colonne, numeroLigne, allLevels.size());
-                  break;
-               default:
-                  throw new Error("Caractère inconnu : " + c);
-            }
-         }
-
-         // lecture
-         ligne = bfRead.readLine();
-         numeroLigne++;
-      }
-
-      // ferme fichier
-      bfRead.close();
-
-      // ajoute le labyrinthe
-      allLevels.add(this);
-
-       */
 
       pj = new Perso(1, 1);
       murs = GenerationLaby.creer();
@@ -180,16 +110,6 @@ public class Labyrinthe {
     * @throws IOException              si probleme a la lecture du fichier
     */
    public static void changerNiveau(int levelIndex) throws IllegalArgumentException, IOException {
-      /*
-      new Labyrinthe("labySimple/laby" + levelIndex + ".txt");
-      if (levelIndex < 0 || levelIndex >= allLevels.size()) {
-         throw new IllegalArgumentException("Le niveau " + levelIndex + " n'existe pas");
-      }
-      currentLabyrinthe = allLevels.get(levelIndex);
-      entites.add(pj);
-
-       */
-
       murs = GenerationLaby.creer();
       System.out.println("Passage au niveau " + levelIndex);
    }
@@ -199,7 +119,6 @@ public class Labyrinthe {
     * gere la collision avec les murs
     */
    public static void updateLaby() {
-      System.out.println("x : " + pj.getX() + " y : " + pj.getY() + " ");
 
       // Liste pour stocker les éléments à supprimer
       ArrayList<Entite> toRemove = new ArrayList<>();
@@ -208,8 +127,8 @@ public class Labyrinthe {
       for (Entite e : entites) {
          if (e instanceof Deplacable) {
             ((Deplacable) e).deplacer();
-            // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
          }
+         // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
          if (e.supprimer()) {
             toRemove.add(e);
          }
@@ -232,23 +151,8 @@ public class Labyrinthe {
             }
          }
       }
-
-      // Si le personnage n'a plus de point de vie, on arrête le jeu
-      if (pj.getPv() <= 0) {
-         System.out.println("Game Over");
-         System.exit(0);
-      }
    }
 
-
-   /**
-    * jamais fini
-    *
-    * @return fin du jeu
-    */
-   public boolean etreFini() {
-      return false;
-   }
 
    // ##################################
    // GETTER

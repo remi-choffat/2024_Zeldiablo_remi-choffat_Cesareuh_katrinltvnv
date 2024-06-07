@@ -11,9 +11,9 @@ Ce projet a été réalisé dans le cadre de la SAE2.01. Le but est de créer un
 ### Règles du jeu 📖
 Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il doit tuer tous les monstres. Un fois tous les monstres tués, il peut accéder aux escaliers afin d'accéder au niveau suivant généré aléatoirement et contenant plus de monstres.
 #### Touches ⌨️
-‎
+
  * Déplacements :⬅️  ⬇️  ⬆️  ➡️
- * Tirer flèche : Espace
+ * Tirer une flèche : Espace
 
 
 
@@ -23,5 +23,6 @@ Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il do
 ## Versions 🖥️
 * [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/) : Implémentation du moteur de jeu
 * [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et flèches
-* [Version 3](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_3/) : Génération des niveaux
+* [Version 3](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_3/) : Passage à un niveau supérieur
+* [Version 4](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_4/) : Génération automatique des labyrinthes
 

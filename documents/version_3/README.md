@@ -86,5 +86,11 @@ Mathieu : Génération automatique de labyrinthe, Readme
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_classe_v3_final.png" alt="Diagramme de classe final"></img>
 
 ### Diagrammes de séquence
+
 #### Diagramme de genererLaby()
+
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_seq_genererLaby.png" alt="Diagramme de séquence de générerLaby()"></img>
+
+#### Diagramme de changerNiveau()
+
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_seq_changerNiveau.png" alt="Diagramme de séquence de changerNiveau()"></img>

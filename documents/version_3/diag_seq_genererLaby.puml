@@ -1,0 +1,67 @@
+@startuml
+participant laby as "laby : Labyrinthe"
+participant chemin as "chemin : ArrayList<ArrayList<Boolean>>"
+participant chemin_row as "chemin_row : ArrayList<Boolean>"
+participant murs_a_ajouter as "murs_a_ajouter : ArrayList<ArrayList<Integer>>"
+participant cell as "cell : ArrayList<Integer>"
+
+
+
+activate laby
+
+group genererLaby()
+
+    create chemin
+    laby -> chemin : new
+    create murs_a_ajouter
+    laby -> murs_a_ajouter : new
+
+    loop y<chemin.size
+    loop x < chemin.size
+    create chemin_row
+    laby -> chemin_row : new
+    laby -> chemin_row : add(false)
+    end
+    laby -> chemin : add(chemin_row)
+    end
+
+    laby -> chemin : get(1).set(1, true)
+    deactivate chemin
+
+    group ajouterMurs(x: int, y: int)
+        loop pos : int[] in [[x-1, y], [x+1, y], [x, y-1], [x, y+1]]
+            alt chemin.get(pos[1]).get(pos[0]) == false
+            laby -> murs_a_ajouter : add(pos)
+            end
+        end
+    end
+
+    loop murs_a_ajouter.size() > 0
+        create cell
+        laby -> cell : new ArrayList<Integer>.add(murs_a_ajouter.get(Random))
+
+        group ajouter(x: int, y: int)
+            create deuxieme_pos as "deuxieme_pos : int[]"
+            create base_pos as "base_pos : int[]"
+            loop pos : int[] in [[x-1, y], [x+1, y], [x, y-1], [x, y+1]]
+                alt chemin.get(pos[1]).get(pos[0]) == true
+                    laby -> base_pos : pos
+                end
+                alt ajoutable(pos)
+                    laby -> deuxieme_pos : pos
+                end
+            end
+
+            alt deuxieme_pos != null && base_pos même ligne que deuxieme_pos
+                laby -> chemin : get(base_pos[1]).set(base_pos[0], true)
+                laby -> chemin : get(deuxieme_pos[1]).set(deuxieme_pos[0], true)
+                group ajouterMurs(deuxieme_pos[0], deuxieme_pos[1])
+                end
+            end
+        end
+        laby -> murs_a_ajouter : remove(cell)
+    end
+end
+
+deactivate laby
+@enduml

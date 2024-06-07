@@ -1,5 +1,8 @@
 package gameLaby.laby;
 
+/**
+ * Représente une flèche qui peut être tirée par le joueur
+ */
 public class Fleche extends Deplacable implements Attaque {
 
    public boolean toRemove = false;

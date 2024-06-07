@@ -4,6 +4,9 @@ import moteurJeu.Clavier;
 
 import java.io.IOException;
 
+/**
+ * Gère le déroulement du jeu
+ */
 public class LabyJeu implements moteurJeu.Jeu {
 
    public final Labyrinthe laby;

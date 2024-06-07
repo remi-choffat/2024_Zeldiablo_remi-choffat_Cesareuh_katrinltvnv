@@ -1,7 +1,10 @@
 package gameLaby.laby;
 
 import java.io.IOException;
- 
+
+/**
+ * Lance le jeu
+ */
 public class MainLaby {
     public static void main(String[] args) throws IOException {
         LabyJeu jeu = new LabyJeu();

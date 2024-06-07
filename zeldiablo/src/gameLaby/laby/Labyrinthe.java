@@ -14,15 +14,6 @@ import java.util.ArrayList;
 public class Labyrinthe {
 
    /**
-    * Constantes char
-    */
-   public static final char MUR = 'X';
-   public static final char PJ = 'P';
-   public static final char VIDE = '.';
-   public static final char MONSTRE = 'M';
-   public static final char ESCALIER = 'E';
-
-   /**
     * Constantes actions possibles
     */
    public static final String HAUT = "Haut";
@@ -44,19 +35,6 @@ public class Labyrinthe {
     * Liste des éléments Déplaçables
     */
    public static ArrayList<Entite> entites = new ArrayList<>();
-
-
-   /**
-    * Liste de tous les niveaux
-    * contient tous les niveaux de labyrinthe
-    */
-   public static ArrayList<Labyrinthe> allLevels = new ArrayList<>();
-
-   /**
-    * Labyrinthe actuel
-    */
-   public static Labyrinthe currentLabyrinthe;
-
 
    /**
     * retourne la case suivante selon une action

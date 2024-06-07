@@ -3,7 +3,7 @@ package gameLaby.laby;
 import java.io.IOException;
 
 /**
- * Représente un Escalier
+ * Représente un escalier (sortie du labyrinthe)
  */
 public class Escalier extends Entite {
 
@@ -11,6 +11,10 @@ public class Escalier extends Entite {
     * Indice du niveau
     */
    private final int inxLevel;
+
+   /**
+    * Indique si l'escalier doit être supprimé
+    */
    private boolean sup = false;
 
    /**

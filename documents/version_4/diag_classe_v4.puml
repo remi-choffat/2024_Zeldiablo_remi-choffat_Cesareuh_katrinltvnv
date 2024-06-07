@@ -48,12 +48,15 @@ interface Attaque {
 
 class Fleche {
 +collision(objet : Entite)
++infligerDegats(v : Vivant)
++supprimer()
 }
 
 class Escalier{
 -inxLevel : int
+-sup : boolean
 +debloque : boolean
-+supprimer()
++supprimer() : boolean
 +collision(objet : Entite)
 }
 
@@ -90,7 +93,5 @@ Fleche ..|> Attaque
 Entite <|-- Escalier
 Entite "*" <-- "1" Labyrinthe : entites
 Labyrinthe "1" --> "1" Perso : perso
-Labyrinthe "1" --> "1" Labyrinthe : currentLabyrinthe
-Labyrinthe "1" --> "*" Labyrinthe : allLevels
 GenerationLaby -- Labyrinthe : murs
 @enduml

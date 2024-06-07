@@ -1,6 +1,5 @@
 package gameLaby.laby;
 
-
 /**
  * Représente un monstre
  */

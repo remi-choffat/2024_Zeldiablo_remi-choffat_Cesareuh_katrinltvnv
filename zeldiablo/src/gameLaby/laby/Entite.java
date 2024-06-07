@@ -2,6 +2,9 @@ package gameLaby.laby;
 
 import javafx.scene.image.ImageView;
 
+/**
+ * Représente une entité du labyrinthe
+ */
 public abstract class Entite {
 
    private int x;

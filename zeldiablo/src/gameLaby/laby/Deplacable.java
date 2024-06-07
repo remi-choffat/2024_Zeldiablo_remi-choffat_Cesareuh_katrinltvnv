@@ -55,9 +55,14 @@ public abstract class Deplacable extends Entite {
             if (d.etrePresent(suivante[0], suivante[1])) {
                this.collision(d);
                d.collision(this);
-               return;
+               // Les escaliers ne bloquent pas le passage
+               if (!(d instanceof Escalier)) {
+                  return;
+               }
             }
          }
+
+         // On déplace l'élément
          this.setX(suivante[0]);
          this.setY(suivante[1]);
       }

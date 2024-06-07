@@ -13,6 +13,11 @@ public class Escalier extends Entite {
    private final int inxLevel;
 
    /**
+    * Indique si l'escalier est debloqué
+    */
+   public boolean debloque = false;
+
+   /**
     * constructeur
     *
     * @param x         position selon x
@@ -42,7 +47,7 @@ public class Escalier extends Entite {
     */
    @Override
    public void collision(Entite d) {
-      if (d instanceof Perso) {
+      if (d instanceof Perso && debloque) {
          int newLevel = this.inxLevel + 1;
          try {
             Labyrinthe.changerNiveau(newLevel);

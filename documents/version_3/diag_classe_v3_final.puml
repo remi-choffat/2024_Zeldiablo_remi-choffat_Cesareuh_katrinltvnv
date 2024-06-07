@@ -50,6 +50,7 @@ class Fleche {
 
 class Escalier{
 -inxLevel : int
++<b>debloque</b>
 +supprimer()
 +collision(objet : Entite)
 +<b><s>nextLevel()</s></b>

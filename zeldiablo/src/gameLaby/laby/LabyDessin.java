@@ -103,6 +103,15 @@ public class LabyDessin implements DessinJeu {
             }
          }
       }
+
+      if (entite instanceof Escalier) {
+         if (!((Escalier) entite).debloque) {
+            iv.setOpacity(0.3);
+         } else {
+            iv.setOpacity(1);
+         }
+      }
+
       return iv;
    }
 }

@@ -180,6 +180,11 @@ public class Labyrinthe {
       currentLabyrinthe = allLevels.get(levelIndex);
       entites.add(persoNiveauActuel);
       pj = persoNiveauActuel;
+      while (currentLabyrinthe.getMur(pj.getX(), pj.getY())) {
+         // Si la position de départ est un mur, trouve une nouvelle position
+         pj.setX((pj.getX() + 1) % currentLabyrinthe.getLengthX());
+         pj.setY((pj.getY() + 1) % currentLabyrinthe.getLengthY());
+      }
       System.out.println("Passage au niveau " + levelIndex);
    }
 
@@ -205,6 +210,21 @@ public class Labyrinthe {
 
       // Supprime les éléments de la liste deplacables qui sont morts
       entites.removeAll(toRemove);
+
+      // Si tous les monstres sont morts, on l'affiche
+      int nbMonstres = 0;
+      for (Entite d : entites) {
+         if (d instanceof Monstre) {
+            nbMonstres++;
+         }
+      }
+      if (nbMonstres == 0) {
+         for (Entite d : entites) {
+            if (d instanceof Escalier) {
+               ((Escalier) d).debloque = true;
+            }
+         }
+      }
 
       // Si le personnage n'a plus de point de vie, on arrête le jeu
       if (pj.getPv() <= 0) {

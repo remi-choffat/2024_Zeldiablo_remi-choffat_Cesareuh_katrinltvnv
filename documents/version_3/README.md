@@ -43,7 +43,8 @@ particulier. Des escaliers permettent de passer d'un étage à un autre.
 ### - 1.9 Génération automatique de labyrinthe
 
 Les niveaux ne sont pas stockés en mémoire, mais le labyrinthe est généré automatiquement par le jeu (ce qui permet
-d'avoir des parties à chaque fois différentes)
+d'avoir des parties à chaque fois différentes)   
+Pour générer ce labyrinthe, nous avons utilisé l'algorithme de Prims
 
 #### Critères de validation :
 
@@ -64,8 +65,8 @@ d'avoir des parties à chaque fois différentes)
 
 ## Répartition des tâches
 
-Rémi : Création classe `Entite`, Diagrammes, Images de jeu    
-Kateryna : Gestion d'un labyrinthe multi-étages    
+Rémi : Création classe `Entite`, Diagrammes, Images de jeu, Gestion d'un labyrinthe multi-étages    
+Kateryna : Gestion d'un labyrinthe multi-étages, Tests    
 Mathieu : Génération automatique de labyrinthe, Readme
 
 ## Diagrammes
@@ -85,3 +86,5 @@ Mathieu : Génération automatique de labyrinthe, Readme
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_classe_v3_final.png" alt="Diagramme de classe final"></img>
 
 ### Diagrammes de séquence
+#### Diagramme de genererLaby()
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_seq_genererLaby.png" alt="Diagramme de séquence de générerLaby()"></img>

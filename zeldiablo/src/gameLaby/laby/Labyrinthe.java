@@ -172,6 +172,9 @@ public class Labyrinthe {
 
       allLevels.add(this);
 
+      System.out.println(allLevels.size());
+      System.out.println(allLevels.get(0));
+
    }
 
    /**
@@ -187,7 +190,6 @@ public class Labyrinthe {
    /**
     * deplace le personnage en fonction de l'action.
     * gere la collision avec les murs
-    *
     */
    public void updateLaby() {
 

@@ -27,12 +27,13 @@ Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il do
 - [X] 5.5 Mort des monstres
 - [X] 6.1 Fin du jeu : mort du héros
 - [X] 8.1 Attaque à distance du joueur
+- [X] 11.3 Gestion d'un menu
 
 ## 🖥️ Versions
 * [Version 1](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_1/) : Implémentation du moteur de jeu
-* [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et flèches
+* [Version 2](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_2/) : Ajout des monstres et flèches (attaques à distance)
 * [Version 3](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_3/) : Passage à un niveau supérieur
-* [Version 4](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_4/) : Génération automatique des labyrinthes
+* [Version 4](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/version_4/) : Génération automatique des labyrinthes, menu et déplacement des monstres
 
 ## ✏️ Auteurs
 [Rémi Choffat](https://github.com/remi-choffat) 🐢, [Mathieu Graff](https://github.com/Cesareuh) 🐧 et [Kateryna Babachanakh](https://github.com/katrinltvnv) 🦋 

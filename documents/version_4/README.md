@@ -3,6 +3,7 @@
 ## Objectif
 
 L'objectif est d'implémenter une gestion des niveaux en générant des labyrinthes aléatoires, et de rendre les déplacements des monstres intelligents.
+De plus, une interface graphique est mise en place pour permettre au joueur de lancer le jeu.
 
 ## Fonctionnalités
 
@@ -33,6 +34,17 @@ chemin.
 * Lorsqu'il se déplace, le monstre suit effectivement le meilleur chemin et parvient
 jusqu'au héros même s'il y a des obstacles.
 
+### - 11.3 Gestion d'un menu
+Plutôt que de lancer directement le jeu, le joueur lance un menu qui lui permet de
+lancer le jeu ou de quitter l'application. Ce menu ré-apparait lorsque le joueur gagne
+ou perd.
+
+#### Critères de validation
+* Le menu possède une image spécifique.
+* Le menu propose deux options : Jouer ou Quitter.
+* Le menu s'affiche dans la même JFrame que le rendu du jeu.
+* Pendant le menu, le jeu n'est pas créé et ne tourne pas.
+
 ### - Améliorations diverses
 
 - [ ] Placement aléatoire des monstres et de la sortie 🤪
@@ -42,12 +54,14 @@ jusqu'au héros même s'il y a des obstacles.
       - Augmentent beaucoup si le perso tue un monstre (+10)  
       - Augmentent un peu si le perso atteint la sortie (+5)  
       - Diminuent quand un monstre est tué par une autre entité que le perso (-2)  
-- [ ] Système de points de vie :  
+- [ ] Système de points de vie ❤️ :  
       - Le perso gagne des points de vie quand il termine le niveau (+4)  
-- [ ] Gestion du stock de flèches : à chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
+- [ ] Gestion du stock de flèches 🏹 :   
+      - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
 - [ ] Images pour toutes les entités 🖼️
 - [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau 🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
-- [ ] **Fonctionnalité 11.3 - Gestion d'un menu 📋**
+- [ ] **Fonctionnalité 11.2 - Configuration du clavier ⌨️️**
+- [X] **Fonctionnalité 11.3 - Gestion d'un menu 📋**
 
 ## Répartition des tâches
 

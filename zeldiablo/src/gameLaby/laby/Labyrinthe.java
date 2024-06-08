@@ -2,6 +2,7 @@ package gameLaby.laby;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Représente un labyrinthe avec
@@ -37,6 +38,17 @@ public class Labyrinthe {
    public static ArrayList<Entite> entites = new ArrayList<>();
 
    /**
+    * Indique si le niveau doit être changé
+    */
+   private static boolean niveauAChanger = false;
+
+   /**
+    * Prochain niveau
+    */
+   private static int prochainNiveau;
+
+
+   /**
     * retourne la case suivante selon une action
     *
     * @param x      case depart
@@ -66,6 +78,7 @@ public class Labyrinthe {
       return new int[]{x, y};
    }
 
+
    /**
     * charge le labyrinthe
     *
@@ -77,8 +90,10 @@ public class Labyrinthe {
 
       pj = new Perso(1, 1);
       murs = GenerationLaby.creer();
+      placerEntites(1);
 
    }
+
 
    /**
     * change le niveau
@@ -88,34 +103,71 @@ public class Labyrinthe {
     * @throws IOException              si probleme a la lecture du fichier
     */
    public static void changerNiveau(int levelIndex) throws IllegalArgumentException, IOException {
-      murs = GenerationLaby.creer();
-      System.out.println("Passage au niveau " + levelIndex);
+      niveauAChanger = true;
+      prochainNiveau = levelIndex;
+   }
+
+
+   /**
+    * Place les entites aléatoirement dans le labyrinthe
+    *
+    * @param levelIndex index du niveau
+    */
+   public static void placerEntites(int levelIndex) {
+
+      // Nombre de monstres à ajouter
+      int nbMonstres = levelIndex + 1;
+
+      // Liste des positions possibles
+      ArrayList<int[]> positionsPossibles = new ArrayList<>();
+      for (int x = 0; x < murs.length; x++) {
+         for (int y = 0; y < murs[0].length; y++) {
+            // Si la case n'est pas un mur et n'est pas la position du joueur
+            // on ajoute la position à la liste des positions possibles
+            if (!murs[x][y] && !(x == pj.getX() && y == pj.getY())) {
+               positionsPossibles.add(new int[]{x, y});
+            }
+         }
+      }
+
+      // Mélange la liste des positions possibles
+      Collections.shuffle(positionsPossibles);
+
+      // Ajoute les monstres
+      for (int i = 0; i < nbMonstres; i++) {
+         int[] pos = positionsPossibles.remove(0);
+         entites.add(new Monstre(pos[0], pos[1]));
+      }
+
+      // Ajoute l'escalier de sortie'
+      int[] posEscalier = positionsPossibles.remove(0);
+      entites.add(new Escalier(posEscalier[0], posEscalier[1], levelIndex));
    }
 
    /**
-    * deplace le personnage en fonction de l'action.
-    * gere la collision avec les murs
+    * Met à jour le labyrinthe
     */
    public static void updateLaby() {
 
       // Liste pour stocker les éléments à supprimer
       ArrayList<Entite> toRemove = new ArrayList<>();
 
-      // Déplace tous les objets déplaçables
+      // Déplace ou supprime les éléments
       for (Entite e : entites) {
+         // Si l'élément est déplaçable, on le déplace
          if (e instanceof Deplacable) {
             ((Deplacable) e).deplacer();
          }
-         // Si un être vivant n'a plus de point de vie, on l'ajoute à la liste des éléments à supprimer
+         // Si élément doit être supprimé, on l'ajoute à la liste des éléments à supprimer
          if (e.supprimer()) {
             toRemove.add(e);
          }
       }
 
-      // Supprime les éléments de la liste deplacables qui sont morts
+      // Supprime les éléments qui sont morts de la liste des entités
       entites.removeAll(toRemove);
 
-      // Si tous les monstres sont morts, on l'affiche
+      // Si tous les monstres sont morts, on débloque l'escalier de sortie
       int nbMonstres = 0;
       for (Entite d : entites) {
          if (d instanceof Monstre) {
@@ -128,6 +180,14 @@ public class Labyrinthe {
                ((Escalier) d).debloque = true;
             }
          }
+      }
+
+      // Change le niveau si nécessaire (joueur sur l'escalier débloqué)
+      if (niveauAChanger) {
+         murs = GenerationLaby.creer();
+         placerEntites(prochainNiveau);
+         System.out.println("Passage au niveau " + prochainNiveau);
+         niveauAChanger = false;
       }
    }
 

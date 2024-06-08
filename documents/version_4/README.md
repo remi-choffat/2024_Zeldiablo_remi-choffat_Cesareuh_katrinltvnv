@@ -47,7 +47,7 @@ ou perd.
 
 ### - Améliorations diverses
 
-- [ ] Placement aléatoire des monstres et de la sortie 🤪
+- [X] Placement aléatoire des monstres et de la sortie 🤪
 - [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
 - [ ] Mouvements fluides 🐇
 - [ ] Ajout d'un système de points (score) 💯 :  

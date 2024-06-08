@@ -8,7 +8,7 @@ public class Fleche extends Deplacable implements Attaque {
    public boolean toRemove = false;
 
    /**
-    * constructeur
+    * Constructeur
     *
     * @param x position selon x
     * @param y position selon y
@@ -19,7 +19,7 @@ public class Fleche extends Deplacable implements Attaque {
    }
 
    /**
-    * inflige des degats a un vivant
+    * Inflige des degats a un vivant
     *
     * @param v vivant a attaquer
     */
@@ -30,18 +30,25 @@ public class Fleche extends Deplacable implements Attaque {
    }
 
    /**
-    * collision avec une entité
+    * Collision avec une entité
     *
-    * @param d entité en collision
+    * @param e entité en collision
     */
    @Override
-   public void collision(Entite d) {
-      if (d instanceof Vivant) {
-         this.infligerDegats((Vivant) d);
+   public void collision(Entite e) {
+      if (e instanceof Vivant) {
+         this.infligerDegats((Vivant) e);
       }
-      this.toRemove = true;
+      if (!(e instanceof Escalier)) {
+         this.toRemove = true;
+      }
    }
 
+   /**
+    * Indique si la flèche doit être supprimée
+    *
+    * @return vrai si la flèche est en collision avec un mur ou si elle a déjà touché une entité
+    */
    public boolean supprimer() {
       int[] suivante = Labyrinthe.getSuivant(getX(), getY(), getDirection());
       boolean mort = this.toRemove || (Labyrinthe.murs[suivante[0]][suivante[1]]);

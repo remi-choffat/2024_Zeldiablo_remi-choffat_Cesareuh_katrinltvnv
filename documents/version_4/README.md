@@ -54,7 +54,7 @@ ou perd.
       - Augmentent beaucoup si le perso tue un monstre (+10)  
       - Augmentent un peu si le perso atteint la sortie (+5)  
       - Diminuent quand un monstre est tué par une autre entité que le perso (-2)  
-- [ ] Système de points de vie ❤️ :  
+- [X] Système de points de vie ❤️ :  
       - Le perso gagne des points de vie quand il termine le niveau (+4)  
 - [ ] Gestion du stock de flèches 🏹 :   
       - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau

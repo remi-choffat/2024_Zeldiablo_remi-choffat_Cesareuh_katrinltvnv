@@ -144,6 +144,7 @@ public class Labyrinthe {
       entites.add(new Escalier(posEscalier[0], posEscalier[1], levelIndex));
    }
 
+
    /**
     * Met à jour le labyrinthe
     */
@@ -184,9 +185,13 @@ public class Labyrinthe {
 
       // Change le niveau si nécessaire (joueur sur l'escalier débloqué)
       if (niveauAChanger) {
+         // Génère un nouveau labyrinthe
          murs = GenerationLaby.creer();
+         // Place les entités dans le labyrinthe
          placerEntites(prochainNiveau);
          System.out.println("Passage au niveau " + prochainNiveau);
+         // Ajoute 4 points de vie au personnage (dans la limite de ses points de vie max)
+         pj.addPv(4);
          niveauAChanger = false;
       }
    }
@@ -205,6 +210,7 @@ public class Labyrinthe {
       return murs[0].length;
    }
 
+
    /**
     * return taille selon X
     *
@@ -213,6 +219,7 @@ public class Labyrinthe {
    public int getLengthX() {
       return murs.length;
    }
+
 
    /**
     * return mur en (i,j)

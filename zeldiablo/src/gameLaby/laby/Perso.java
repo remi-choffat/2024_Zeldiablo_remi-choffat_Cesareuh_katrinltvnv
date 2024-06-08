@@ -5,7 +5,11 @@ package gameLaby.laby;
  */
 public class Perso extends Vivant {
 
+   /**
+    * Indique si le personnage peut lancer une flèche
+    */
    boolean peutLancerFleche = true;
+
 
    /**
     * constructeur
@@ -17,10 +21,15 @@ public class Perso extends Vivant {
       super(dx, dy, 1, 20);
    }
 
+
+   /**
+    * déplace le personnage
+    */
    public void deplacer() {
       super.deplacer();
       this.setDirection("");
    }
+
 
    /**
     * inflige des dégats à un vivant
@@ -31,6 +40,7 @@ public class Perso extends Vivant {
    public void infligerDegats(Vivant v) {
       v.subirDegats(1);
    }
+
 
    /**
     * lance une flèche

@@ -10,11 +10,14 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 // copied from: https://gist.github.com/james-d/8327842
 // and modified to use canvas drawing instead of shapes
@@ -85,11 +88,61 @@ public class MoteurJeu extends Application {
     // SURCHARGE Application
     //#################################
 
-    @Override
+    public void start (Stage primaryStage) {
+        VBox pane = new VBox();
+        Scene s = new Scene(pane, WIDTH, HEIGHT);
+
+        //ajout de l'image de fond
+        Image img = new Image(new File("./images/main.png").toURI().toString());
+        BackgroundImage bImg = new BackgroundImage(img,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(WIDTH, HEIGHT, false, false, false, false));
+        Background bGround = new Background(bImg);
+        pane.setBackground(bGround);
+
+        //ajout du boutton play
+        Image img1 = new Image(new File("./images/start.jpg").toURI().toString());
+        ImageView start = new ImageView(img1);
+        start.setFitWidth(200);
+        start.setFitHeight(110);
+        start.setTranslateX(380);
+        start.setTranslateY(345);
+        pane.getChildren().add(start);
+
+        //ajout du boutton quit
+        Image img2 = new Image(new File("./images/exit.png").toURI().toString());
+        ImageView exit = new ImageView(img2);
+        exit.setFitWidth(200);
+        exit.setFitHeight(110);
+        exit.setTranslateX(380);
+        exit.setTranslateY(290);
+        pane.getChildren().add(exit);
+
+        start.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent MouseEvent) {
+                startJeu(primaryStage);
+            }
+        });
+
+        exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                primaryStage.close();
+            }
+        });
+
+
+        primaryStage.setScene(s);
+        primaryStage.show();
+    }
+
     /**
      * creation de l'application avec juste un canvas et des statistiques
      */
-    public void start(Stage primaryStage) {
+    public void startJeu(Stage primaryStage) {
         // initialisation du canvas de dessin et du container
         final Canvas canvas = new Canvas();
         final Pane canvasContainer = new Pane(canvas);

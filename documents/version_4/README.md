@@ -2,7 +2,8 @@
 
 ## Objectif
 
-L'objectif est d'implémenter une gestion des niveaux en générant des labyrinthes aléatoires, et de rendre les déplacements des monstres intelligents.
+L'objectif est d'implémenter une gestion des niveaux en générant des labyrinthes aléatoires, et de rendre les
+déplacements des monstres intelligents.
 De plus, une interface graphique est mise en place pour permettre au joueur de lancer le jeu.
 
 ## Fonctionnalités
@@ -28,18 +29,20 @@ héros en prenant en compte la présence des murs.
 #### Critères de validation :
 
 * Avant son déplacement, le monstre détermine le meilleur chemin pour atteindre
-le héros.
+  le héros.
 * Le monstre prend en compte les obstacles qui le concernent pour trouver le meilleur
-chemin.
+  chemin.
 * Lorsqu'il se déplace, le monstre suit effectivement le meilleur chemin et parvient
-jusqu'au héros même s'il y a des obstacles.
+  jusqu'au héros même s'il y a des obstacles.
 
 ### - 11.3 Gestion d'un menu
+
 Plutôt que de lancer directement le jeu, le joueur lance un menu qui lui permet de
 lancer le jeu ou de quitter l'application. Ce menu ré-apparait lorsque le joueur gagne
 ou perd.
 
 #### Critères de validation
+
 * Le menu possède une image spécifique.
 * Le menu propose deux options : Jouer ou Quitter.
 * Le menu s'affiche dans la même JFrame que le rendu du jeu.
@@ -48,26 +51,28 @@ ou perd.
 ### - Améliorations diverses
 
 - [X] Placement aléatoire des monstres et de la sortie 🤪
+- [X] Images pour toutes les entités 🖼️
+- [X] Système de points de vie ❤️ :
+    - Le perso gagne des points de vie quand il termine le niveau (+4)
+- [X] Ajout d'un système de points (score) 💯 :  
+  - Augmentent beaucoup si le perso tue un monstre (+10)  
+  - Augmentent un peu si le perso atteint la sortie (+5)  
+  - Diminuent quand un monstre est tué par une autre entité que le perso (-2)
 - [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
 - [ ] Mouvements fluides 🐇
-- [ ] Ajout d'un système de points (score) 💯 :  
-      - Augmentent beaucoup si le perso tue un monstre (+10)  
-      - Augmentent un peu si le perso atteint la sortie (+5)  
-      - Diminuent quand un monstre est tué par une autre entité que le perso (-2)  
-- [X] Système de points de vie ❤️ :  
-      - Le perso gagne des points de vie quand il termine le niveau (+4)  
 - [ ] Gestion du stock de flèches 🏹 :   
-      - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
-- [X] Images pour toutes les entités 🖼️
-- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau 🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
+  - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
+- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
+  🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
+- [ ] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
+  points de vie, des flèches...) 📜
 - [ ] **Fonctionnalité 11.2 - Configuration du clavier ⌨️️**
-- [X] **Fonctionnalité 11.3 - Gestion d'un menu 📋**
 
 ## Répartition des tâches
 
 Rémi :  Placement des entités sur le labyrinthe, Système de points  
 Kateryna :  Gestion du menu  
-Mathieu :  Génération du labyrinthe, Intelligence des monstres  
+Mathieu :  Génération du labyrinthe, Intelligence des monstres
 
 ## Diagrammes
 

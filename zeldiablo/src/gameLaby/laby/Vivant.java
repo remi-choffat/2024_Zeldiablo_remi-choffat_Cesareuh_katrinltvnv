@@ -32,13 +32,22 @@ public abstract class Vivant extends Deplacable implements Attaque, Victime {
 
 
    /**
-    * Subit des degats d'une source
+    * Subit des degats
     *
     * @param d degats subits
     */
    public void subirDegats(int d) {
       this.addPv(-d);
    }
+
+
+   /**
+    * Subit des degats d'une source
+    *
+    * @param degats    degats subits
+    * @param attaquant entite attaquante
+    */
+   public abstract void subirDegats(int degats, Entite attaquant);
 
 
    /**

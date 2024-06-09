@@ -10,6 +10,11 @@ public class Perso extends Vivant {
     */
    boolean peutLancerFleche = true;
 
+   /**
+    * Nombre de points
+    */
+   private int nbPoints = 0;
+
 
    /**
     * constructeur
@@ -38,7 +43,7 @@ public class Perso extends Vivant {
     */
    @Override
    public void infligerDegats(Vivant v) {
-      v.subirDegats(1);
+      v.subirDegats(1, this);
    }
 
 
@@ -57,5 +62,43 @@ public class Perso extends Vivant {
          }
       }
    }
+
+
+   /**
+    * Renvoie le nombre de points du personnage
+    *
+    * @return nombre de points
+    */
+   public int getPoints() {
+      return this.nbPoints;
+   }
+
+
+   /**
+    * Ajoute des points
+    *
+    * @param points points à ajouter
+    */
+   public void addPoints(int points, String message) {
+      if (points < 0 && this.nbPoints + points < 0) {
+         this.nbPoints = 0;
+         return;
+      }
+      this.nbPoints += points;
+      System.out.println(message + " : " + points + " points → " + this.nbPoints);
+   }
+
+
+   /**
+    * Subit des degats
+    *
+    * @param degats    degats subits
+    * @param attaquant entite attaquante
+    */
+   @Override
+   public void subirDegats(int degats, Entite attaquant) {
+      super.subirDegats(degats);
+   }
+
 
 }

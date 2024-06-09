@@ -45,7 +45,33 @@ public class Monstre extends Vivant {
     * @param v vivant à attaquer
     */
    public void infligerDegats(Vivant v) {
-      v.subirDegats(1);
+      v.subirDegats(1, this);
+   }
+
+
+   /**
+    * Subit des dégâts
+    *
+    * @param degats    dégâts subits
+    * @param attaquant entité attaquante
+    */
+   @Override
+   public void subirDegats(int degats, Entite attaquant) {
+      super.subirDegats(degats);
+      // Si le monstre est mort après avoir subi des dégâts
+      if (this.getPv() <= 0) {
+         // Si l'attaquant est le personnage ou une flèche lancée par le personnage
+         if (attaquant instanceof Perso) {
+            // Ajoute 10 points au personnage
+            Labyrinthe.pj.addPoints(10, "Monstre tué par attaque directe");
+         } else if (attaquant instanceof Fleche) {
+            // Ajoute 10 points au personnage
+            Labyrinthe.pj.addPoints(10, "Monstre tué par attaque à distance");
+         } else {
+            // Soustrait 2 points au personnage
+            Labyrinthe.pj.addPoints(-2, "Monstre tué par un autre monstre");
+         }
+      }
    }
 
 }

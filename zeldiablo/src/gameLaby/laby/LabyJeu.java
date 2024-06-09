@@ -65,6 +65,7 @@ public class LabyJeu implements moteurJeu.Jeu {
       // Si le personnage n'a plus de point de vie, on arrête le jeu
       if (etreFini()) {
          System.out.println("Game Over");
+         System.out.println("Score : " + Labyrinthe.pj.getPoints() + " points");
          System.exit(0);
       }
 

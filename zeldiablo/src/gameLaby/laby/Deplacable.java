@@ -4,8 +4,7 @@ package gameLaby.laby;
  * Représente un élément déplaçable
  */
 public abstract class Deplacable extends Entite {
-   private int x;
-   private int y;
+
    private final int nb_mouvements;
    private String direction = "";
 

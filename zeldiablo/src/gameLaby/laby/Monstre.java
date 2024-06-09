@@ -15,17 +15,6 @@ public class Monstre extends Vivant {
       super(dx, dy, 1, 4);
    }
 
-   /**
-    * permet de savoir si le monstre est en x,y
-    *
-    * @param dx position testee
-    * @param dy position testee
-    * @return true si le monstre est bien en (dx,dy)
-    */
-   @Override
-   public boolean etrePresent(int dx, int dy) {
-      return super.etrePresent(dx, dy);
-   }
 
    /**
     * deplace le monstre
@@ -38,6 +27,7 @@ public class Monstre extends Vivant {
 
       super.deplacer();
    }
+
 
    /**
     * inflige des dégats à un vivant

@@ -1,0 +1,118 @@
+@startuml
+
+abstract class Entite{
+-dx : int
+-dy : int
+-imageView : ImageView
++getX() : int
++getY() : int
++setX(x : int)
++setY(y : int)
++etrePresent(dx : int, dy : int) : boolean
++{abstract}collision(objet : Entite)
++<b>{abstract}supprimer() : boolean</b>
++getImageView() : ImageView
++setImageView(imageView : ImageView)
+}
+
+abstract class Deplacable{
+-nbMouvements : int
+-direction : String
++deplacer(dx : int, dy : int)
++setDirection(direction String)
++getDirection() : String
+}
+
+class Perso{
+-<b>peutLancerFleche : boolean</b>
+-<b>nbPoints : int</b>
++Perso(dx : int, dy : int)
++infligerDegats(v : Vivant)
++lancerFleche()
++deplacer()
++<b>getPoints() : int</b>
++<b>addPoints(points : int)</b>
++<b>subirDegats(degats : int, attaquant : Entite)</b>
+}
+
+class Monstre{
++Monstre(dx : int, dy : int)
++infligerDegats(v : Vivant)
++deplacer()
++<b>subirDegats(degats : int, attaquant : Entite)</b>
+}
+
+abstract class Vivant{
+-<b>pv : int</b>
+-<b>initialPv : int</b>
++subirDegats(degats : int)
++<b>{abstract}subirDegats(degats : int, attaquant : Entite)</b>
++collision(objet : Entite)
++<b>supprimer() : boolean</b>
++<b>getPv() : int</b>
++<b>addPv(pv : int)</b>
++<b>getInitialPv() : int</b>
+}
+
+interface Victime {
++subirDegats(degats : int)
+}
+
+interface Attaque {
++infligerDegats(v : Vivant)
+}
+
+class Fleche {
++toRemove : boolean
++collision(objet : Entite)
++infligerDegats(v : Vivant)
++supprimer()
+}
+
+class Escalier{
+-inxLevel : int
+-sup : boolean
++debloque : boolean
++supprimer() : boolean
++collision(objet : Entite)
+}
+
+class Labyrinthe{
++murs : boolean[][]
++pj : Perso
++entites : ArrayList<Entite>
++<b>niveauAChanger : boolean</b>
++<b>prochainNiveau : int</b>
++getSuivant(x : int, y : int, action : String) : int[]
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLengthX() : int
++getMur(x : int, y : int) : boolean
++updateLaby()
++changerNiveau(inxLevel : int)
++<b>placerEntites(levelIndex : int)</b>
+}
+
+class GenerationLaby {
+-murs_a_ajouter : ArrayList<ArrayList<Integer>>
+-murs : boolean[][]
++creer() : boolean[][]
+-ajouterMurs(x : int, y : int)
+-ajouter(x : int, y : int)
+-ajoutable(x : int, y : int) : boolean
+}
+
+Entite <|-- Deplacable
+Deplacable <|-- Fleche
+Deplacable <|-- Vivant
+Perso --|> Vivant
+Monstre --|> Vivant
+Vivant ..|> Victime
+Vivant ..|> Attaque
+Fleche ..|> Attaque
+Entite <|-- Escalier
+Entite "*" <-- "1" Labyrinthe : entites
+Labyrinthe "1" --> "1" Perso : perso
+GenerationLaby -- Labyrinthe : murs
+@enduml

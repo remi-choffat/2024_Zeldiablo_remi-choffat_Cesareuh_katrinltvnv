@@ -1,5 +1,7 @@
 package gameLaby.laby;
 
+import java.util.ArrayList;
+
 /**
  * Représente un monstre
  */
@@ -21,10 +23,14 @@ public class Monstre extends Vivant {
     * le monstre se déplace aléatoirement
     */
    public void deplacer() {
+      /*
       String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
       String direction = actions[(int) (Math.random() * actions.length - .001)];
       this.setDirection(direction);
 
+       */
+
+      this.setDirection(vers_joueur());
       super.deplacer();
    }
 
@@ -67,6 +73,33 @@ public class Monstre extends Vivant {
             Labyrinthe.pj.addPoints(-2, "Monstre tué par un autre monstre");
          }
       }
+   }
+
+   public String vers_joueur(){
+      // Trouver le numéro de la case du monstre et du perso
+      int case_monstre = Labyrinthe.murs[0].length*getX()+getY();
+      int case_perso = Labyrinthe.murs[0].length*Labyrinthe.pj.getX()+Labyrinthe.pj.getY();
+
+      ArrayList<Integer> prochaines_positions = A_star.path(case_monstre, case_perso);
+      System.out.println(prochaines_positions);
+      int next_pos = prochaines_positions.get(prochaines_positions.size()-2);
+      System.out.println("Case du monstre : " + case_monstre);
+      System.out.println("Prochaine case : " + next_pos);
+
+      if(next_pos == case_monstre + 1){
+         return Labyrinthe.BAS;
+      }
+      if(next_pos == case_monstre - 1){
+         return Labyrinthe.HAUT;
+      }
+      if(next_pos > case_monstre){
+         return Labyrinthe.DROITE;
+      }
+      if(next_pos < case_monstre){
+         return Labyrinthe.GAUCHE;
+      }
+
+      return "";
    }
 
 }

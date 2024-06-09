@@ -57,7 +57,7 @@ public class LabyJeu implements moteurJeu.Jeu {
       }
 
 
-      if (debut > .2) {
+      if (debut > .3) {
          Labyrinthe.updateLaby();
          debut = 0;
       }

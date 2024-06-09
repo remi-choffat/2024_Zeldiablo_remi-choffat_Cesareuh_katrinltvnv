@@ -58,7 +58,7 @@ ou perd.
       - Le perso gagne des points de vie quand il termine le niveau (+4)  
 - [ ] Gestion du stock de flèches 🏹 :   
       - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
-- [ ] Images pour toutes les entités 🖼️
+- [X] Images pour toutes les entités 🖼️
 - [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau 🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
 - [ ] **Fonctionnalité 11.2 - Configuration du clavier ⌨️️**
 - [X] **Fonctionnalité 11.3 - Gestion d'un menu 📋**

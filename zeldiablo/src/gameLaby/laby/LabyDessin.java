@@ -29,6 +29,9 @@ public class LabyDessin implements DessinJeu {
       GraphicsContext gc = canvas.getGraphicsContext2D();
 
       gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+      Image mur = new Image("file:images/Mur.jpg");
+
       for (int l = 0; l < laby.getLengthY(); l++) {
          for (int c = 0; c < laby.getLengthX(); c++) {
             w = Math.ceil(canvas.getWidth() / laby.getLengthX());
@@ -36,13 +39,12 @@ public class LabyDessin implements DessinJeu {
             x = Math.ceil(w * c);
             y = Math.ceil(h * l);
 
-            // Dessine les murs
+            // Affiche les murs
             if (laby.getMur(c, l)) {
-               gc.setFill(Color.BLACK);
-               gc.fillRect(x, y, w, h);
+               gc.drawImage(mur, x, y, w, h); // Dessine l'image
             }
 
-            // Dessine chaque entité
+            // Affiche chaque entité
             if (Labyrinthe.entites != null) {
                for (Entite entite : Labyrinthe.entites) {
                   if (entite.etrePresent(c, l)) {
@@ -51,6 +53,7 @@ public class LabyDessin implements DessinJeu {
                      params.setFill(Color.TRANSPARENT);
                      Image rotatedImage = iv.snapshot(params, null);
                      gc.drawImage(rotatedImage, x, y, w, h); // Dessine l'image
+
                      // Affiche la barre de vie
                      if (entite instanceof Vivant v) {
                         int healthSize = 7;

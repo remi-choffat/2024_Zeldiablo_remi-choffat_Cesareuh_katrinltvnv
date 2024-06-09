@@ -26,6 +26,7 @@ abstract class Deplacable{
 class Perso{
 -<b>peutLancerFleche : boolean</b>
 -<b>nbPoints : int</b>
+-<b>nbFleches : int</b>
 +Perso(dx : int, dy : int)
 +infligerDegats(v : Vivant)
 +lancerFleche()
@@ -33,6 +34,7 @@ class Perso{
 +<b>getPoints() : int</b>
 +<b>addPoints(points : int)</b>
 +<b>subirDegats(degats : int, attaquant : Entite)</b>
++<b>addFleches(nbFleches : int)</b>
 }
 
 class Monstre{

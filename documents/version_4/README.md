@@ -54,14 +54,14 @@ ou perd.
 - [X] Images pour toutes les entités 🖼️
 - [X] Système de points de vie ❤️ :
     - Le perso gagne des points de vie quand il termine le niveau (+4)
-- [X] Ajout d'un système de points (score) 💯 :  
-  - Augmentent beaucoup si le perso tue un monstre (+10)  
-  - Augmentent un peu si le perso atteint la sortie (+5)  
-  - Diminuent quand un monstre est tué par une autre entité que le perso (-2)
+- [X] Ajout d'un système de points (score) 💯 :
+    - Augmentent beaucoup si le perso tue un monstre (+10)
+    - Augmentent un peu si le perso atteint la sortie (+5)
+    - Diminuent quand un monstre est tué par une autre entité que le perso (-2)
+- [X] Gestion du stock de flèches 🏹 :
+    - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
 - [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
 - [ ] Mouvements fluides 🐇
-- [ ] Gestion du stock de flèches 🏹 :   
-  - À chaque niveau, on donne au perso autant de flèches que de monstres dans le niveau
 - [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
   🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
 - [ ] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des

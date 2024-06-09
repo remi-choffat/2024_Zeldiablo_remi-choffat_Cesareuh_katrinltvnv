@@ -15,6 +15,11 @@ public class Perso extends Vivant {
     */
    private int nbPoints = 0;
 
+   /**
+    * Nombre de flèches disponibles
+    */
+   private int nbFleches = 0;
+
 
    /**
     * constructeur
@@ -52,7 +57,7 @@ public class Perso extends Vivant {
     */
    public void lancerFleche() {
       // Si le personnage a une direction
-      if (!this.getDirection().equals("") && this.peutLancerFleche) {
+      if (!this.getDirection().equals("") && this.peutLancerFleche && this.nbFleches > 0) {
          int[] pos = Labyrinthe.getSuivant(this.getX(), this.getY(), this.getDirection());
          // Si la case suivante n'est pas un mur
          if (!Labyrinthe.murs[pos[0]][pos[1]]) {
@@ -60,6 +65,8 @@ public class Perso extends Vivant {
             f.setDirection(this.getDirection());
             this.peutLancerFleche = false;
          }
+         this.nbFleches--;
+         System.out.println(this.nbFleches + " flèches restantes");
       }
    }
 
@@ -98,6 +105,16 @@ public class Perso extends Vivant {
    @Override
    public void subirDegats(int degats, Entite attaquant) {
       super.subirDegats(degats);
+   }
+
+
+   /**
+    * Ajoute des flèches
+    *
+    * @param nbFleches nombre de flèches à ajouter
+    */
+   public void addFleches(int nbFleches) {
+      this.nbFleches += nbFleches;
    }
 
 

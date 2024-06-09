@@ -47,6 +47,11 @@ public class Monstre extends Vivant {
     */
    @Override
    public void subirDegats(int degats, Entite attaquant) {
+      // Si le monstre est déjà mort, ne fait rien
+      if (this.getPv() <= 0) {
+         return;
+      }
+      // Fait subir des dégâts au monstre
       super.subirDegats(degats);
       // Si le monstre est mort après avoir subi des dégâts
       if (this.getPv() <= 0) {

@@ -25,8 +25,8 @@ public class Fleche extends Deplacable implements Attaque {
     */
    @Override
    public void infligerDegats(Vivant v) {
-      // Une flèche inflige 2 dégâts
-      v.subirDegats(2, this);
+      // Une flèche inflige 4 dégâts
+      v.subirDegats(4, this);
    }
 
    /**

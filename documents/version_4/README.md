@@ -12,7 +12,7 @@ De plus, une interface graphique est mise en place pour permettre au joueur de l
 
 Les niveaux ne sont pas stockés en mémoire, mais le labyrinthe est généré automatiquement par le jeu (ce qui permet
 d'avoir des parties à chaque fois différentes).   
-Pour générer ce labyrinthe, nous avons utilisé l'algorithme de Prims.
+Pour générer ce labyrinthe, nous avons utilisé **l'algorithme de Prims**.
 
 #### Critères de validation :
 
@@ -70,7 +70,7 @@ ou perd.
 
 ## Répartition des tâches
 
-Rémi :  Placement des entités sur le labyrinthe, Système de points  
+Rémi :  Placement des entités sur le labyrinthe, Système de points, Diagrammes  
 Kateryna :  Gestion du menu  
 Mathieu :  Génération du labyrinthe, Intelligence des monstres
 
@@ -91,3 +91,7 @@ Mathieu :  Génération du labyrinthe, Intelligence des monstres
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_4/diag_classe_v4_final.png" alt="Diagramme de classe final"></img>
 
 ### Diagrammes de séquence
+
+#### Génération automatique de labyrinthe
+
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_3/diag_seq_genererLaby.png" alt="Diagramme de séquence de générerLaby()"></img>

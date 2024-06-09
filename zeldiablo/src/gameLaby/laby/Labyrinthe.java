@@ -116,7 +116,7 @@ public class Labyrinthe {
    public static void placerEntites(int levelIndex) {
 
       // Nombre de monstres à ajouter
-      int nbMonstres = levelIndex + 1;
+      int nbMonstres = levelIndex;
 
       // Liste des positions possibles
       ArrayList<int[]> positionsPossibles = new ArrayList<>();
@@ -139,7 +139,7 @@ public class Labyrinthe {
          entites.add(new Monstre(pos[0], pos[1]));
       }
 
-      // Ajoute l'escalier de sortie'
+      // Ajoute l'escalier de sortie
       int[] posEscalier = positionsPossibles.remove(0);
       entites.add(new Escalier(posEscalier[0], posEscalier[1], levelIndex));
    }

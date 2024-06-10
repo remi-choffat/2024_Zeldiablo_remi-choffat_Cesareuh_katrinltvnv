@@ -72,12 +72,7 @@ public class LabyJeu implements moteurJeu.Jeu {
       if (etreFini()) {
          System.out.println("GAME OVER");
          System.out.println("Score : " + Labyrinthe.pj.getPoints() + " points");
-<<<<<<< HEAD
          System.out.println("Niveau : " + Labyrinthe.prochainNiveau);
-         System.exit(0);
-=======
-         MoteurJeu.GameOver();
->>>>>>> ff77c64 (Ajoute le menu avec error)
       }
 
    }
@@ -86,6 +81,10 @@ public class LabyJeu implements moteurJeu.Jeu {
    public void init() {
 
    }
+   /**
+    * Indicateur de fin de jeu
+    */
+   private boolean gameOver = false;
 
    /**
     * Fin du jeu quand le personnage n'a plus de point de vie
@@ -94,6 +93,12 @@ public class LabyJeu implements moteurJeu.Jeu {
     */
    @Override
    public boolean etreFini() {
-      return (Labyrinthe.pj.getPv() <= 0);
+      if (!gameOver && Labyrinthe.pj.getPv() <= 0) {
+         gameOver = true;
+         // Affiche l'écran de fin de jeu avec le score du personnage
+         MoteurJeu.showGameOverScreen(Labyrinthe.pj.getPoints());
+         return true;
+      }
+      return gameOver;
    }
 }

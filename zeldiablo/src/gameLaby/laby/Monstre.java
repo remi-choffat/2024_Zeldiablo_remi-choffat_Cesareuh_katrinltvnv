@@ -25,9 +25,10 @@ public class Monstre extends Vivant {
     *
     * @param dx position selon x
     * @param dy position selon y
+    * @param speed vitesse de deplacement
     */
-   public Monstre(int dx, int dy) {
-      super(dx, dy, 1, 4);
+   public Monstre(int dx, int dy, double speed) {
+      super(dx, dy, 1, 4, speed);
 
       // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
       int index_ia = (int) (Math.random() * ((ias.length - 1) * Labyrinthe.prochainNiveau * .15));
@@ -45,10 +46,12 @@ public class Monstre extends Vivant {
    /**
     * deplace le monstre
     * le monstre se déplace aléatoirement
+    *
+    * @param deltaTime temps écoulé depuis la dernière mise à jour
     */
-   public void deplacer() {
+   public void deplacer(double deltaTime) {
       this.setDirection(vers_joueur());
-      super.deplacer();
+      super.deplacer(deltaTime);
    }
 
 

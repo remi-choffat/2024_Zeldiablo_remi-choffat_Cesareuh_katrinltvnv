@@ -12,9 +12,11 @@ public class Fleche extends Deplacable implements Attaque {
     *
     * @param x position selon x
     * @param y position selon y
+    * @param direction direction de la flèche
+    * @param speed vitesse de deplacement
     */
-   public Fleche(int x, int y, String direction) {
-      super(x, y, 1);
+   public Fleche(int x, int y, String direction, double speed) {
+      super(x, y, 1, speed);
       this.setDirection(direction);
    }
 

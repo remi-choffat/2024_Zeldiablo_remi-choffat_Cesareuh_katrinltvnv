@@ -64,8 +64,14 @@ public class LabyJeu implements moteurJeu.Jeu {
       }
 
       if (debut > .25) {
-         Labyrinthe.updateLaby();
+         Labyrinthe.updateLaby(secondes);
          debut = 0;
+      }
+
+      for (Entite e : Labyrinthe.entites) {
+         if (e instanceof Deplacable) {
+            ((Deplacable) e).deplacer(secondes);
+         }
       }
 
       // Si le personnage n'a plus de point de vie, on arrête le jeu

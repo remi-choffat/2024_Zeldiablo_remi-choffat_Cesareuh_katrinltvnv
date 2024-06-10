@@ -18,6 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.text.Font;
@@ -100,7 +102,7 @@ public class MoteurJeu extends Application {
     //#################################
     // SURCHARGE Application
     //#################################
-
+    protected MediaPlayer media_player;
     /**
      * Lance une application
      * @param primaryStage  Le stage principal de l'application
@@ -136,6 +138,11 @@ public class MoteurJeu extends Application {
         exit.setTranslateX(380);
         exit.setTranslateY(290);
         pane.getChildren().add(exit);
+
+        //ajout d'une musique de fond
+        Media media = new Media(new File("./musique/The Adventure Begins.mp3").toURI().toString());
+        media_player = new MediaPlayer(media);
+        media_player.play();
 
         /**
          *  Gestion de l'evenement du bouton play

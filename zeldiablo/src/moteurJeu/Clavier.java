@@ -1,5 +1,6 @@
 package moteurJeu;
 
+import gameLaby.laby.KeyConfig;
 import javafx.scene.input.KeyEvent;
 
 public class Clavier {
@@ -7,7 +8,12 @@ public class Clavier {
    /**
     * controle appuyes
     */
-   public boolean haut, bas, gauche, droite, space;
+   public boolean haut, bas, gauche, droite, shoot;
+   private KeyConfig keyConfig;
+
+   public Clavier() {
+      keyConfig = new KeyConfig();
+   }
 
    /**
     * stocke les commandes
@@ -15,36 +21,19 @@ public class Clavier {
     * @param event evenement clavier
     */
    public void appuyerTouche(KeyEvent event) {
+      int code = event.getCode().getCode();
 
-      switch (event.getCode()) {
-
-         // si touche bas
-         case S, DOWN:
-            this.bas = true;
-            break;
-
-         // si touche haut
-         case Z, UP:
-            this.haut = true;
-            break;
-
-         // si touche gauche
-         case Q, LEFT:
-            this.gauche = true;
-            break;
-
-         // si touche droite
-         case D, RIGHT:
-            this.droite = true;
-            break;
-
-
-         // si touche espace
-         case SPACE:
-            this.space = true;
-            break;
+      if (code == keyConfig.getKey("DOWN")) {
+         this.bas = true;
+      } else if (code == keyConfig.getKey("UP")) {
+         this.haut = true;
+      } else if (code == keyConfig.getKey("LEFT")) {
+         this.gauche = true;
+      } else if (code == keyConfig.getKey("RIGHT")) {
+         this.droite = true;
+      } else if (code == keyConfig.getKey("SHOOT")) {
+         this.shoot = true;
       }
-
    }
 
    /**
@@ -53,33 +42,18 @@ public class Clavier {
     * @param event evenement clavier
     */
    public void relacherTouche(KeyEvent event) {
+      int code = event.getCode().getCode();
 
-      switch (event.getCode()) {
-
-         // si touche bas
-         case S, DOWN:
-            this.bas = false;
-            break;
-
-         // si touche haut
-         case Z, UP:
-            this.haut = false;
-            break;
-
-         // si touche gauche
-         case Q, LEFT:
-            this.gauche = false;
-            break;
-
-         // si touche droite
-         case D, RIGHT:
-            this.droite = false;
-            break;
-
-         // si touche espace
-         case SPACE:
-            this.space = false;
-            break;
+      if (code == keyConfig.getKey("DOWN")) {
+         this.bas = false;
+      } else if (code == keyConfig.getKey("UP")) {
+         this.haut = false;
+      } else if (code == keyConfig.getKey("LEFT")) {
+         this.gauche = false;
+      } else if (code == keyConfig.getKey("RIGHT")) {
+         this.droite = false;
+      } else if (code == keyConfig.getKey("SHOOT")) {
+         this.shoot = false;
       }
    }
 }

@@ -47,7 +47,7 @@ public class LabyJeu implements moteurJeu.Jeu {
          Labyrinthe.pj.setDirection(Labyrinthe.BAS);
       }
 
-      if (clavier.space) {
+      if (clavier.shoot) {
          Labyrinthe.pj.lancerFleche();
          Labyrinthe.pj.setDirection("");
       }

@@ -1,0 +1,152 @@
+@startuml
+
+abstract class Entite{
+-dx : int
+-dy : int
+-imageView : ImageView
++getX() : int
++getY() : int
++setX(x : int)
++setY(y : int)
++etrePresent(dx : int, dy : int) : boolean
++{abstract}collision(objet : Entite)
++{abstract}supprimer() : boolean
++getImageView() : ImageView
++setImageView(imageView : ImageView)
+}
+
+abstract class Deplacable{
+-nbMouvements : int
+-direction : String
++deplacer(dx : int, dy : int)
++setDirection(direction String)
++getDirection() : String
+}
+
+class Perso{
+-peutLancerFleche : boolean
+-nbPoints : int
+-nbFleches : int
++Perso(dx : int, dy : int)
++infligerDegats(v : Vivant)
++lancerFleche()
++deplacer()
++getPoints() : int
++addPoints(points : int)
++subirDegats(degats : int, attaquant : Entite)
++addFleches(nbFleches : int)
+}
+
+class Monstre{
++Monstre(dx : int, dy : int)
++infligerDegats(v : Vivant)
++deplacer()
++subirDegats(degats : int, attaquant : Entite)
+}
+
+abstract class Vivant{
+-pv : int
+-initialPv : int
++subirDegats(degats : int)
++{abstract}subirDegats(degats : int, attaquant : Entite)
++collision(objet : Entite)
++supprimer() : boolean
++getPv() : int
++addPv(pv : int)
++getInitialPv() : int
+}
+
+interface Victime {
++subirDegats(degats : int)
+}
+
+interface Attaque {
++infligerDegats(v : Vivant)
+}
+
+class Fleche {
++toRemove : boolean
++collision(objet : Entite)
++infligerDegats(v : Vivant)
++supprimer()
+}
+
+class Escalier{
+-inxLevel : int
+-sup : boolean
++debloque : boolean
++supprimer() : boolean
++collision(objet : Entite)
+}
+
+class Labyrinthe{
++murs : boolean[][]
++pj : Perso
++entites : ArrayList<Entite>
++niveauAChanger : boolean
++prochainNiveau : int
++getSuivant(x : int, y : int, action : String) : int[]
++deplacerPerso(action : String)
++etreFini() : boolean
++getLengthY() : int
++getLengthX() : int
++getMur(x : int, y : int) : boolean
++updateLaby()
++changerNiveau(inxLevel : int)
++placerEntites(levelIndex : int)
+}
+
+class GenerationLaby {
+-murs_a_ajouter : ArrayList<ArrayList<Integer>>
+-murs : boolean[][]
++creer() : boolean[][]
+-ajouterMurs(x : int, y : int)
+-ajouter(x : int, y : int)
+-ajoutable(x : int, y : int) : boolean
+}
+
+class A_star{
++path(start : int, goal : int) : ArrayList<Integer>
+-reconstruct_path(cameFrom : HashMap<Integer, Integer>, current : int) :\n ArrayList<Integer>
+-h(pos : int, goal : int) : int
+}
+
+interface IA {
++nextDirection(x : int, y : int) : String
+}
+
+class Immobile {
++nextDirection(x : int, y : int) : String
+}
+
+class Aleatoire {
++nextDirection(x : int, y : int) : String
+}
+
+class Bof {
++nextDirection(x : int, y : int) : String
+}
+
+class Intelligent {
++nextDirection(x : int, y : int) : String
+}
+
+Entite <|-- Deplacable
+Deplacable <|-- Fleche
+Deplacable <|-- Vivant
+Perso --|> Vivant
+Monstre --|> Vivant
+Vivant ..|> Victime
+Vivant ..|> Attaque
+Fleche ..|> Attaque
+Entite <|-- Escalier
+Entite "*" <-- "1" Labyrinthe : +entites
+Labyrinthe "1" --> "1" Perso : +perso
+GenerationLaby -- Labyrinthe : murs
+A_star -- Labyrinthe : murs
+IA <|.. Immobile
+IA <|.. Aleatoire
+IA <|.. Bof
+IA <|.. Intelligent
+Monstre "*" --> "1" IA : -IA
+@enduml

@@ -81,10 +81,7 @@ public class Monstre extends Vivant {
       int case_perso = Labyrinthe.murs[0].length*Labyrinthe.pj.getX()+Labyrinthe.pj.getY();
 
       ArrayList<Integer> prochaines_positions = A_star.path(case_monstre, case_perso);
-      System.out.println(prochaines_positions);
       int next_pos = prochaines_positions.get(prochaines_positions.size()-2);
-      System.out.println("Case du monstre : " + case_monstre);
-      System.out.println("Prochaine case : " + next_pos);
 
       if(next_pos == case_monstre + 1){
          return Labyrinthe.BAS;

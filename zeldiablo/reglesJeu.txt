@@ -1,4 +1,4 @@
-Bienvenue dans Zeldiablo, un jeu palpitant de type labyrinthe où votre mission est de survivre, éliminer des monstres, et atteindre de nouveaux niveaux. Voici les règles détaillées pour vous guider à travers votre aventure :
+Bienvenue dans Zeldiablo, un jeu de labyrinthe où votre mission est de survivre, éliminer des monstres, et atteindre de nouveaux niveaux. Voici les règles détaillées pour vous guider à travers votre aventure :
 
 Objectifs du Jeu :
 - Progresser à travers des labyrinthes de plus en plus complexes.
@@ -12,10 +12,11 @@ Contrôles du Jeu :
 - Configuration des touches : Les touches utilisées sont configurables dans le fichier configTouches.txt.
 
 Points de Vie et Flèches :
+- Points de vie initiaux : Votre personnage commence avec 20 points de vie.
 - Perte de points de vie : Lorsque votre personnage est touché par un monstre, les deux entités perdent des points de vie.
-- Flèches : À chaque changement de niveau, le stock de flèches est rechargé. Vous recevez autant de flèches qu'il y a de monstres dans le nouveau niveau.
 - Gain de points de vie : À chaque changement de niveau, 4 points de vie sont ajoutés à votre personnage.
 - Fin du jeu : Le jeu se termine lorsque votre personnage n'a plus de points de vie.
+- Flèches : À chaque changement de niveau, le stock de flèches est rechargé. Vous recevez autant de flèches qu'il y a de monstres dans le nouveau niveau.
 
 Types de Monstres :
 - Monstres Immobiles : Ne bougent pas.
@@ -28,7 +29,7 @@ Plus le niveau est élevé, plus les monstres sont intelligents et plus leur nom
 Système de Points :
 +10 points : Lorsque le personnage tue un monstre.
 +5 points : Lorsque le personnage atteint la sortie d'un niveau.
--2 points : Lorsque un monstre est tué par une autre entité que le personnage (un autre monstre).
+-2 points : Lorsqu'un monstre est tué par une autre entité que le personnage (un autre monstre).
 
 Progresser dans le Jeu :
 - Débloquer l'escalier : Pour débloquer l'escalier vers le niveau suivant, vous devez tuer tous les monstres présents dans le labyrinthe actuel.

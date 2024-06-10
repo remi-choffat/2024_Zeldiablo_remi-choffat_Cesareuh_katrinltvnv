@@ -50,7 +50,7 @@ personnage.
 ## Répartition des tâches
 
 Rémi :  Configuration du clavier, Règles du jeu, Taille du labyrinthe  
-Kateryna :  
+Kateryna :  Gestion du menu
 Mathieu :  Intelligence des monstres
 
 ## Diagrammes
@@ -66,6 +66,8 @@ Mathieu :  Intelligence des monstres
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_classe_v5_final.png" alt="Diagramme de classe final"></img>
 
 ### Diagrammes de séquence
+
+#### Configuration du clavier
 
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_seq_clavier.png" alt="Diagramme de séquence configuration du clavier"></img>
 

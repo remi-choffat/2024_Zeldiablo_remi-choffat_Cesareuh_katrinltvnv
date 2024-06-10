@@ -121,6 +121,10 @@ class Immobile {
 +nextDirection(x : int, y : int) : String
 }
 
+class Fuyard {
++nextDirection(x : int, y : int) : String
+}
+
 class Aleatoire {
 +nextDirection(x : int, y : int) : String
 }
@@ -172,6 +176,7 @@ Labyrinthe "1" --> "1" Perso : +perso
 GenerationLaby -- Labyrinthe : murs
 A_star -- Labyrinthe : murs
 IA <|.. Immobile
+IA <|.. Fuyard
 IA <|.. Aleatoire
 IA <|.. VolOiseau
 IA <|.. Intelligent

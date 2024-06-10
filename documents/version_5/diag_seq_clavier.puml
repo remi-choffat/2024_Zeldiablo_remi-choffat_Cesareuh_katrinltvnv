@@ -1,0 +1,21 @@
+@startuml
+participant "LabyJeu" as LJ
+participant "clavier : Clavier" as C
+participant "keyConfig : KeyConfig" as KC
+participant "Labyrinthe" as L
+
+LJ -> C : clavier.gauche
+activate C
+C -> KC : keyConfig.getKey("LEFT")
+activate KC
+KC --> C : key
+deactivate KC
+C --> LJ : gauche
+deactivate C
+
+LJ -> L : Labyrinthe.pj.setDirection(Labyrinthe.GAUCHE)
+activate L
+L --> LJ :
+deactivate L
+
+@enduml

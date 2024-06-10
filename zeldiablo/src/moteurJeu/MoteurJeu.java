@@ -42,10 +42,17 @@ public class MoteurJeu extends Application {
    private static double WIDTH = 800;
    private static double HEIGHT = 600;
 
+<<<<<<< HEAD
    /**
     * statistiques sur les frames
     */
    private final FrameStats frameStats = new FrameStats();
+=======
+    /**
+     * statistiques sur les frames
+     */
+    private static final FrameStats frameStats = new FrameStats();
+>>>>>>> ff77c64 (Ajoute le menu avec error)
 
    /**
     * jeu en Cours et renderer du jeu
@@ -53,10 +60,17 @@ public class MoteurJeu extends Application {
    private static Jeu jeu = null;
    private static DessinJeu dessin = null;
 
+<<<<<<< HEAD
    /**
     * touches appuyee entre deux frame
     */
    Clavier controle = new Clavier();
+=======
+    /**
+     * touches appuyee entre deux frame
+     */
+    static Clavier controle = new Clavier();
+>>>>>>> ff77c64 (Ajoute le menu avec error)
 
    /**
     * lancement d'un jeu
@@ -289,7 +303,171 @@ public class MoteurJeu extends Application {
          }
       };
 
+<<<<<<< HEAD
       // lance l'animation
       timer.start();
    }
+=======
+        primaryStage.setScene(s);
+        primaryStage.show();
+    }
+
+    /**
+     * creation de l'application avec juste un canvas et des statistiques
+     */
+    public static void startJeu(Stage primaryStage) {
+        // initialisation du canvas de dessin et du container
+        final Canvas canvas = new Canvas();
+        final Pane canvasContainer = new Pane(canvas);
+        canvas.widthProperty().bind(canvasContainer.widthProperty());
+        canvas.heightProperty().bind(canvasContainer.heightProperty());
+
+        // affichage des stats
+        final Label stats = new Label();
+        stats.textProperty().bind(frameStats.textProperty());
+
+        // ajout des statistiques en bas de la fenetre
+        final BorderPane root = new BorderPane();
+        root.setCenter(canvasContainer);
+        root.setBottom(stats);
+
+        // creation de la scene
+        final Scene scene = new Scene(root, WIDTH, HEIGHT);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
+        // listener clavier
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controle.appuyerTouche(event);
+            }
+        });
+
+        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                controle.relacherTouche(event);
+            }
+        });
+
+
+        // creation du listener souris
+        canvas.addEventHandler(MouseEvent.MOUSE_CLICKED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if (event.getClickCount() == 2) {
+                            jeu.init();
+                        }
+                    }
+                });
+
+        // lance la boucle de jeu
+        startAnimation(canvas);
+    }
+
+    public static void GameOver(){
+
+        Stage primaryStage = new Stage();
+        VBox pane = new VBox();
+        Scene s = new Scene(pane, WIDTH, HEIGHT);
+
+        //ajout de l'image de fond
+        Image img = new Image(new File("./images/back.png").toURI().toString());
+        BackgroundImage bImg = new BackgroundImage(img,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(WIDTH, HEIGHT, false, false, false, false));
+        Background bGround = new Background(bImg);
+        pane.setBackground(bGround);
+
+        //ajout du boutton play
+        Image img1 = new Image(new File("./images/start.jpg").toURI().toString());
+        ImageView restart = new ImageView(img1);
+        restart.setFitWidth(200);
+        restart.setFitHeight(110);
+        restart.setTranslateX(380);
+        restart.setTranslateY(345);
+        pane.getChildren().add(restart);
+
+        //ajout du boutton quit
+        Image img2 = new Image(new File("./images/exit.png").toURI().toString());
+        ImageView exit = new ImageView(img2);
+        exit.setFitWidth(200);
+        exit.setFitHeight(110);
+        exit.setTranslateX(380);
+        exit.setTranslateY(290);
+        pane.getChildren().add(exit);
+
+        restart.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent MouseEvent) {
+                //startJeu(primaryStage);
+                startJeu(primaryStage);
+            }
+        });
+
+        exit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                primaryStage.close();
+                //System.exit(0);
+
+            }
+        });
+
+
+        primaryStage.setScene(s);
+        primaryStage.show();
+    }
+
+    /**
+     * gestion de l'animation (boucle de jeu)
+     *
+     * @param canvas le canvas sur lequel on est synchronise
+     */
+    private static void startAnimation(final Canvas canvas) {
+        // stocke la derniere mise e jour
+        final LongProperty lastUpdateTime = new SimpleLongProperty(0);
+
+        // timer pour boucle de jeu
+        final AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long timestamp) {
+
+                // si jamais passe dans la boucle, initialise le temps
+                if (lastUpdateTime.get() == 0) {
+                    lastUpdateTime.set(timestamp);
+                }
+
+                // mesure le temps ecoule depuis la derniere mise a jour
+                long elapsedTime = timestamp - lastUpdateTime.get();
+                double dureeEnMilliSecondes = elapsedTime / 1_000_000.0;
+
+
+                // si le temps ecoule depasse le necessaire pour FPS souhaite
+                if (dureeEnMilliSecondes > dureeFPS) {
+                    // met a jour le jeu en passant les touches appuyees
+                    jeu.update(dureeEnMilliSecondes / 1_000., controle);
+
+                    // dessine le jeu
+                    dessin.dessinerJeu(jeu, canvas);
+
+                    // ajoute la duree dans les statistiques
+                    frameStats.addFrame(elapsedTime);
+
+                    // met a jour la date de derniere mise a jour
+                    lastUpdateTime.set(timestamp);
+                }
+
+            }
+        };
+
+        // lance l'animation
+        timer.start();
+    }
+>>>>>>> ff77c64 (Ajoute le menu avec error)
 }

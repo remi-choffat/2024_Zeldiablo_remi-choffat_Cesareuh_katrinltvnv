@@ -1,6 +1,7 @@
 package gameLaby.laby;
 
 import moteurJeu.Clavier;
+import moteurJeu.MoteurJeu;
 
 import java.io.IOException;
 
@@ -71,8 +72,12 @@ public class LabyJeu implements moteurJeu.Jeu {
       if (etreFini()) {
          System.out.println("GAME OVER");
          System.out.println("Score : " + Labyrinthe.pj.getPoints() + " points");
+<<<<<<< HEAD
          System.out.println("Niveau : " + Labyrinthe.prochainNiveau);
          System.exit(0);
+=======
+         MoteurJeu.GameOver();
+>>>>>>> ff77c64 (Ajoute le menu avec error)
       }
 
    }

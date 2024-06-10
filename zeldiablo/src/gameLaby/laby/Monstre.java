@@ -7,7 +7,7 @@ import gameLaby.laby.ia_monstres.*;
  */
 public class Monstre extends Vivant {
 
-   IA[] ias = {new VolOiseau(), new Aleatoire(), new Fuyard(), new Intelligent(), new Immobile()};
+   IA[] ias = {new Immobile(), new Fuyard(), new Aleatoire(), new VolOiseau(),  new Intelligent()};
    IA ia;
    /**
     * constructeur
@@ -17,7 +17,18 @@ public class Monstre extends Vivant {
     */
    public Monstre(int dx, int dy) {
       super(dx, dy, 1, 4);
-      ia = ias[(int)(Math.random()*(ias.length-1))];
+
+      // Choisi aléatoirement un niveau d'intelligence en fonction du niveau
+      int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.15));
+
+      if(index_ia >= ias.length-1){
+         ia = ias[ias.length-1];
+      }else if (index_ia <= 0){
+         ia = ias[0];
+      }else{
+         ia = ias[index_ia];
+      }
+      System.out.println(ia.getClass().getSimpleName());
    }
 
 

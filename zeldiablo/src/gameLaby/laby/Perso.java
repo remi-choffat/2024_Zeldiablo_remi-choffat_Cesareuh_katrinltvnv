@@ -28,7 +28,7 @@ public class Perso extends Vivant {
     * @param dy position selon y
     */
    public Perso(int dx, int dy) {
-      super(dx, dy, 1, 200);
+      super(dx, dy, 1, 20);
    }
 
 

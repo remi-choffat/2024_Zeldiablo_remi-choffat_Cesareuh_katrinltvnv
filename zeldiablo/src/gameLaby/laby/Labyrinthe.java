@@ -45,7 +45,7 @@ public class Labyrinthe {
    /**
     * Prochain niveau
     */
-   private static int prochainNiveau;
+   public static int prochainNiveau;
 
 
    /**

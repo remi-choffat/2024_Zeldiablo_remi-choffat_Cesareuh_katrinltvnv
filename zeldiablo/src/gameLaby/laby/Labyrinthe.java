@@ -136,12 +136,12 @@ public class Labyrinthe {
       // Ajoute les monstres
       for (int i = 0; i < nbMonstres; i++) {
          int[] pos = positionsPossibles.remove(0);
-         entites.add(new Monstre(pos[0], pos[1]));
+         new Monstre(pos[0], pos[1]);
       }
 
       // Ajoute l'escalier de sortie
       int[] posEscalier = positionsPossibles.remove(0);
-      entites.add(new Escalier(posEscalier[0], posEscalier[1], levelIndex));
+      new Escalier(posEscalier[0], posEscalier[1], levelIndex);
 
       // Ajoute autant de flèches au personnage que de monstres dans le niveau
       pj.addFleches(nbMonstres);

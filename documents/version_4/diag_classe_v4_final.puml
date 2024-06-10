@@ -105,6 +105,12 @@ class GenerationLaby {
 -ajoutable(x : int, y : int) : boolean
 }
 
+class A_star{
++<b>path(start : int, goal : int) : ArrayList<Integer></b>
+-<b>reconstruct_path(cameFrom : HashMap<Integer, Integer>, current : int) :</b>\n <b>ArrayList<Integer></b>
+-<b>h(pos : int, goal : int) : int</b>
+}
+
 Entite <|-- Deplacable
 Deplacable <|-- Fleche
 Deplacable <|-- Vivant
@@ -117,4 +123,5 @@ Entite <|-- Escalier
 Entite "*" <-- "1" Labyrinthe : entites
 Labyrinthe "1" --> "1" Perso : perso
 GenerationLaby -- Labyrinthe : murs
+A_star -- Labyrinthe : murs
 @enduml

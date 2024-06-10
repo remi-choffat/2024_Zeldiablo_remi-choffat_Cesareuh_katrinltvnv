@@ -9,14 +9,20 @@ import java.io.IOException;
  */
 public class LabyJeu implements moteurJeu.Jeu {
 
+   /**
+    * Labyrinthe du jeu
+    */
    public final Labyrinthe laby;
-   private String direction = "";
+
+   /**
+    * Temps écoulé
+    */
    double debut = 0;
 
    /**
     * Constructeur de LabyJeu
     *
-    * @throws IOException
+    * @throws IOException erreur d'entrée/sortie
     */
    public LabyJeu() throws IOException {
       laby = new Labyrinthe("labySimple/laby0.txt");

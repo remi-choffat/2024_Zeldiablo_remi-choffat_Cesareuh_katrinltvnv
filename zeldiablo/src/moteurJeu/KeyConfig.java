@@ -1,4 +1,4 @@
-package gameLaby.laby;
+package moteurJeu;
 
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;

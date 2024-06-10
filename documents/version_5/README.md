@@ -61,10 +61,6 @@ Mathieu :  Intelligence des monstres
 
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_classe_v5_initial.png" alt="Diagramme de classe initial"></img>
 
-#### Diagramme de conception
-
-<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_classe_v5.png" alt="Diagramme de classe conception"></img>
-
 #### Diagramme final
 
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_classe_v5_final.png" alt="Diagramme de classe final"></img>

@@ -1,6 +1,5 @@
 package moteurJeu;
 
-import gameLaby.laby.KeyConfig;
 import javafx.scene.input.KeyEvent;
 
 public class Clavier {
@@ -9,8 +8,16 @@ public class Clavier {
     * controle appuyes
     */
    public boolean haut, bas, gauche, droite, shoot;
+
+   /**
+    * Configuration des touches
+    */
    private KeyConfig keyConfig;
 
+
+   /**
+    * Constructeur
+    */
    public Clavier() {
       keyConfig = new KeyConfig();
    }

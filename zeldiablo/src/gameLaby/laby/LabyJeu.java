@@ -56,16 +56,16 @@ public class LabyJeu implements moteurJeu.Jeu {
          Labyrinthe.pj.setDirection("");
       }
 
-
-      if (debut > .3) {
+      if (debut > .25) {
          Labyrinthe.updateLaby();
          debut = 0;
       }
 
       // Si le personnage n'a plus de point de vie, on arrête le jeu
       if (etreFini()) {
-         System.out.println("Game Over");
+         System.out.println("GAME OVER");
          System.out.println("Score : " + Labyrinthe.pj.getPoints() + " points");
+         System.out.println("Niveau : " + Labyrinthe.prochainNiveau);
          System.exit(0);
       }
 

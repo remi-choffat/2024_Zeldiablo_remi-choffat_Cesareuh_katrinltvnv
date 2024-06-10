@@ -1,0 +1,42 @@
+Bienvenue dans Zeldiablo, un jeu palpitant de type labyrinthe où votre mission est de survivre, éliminer des monstres, et atteindre de nouveaux niveaux. Voici les règles détaillées pour vous guider à travers votre aventure :
+
+Objectifs du Jeu :
+- Progresser à travers des labyrinthes de plus en plus complexes.
+- Éliminer tous les monstres dans chaque labyrinthe pour débloquer l'escalier vers le niveau suivant.
+- Accumuler le plus de points possible.
+- Survivre le plus longtemps possible en gérant vos points de vie et vos flèches.
+
+Contrôles du Jeu :
+- Déplacement du personnage : Utilisez les flèches du clavier pour déplacer votre personnage.
+- Tirer une flèche : Appuyez sur la touche espace.
+- Configuration des touches : Les touches utilisées sont configurables dans le fichier configTouches.txt.
+
+Points de Vie et Flèches :
+- Perte de points de vie : Lorsque votre personnage est touché par un monstre, les deux entités perdent des points de vie.
+- Flèches : À chaque changement de niveau, le stock de flèches est rechargé. Vous recevez autant de flèches qu'il y a de monstres dans le nouveau niveau.
+- Gain de points de vie : À chaque changement de niveau, 4 points de vie sont ajoutés à votre personnage.
+- Fin du jeu : Le jeu se termine lorsque votre personnage n'a plus de points de vie.
+
+Types de Monstres :
+- Monstres Immobiles : Ne bougent pas.
+- Monstres Fuyards : Fuient dans la direction opposée au personnage.
+- Monstres Aléatoires : Se déplacent de manière aléatoire.
+- Monstres Vol d'oiseau : Se rapprochent du personnage à vol d'oiseau.
+- Monstres Intelligents : Suivent le personnage.
+Plus le niveau est élevé, plus les monstres sont intelligents et plus leur nombre augmente.
+
+Système de Points :
++10 points : Lorsque le personnage tue un monstre.
++5 points : Lorsque le personnage atteint la sortie d'un niveau.
+-2 points : Lorsque un monstre est tué par une autre entité que le personnage (un autre monstre).
+
+Progresser dans le Jeu :
+- Débloquer l'escalier : Pour débloquer l'escalier vers le niveau suivant, vous devez tuer tous les monstres présents dans le labyrinthe actuel.
+- Nouvelle salle : Une fois l'escalier débloqué, utilisez-le pour accéder à un nouveau labyrinthe de taille supérieure avec plus de monstres.
+
+Stratégie et Astuces :
+- Gérer les flèches : Utilisez vos flèches avec prudence pour éliminer les monstres efficacement.
+- Éviter les contacts : Essayez d'éviter le contact direct avec les monstres pour conserver vos points de vie.
+- Tuer les monstres intelligemment : Priorisez les monstres les plus dangereux pour faciliter votre progression.
+
+Préparez-vous à un défi de taille et bonne chance dans votre quête à travers les labyrinthes de Zeldiablo ! Que votre aventure soit glorieuse et pleine de victoires !

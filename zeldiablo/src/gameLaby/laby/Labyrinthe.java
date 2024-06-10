@@ -193,12 +193,12 @@ public class Labyrinthe {
          int width = height * 2;
          // Génère un nouveau labyrinthe
          murs = GenerationLaby.creer(width, height);
-         // Place les entités dans le labyrinthe
-         placerEntites(prochainNiveau);
          // Ajoute 4 points de vie au personnage (dans la limite de ses points de vie max)
          pj.addPv(4);
          // Ajoute 5 points au personnage
          pj.addPoints(5, "Passage au niveau " + prochainNiveau);
+         // Place les entités dans le labyrinthe
+         placerEntites(prochainNiveau);
          niveauAChanger = false;
       }
    }

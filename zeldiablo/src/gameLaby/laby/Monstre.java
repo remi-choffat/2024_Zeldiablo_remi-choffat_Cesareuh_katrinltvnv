@@ -7,8 +7,17 @@ import gameLaby.laby.ia_monstres.*;
  */
 public class Monstre extends Vivant {
 
-   IA[] ias = {new Immobile(), new Fuyard(), new Aleatoire(), new VolOiseau(),  new Intelligent()};
+   /**
+    * Tableau des différentes IA possibles
+    */
+   IA[] ias = {new Immobile(), new Fuyard(), new Aleatoire(), new VolOiseau(), new Intelligent()};
+
+   /**
+    * IA du monstre
+    */
    IA ia;
+
+
    /**
     * constructeur
     *
@@ -18,17 +27,16 @@ public class Monstre extends Vivant {
    public Monstre(int dx, int dy) {
       super(dx, dy, 1, 4);
 
-      // Choisi aléatoirement un niveau d'intelligence en fonction du niveau
-      int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.15));
+      // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
+      int index_ia = (int) (Math.random() * ((ias.length - 1) * Labyrinthe.prochainNiveau * .15));
 
-      if(index_ia >= ias.length-1){
-         ia = ias[ias.length-1];
-      }else if (index_ia <= 0){
+      if (index_ia >= ias.length - 1) {
+         ia = ias[ias.length - 1];
+      } else if (index_ia <= 0) {
          ia = ias[0];
-      }else{
+      } else {
          ia = ias[index_ia];
       }
-      System.out.println(ia.getClass().getSimpleName());
    }
 
 
@@ -82,23 +90,28 @@ public class Monstre extends Vivant {
       }
    }
 
-   public String vers_joueur(){
+   /**
+    * Retourne la direction vers le joueur
+    *
+    * @return direction vers le joueur
+    */
+   public String vers_joueur() {
       // Trouver le numéro de la case du monstre et du perso
-      int case_monstre = Labyrinthe.murs[0].length*getX()+getY();
-      int case_perso = Labyrinthe.murs[0].length*Labyrinthe.pj.getX()+Labyrinthe.pj.getY();
+      int case_monstre = Labyrinthe.murs[0].length * getX() + getY();
+      int case_perso = Labyrinthe.murs[0].length * Labyrinthe.pj.getX() + Labyrinthe.pj.getY();
 
       int next_pos = ia.nextDirection(case_monstre, case_perso);
 
-      if(next_pos == case_monstre + 1){
+      if (next_pos == case_monstre + 1) {
          return Labyrinthe.BAS;
       }
-      if(next_pos == case_monstre - 1){
+      if (next_pos == case_monstre - 1) {
          return Labyrinthe.HAUT;
       }
-      if(next_pos > case_monstre){
+      if (next_pos > case_monstre) {
          return Labyrinthe.DROITE;
       }
-      if(next_pos < case_monstre){
+      if (next_pos < case_monstre) {
          return Labyrinthe.GAUCHE;
       }
 

@@ -43,9 +43,9 @@ personnage.
 - [ ] Mouvements fluides 🐇
 - [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
   🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
-- [ ] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
+- [X] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
   points de vie, des flèches...) 📜
-- [ ] Taille du labyrinthe qui grandit en fonction du niveau 🏗️
+- [X] Taille du labyrinthe qui grandit en fonction du niveau 🏗️
 
 ## Répartition des tâches
 

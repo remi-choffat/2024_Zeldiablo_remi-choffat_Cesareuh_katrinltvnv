@@ -23,10 +23,12 @@ Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il do
 monstres tués, il peut accéder aux escaliers afin d'accéder au niveau suivant généré aléatoirement et contenant plus de
 monstres.
 
-#### ⌨️ Touches
+#### ⌨️ Touches par défaut
 
 * Déplacements : ⬅️ ⬇️ ⬆️ ➡️
-* Tirer une flèche : Espace
+* Tirer une flèche : Espace  
+
+Les touches sont configurables dans le fichier `configTouches.txt`.
 
 ## 🛠️ Fonctionnalités implémentées
 
@@ -34,7 +36,7 @@ monstres.
 - [X] 1.8 Gestion d'un labyrinthe multi-étages
 - [X] 1.9 Génération automatique de labyrinthe
 - [X] 2.2 Déplacement aléatoire des monstres
-- [ ] 2.4 Monstres au comportement intelligent
+- [X] 2.4 Monstres au comportement intelligent
 - [X] 2.5 Monstres avec intelligence variable
 - [X] 3.1 Collision avec un monstre
 - [X] 5.1 Attaque des monstres
@@ -42,7 +44,7 @@ monstres.
 - [X] 5.5 Mort des monstres
 - [X] 6.1 Fin du jeu : mort du héros
 - [X] 8.1 Attaque à distance du joueur
-- [ ] 11.2 Configuration du clavier
+- [X] 11.2 Configuration du clavier
 - [X] 11.3 Gestion d'un menu
 
 ## 🖥️ Versions

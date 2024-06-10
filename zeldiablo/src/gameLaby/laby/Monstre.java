@@ -31,7 +31,7 @@ public class Monstre extends Vivant {
       super(dx, dy, 1, 4, speed);
 
       // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
-      int index_ia = (int) (Math.random() * ((ias.length - 1) * Labyrinthe.prochainNiveau * .15));
+      int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.2));
 
       if (index_ia >= ias.length - 1) {
          ia = ias[ias.length - 1];

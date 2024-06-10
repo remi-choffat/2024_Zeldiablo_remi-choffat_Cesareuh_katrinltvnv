@@ -24,6 +24,7 @@ public class LabyDessin implements DessinJeu {
       double y;
       double w;
       double h;
+      int healthSize = 7;
 
       Labyrinthe laby = ((LabyJeu) jeu).laby;
       GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -56,17 +57,40 @@ public class LabyDessin implements DessinJeu {
 
                      // Affiche la barre de vie
                      if (entite instanceof Vivant v) {
-                        int healthSize = 7;
                         gc.setFill(Color.RED);
                         gc.fillRect(x, y - healthSize, w, healthSize);
                         gc.setFill(Color.GREEN);
                         gc.fillRect(x, y - healthSize, w * v.getPv() / v.getInitialPv(), healthSize);
                      }
+
                   }
                }
             }
+
+
+
          }
       }
+      for (int l = 0; l < laby.getLengthY(); l++) {
+         for (int c = 0; c < laby.getLengthX(); c++) {
+            w = Math.ceil(canvas.getWidth() / laby.getLengthX());
+            h = w;
+            x = Math.ceil(w * c);
+            y = Math.ceil(h * l);
+            // Plus la case est éloignée du joueur, plus elle est sombre
+            Perso pj = Labyrinthe.pj;
+            double dist_x = Math.abs(c-pj.getX());
+            double dist_y = Math.abs(l-pj.getY());
+            double dist_totale = dist_y + dist_x;
+            if(dist_totale > 0){
+               double oui = dist_totale/((laby.getLengthY()+laby.getLengthX()))*Labyrinthe.prochainNiveau*.5;
+               if(oui > 1){oui = 1;};
+               gc.setFill(Color.rgb(0,0,0, oui));
+               gc.fillRect(x,y,w,h);
+
+            }
+         }
+         }
    }
 
    /**

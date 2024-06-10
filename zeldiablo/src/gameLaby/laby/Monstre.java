@@ -2,6 +2,8 @@ package gameLaby.laby;
 
 import gameLaby.laby.ia_monstres.*;
 
+import java.util.ArrayList;
+
 /**
  * Représente un monstre
  */
@@ -103,7 +105,14 @@ public class Monstre extends Vivant {
       int case_monstre = Labyrinthe.murs[0].length * getX() + getY();
       int case_perso = Labyrinthe.murs[0].length * Labyrinthe.pj.getX() + Labyrinthe.pj.getY();
 
-      int next_pos = ia.nextDirection(case_monstre, case_perso);
+      ArrayList<Integer> prochaines_positions = A_star.path(case_monstre, case_perso);
+
+      // verifier qu'il y a suffisamment d'elements dans la liste
+      if (prochaines_positions == null || prochaines_positions.size() < 2) {
+         return "";
+      }
+
+      int next_pos = prochaines_positions.get(prochaines_positions.size() - 2);
 
       if (next_pos == case_monstre + 1) {
          return Labyrinthe.BAS;

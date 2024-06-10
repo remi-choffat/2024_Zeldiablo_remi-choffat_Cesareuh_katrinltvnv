@@ -89,7 +89,7 @@ public class Labyrinthe {
    public Labyrinthe(String nom) throws IOException {
 
       pj = new Perso(1, 1);
-      murs = GenerationLaby.creer();
+      murs = GenerationLaby.creer(10, 5);
       placerEntites(1);
 
    }
@@ -189,8 +189,10 @@ public class Labyrinthe {
 
       // Change le niveau si nécessaire (joueur sur l'escalier débloqué)
       if (niveauAChanger) {
+         int height = 5 + prochainNiveau;
+         int width = height * 2;
          // Génère un nouveau labyrinthe
-         murs = GenerationLaby.creer();
+         murs = GenerationLaby.creer(width, height);
          // Place les entités dans le labyrinthe
          placerEntites(prochainNiveau);
          // Ajoute 4 points de vie au personnage (dans la limite de ses points de vie max)

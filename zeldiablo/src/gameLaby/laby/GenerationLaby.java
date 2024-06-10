@@ -15,9 +15,12 @@ public class GenerationLaby {
    /**
     * Murs du labyrinthe
     */
-   private static boolean[][] murs = new boolean[22][11];
+   private static boolean[][] murs;
 
-   public static boolean[][] creer() {
+   public static boolean[][] creer(int width, int height) {
+
+      murs = new boolean[width][height];
+
       murs_a_ajouter = new ArrayList<ArrayList<Integer>>();
 
       for (int x = 0; x < murs.length; x++) {

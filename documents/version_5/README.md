@@ -39,13 +39,13 @@ personnage.
 
 ### - Améliorations diverses
 
+- [X] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
+  points de vie, des flèches...) 📜
+- [X] Taille du labyrinthe qui grandit en fonction du niveau 🏗️
 - [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
 - [ ] Mouvements fluides 🐇
 - [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
   🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
-- [X] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
-  points de vie, des flèches...) 📜
-- [X] Taille du labyrinthe qui grandit en fonction du niveau 🏗️
 
 ## Répartition des tâches
 
@@ -66,3 +66,6 @@ Mathieu :  Intelligence des monstres
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_classe_v5_final.png" alt="Diagramme de classe final"></img>
 
 ### Diagrammes de séquence
+
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_seq_clavier.png" alt="Diagramme de séquence configuration du clavier"></img>
+

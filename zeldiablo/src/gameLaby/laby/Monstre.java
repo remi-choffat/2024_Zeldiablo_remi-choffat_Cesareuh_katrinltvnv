@@ -1,12 +1,14 @@
 package gameLaby.laby;
 
-import java.util.ArrayList;
+import gameLaby.laby.ia_monstres.*;
 
 /**
  * Représente un monstre
  */
 public class Monstre extends Vivant {
 
+   IA[] ias = {new VolOiseau(), new Aleatoire(), new Fuyard(), new Intelligent(), new Immobile()};
+   IA ia;
    /**
     * constructeur
     *
@@ -15,6 +17,7 @@ public class Monstre extends Vivant {
     */
    public Monstre(int dx, int dy) {
       super(dx, dy, 1, 4);
+      ia = ias[(int)(Math.random()*(ias.length-1))];
    }
 
 
@@ -23,13 +26,6 @@ public class Monstre extends Vivant {
     * le monstre se déplace aléatoirement
     */
    public void deplacer() {
-      /*
-      String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
-      String direction = actions[(int) (Math.random() * actions.length - .001)];
-      this.setDirection(direction);
-
-       */
-
       this.setDirection(vers_joueur());
       super.deplacer();
    }
@@ -64,10 +60,10 @@ public class Monstre extends Vivant {
          // Si l'attaquant est le personnage ou une flèche lancée par le personnage
          if (attaquant instanceof Perso) {
             // Ajoute 10 points au personnage
-            Labyrinthe.pj.addPoints(10, "Monstre tué par attaque directe");
+            Labyrinthe.pj.addPoints(5, "Monstre tué par attaque directe");
          } else if (attaquant instanceof Fleche) {
             // Ajoute 10 points au personnage
-            Labyrinthe.pj.addPoints(10, "Monstre tué par attaque à distance");
+            Labyrinthe.pj.addPoints(5, "Monstre tué par attaque à distance");
          } else {
             // Soustrait 2 points au personnage
             Labyrinthe.pj.addPoints(-2, "Monstre tué par un autre monstre");
@@ -80,8 +76,7 @@ public class Monstre extends Vivant {
       int case_monstre = Labyrinthe.murs[0].length*getX()+getY();
       int case_perso = Labyrinthe.murs[0].length*Labyrinthe.pj.getX()+Labyrinthe.pj.getY();
 
-      ArrayList<Integer> prochaines_positions = A_star.path(case_monstre, case_perso);
-      int next_pos = prochaines_positions.get(prochaines_positions.size()-2);
+      int next_pos = ia.nextDirection(case_monstre, case_perso);
 
       if(next_pos == case_monstre + 1){
          return Labyrinthe.BAS;

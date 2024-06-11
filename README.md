@@ -10,23 +10,25 @@
 > AC3 - Faire des essais et évaluer leurs résultats en regard des spécifications  
 > AC4 - Développer des interfaces utilisateurs
 
+[🧑‍🏫 Voir le diaporama de la soutenance](https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/tree/main/documents/Diapo_Soutenance.pdf)
+
 ### 🔍 Description du projet
 
 Ce projet a été réalisé dans le cadre de la SAÉ S2-01 (Semestre 2 de BUT Informatique). L'objectif est de créer un jeu
-en passant par plusieurs itérations de conception. À chaque itération, il faut réfléchir à des fonctionnalités, dessiner
-des diagrammes afin de mieux réfléchir à la façon dont nous allons les implémenter dans le projet puis les coder et les
+en passant par plusieurs itérations. À chaque itération, il faut réfléchir à des fonctionnalités, réaliser
+des diagrammes afin de mieux réfléchir à la conception du projet, puis implémenter ces fonctionnalités et les
 tester.
 
 ### 📖 Règles du jeu
 
 Le joueur se situe dans un labyrinthe généré aléatoirement dans lequel il doit tuer tous les monstres. Une fois tous les
-monstres tués, il peut accéder aux escaliers afin d'accéder au niveau suivant généré aléatoirement et contenant plus de
-monstres.
+monstres tués, il peut accéder aux escaliers afin d'accéder au niveau suivant, généré aléatoirement et contenant plus de
+monstres, aux déplacements plus intelligents.
 
 #### ⌨️ Touches par défaut
 
 * Déplacements : ⬅️ ⬇️ ⬆️ ➡️
-* Tirer une flèche : Espace  
+* Tirer une flèche : Espace
 
 Les touches sont configurables dans le fichier `configTouches.txt`.
 

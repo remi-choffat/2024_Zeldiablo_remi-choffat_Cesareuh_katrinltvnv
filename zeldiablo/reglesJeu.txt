@@ -27,7 +27,7 @@ Types de Monstres :
 Plus le niveau est élevé, plus les monstres sont intelligents et plus leur nombre augmente.
 
 Système de Points :
-+10 points : Lorsque le personnage tue un monstre.
++5 points : Lorsque le personnage tue un monstre.
 +5 points : Lorsque le personnage atteint la sortie d'un niveau.
 -2 points : Lorsqu'un monstre est tué par une autre entité que le personnage (un autre monstre).
 

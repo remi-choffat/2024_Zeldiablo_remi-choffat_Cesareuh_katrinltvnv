@@ -27,7 +27,7 @@ public class Monstre extends Vivant {
     * @param dy position selon y
     */
    public Monstre(int dx, int dy) {
-      super(dx, dy, 1);
+      super(dx, dy, 4);
 
       // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
       int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.2));

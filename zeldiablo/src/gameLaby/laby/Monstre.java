@@ -17,7 +17,7 @@ public class Monstre extends Vivant {
    /**
     * IA du monstre
     */
-   IA ia;
+   public IA ia;
 
 
    /**

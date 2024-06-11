@@ -26,10 +26,9 @@ public class Perso extends Vivant {
     *
     * @param dx position selon x
     * @param dy position selon y
-    * @param speed vitesse de deplacement
     */
-   public Perso(int dx, int dy, double speed) {
-      super(dx, dy, 1, 20, speed);
+   public Perso(int dx, int dy) {
+      super(dx, dy, 20);
    }
 
 
@@ -38,7 +37,7 @@ public class Perso extends Vivant {
     * @param deltaTime temps écoulé depuis la dernière mise à jour
     */
    public void deplacer(double deltaTime) {
-      super.deplacer(deltaTime);
+      super.deplacer();
       this.setDirection("");
    }
 
@@ -63,7 +62,7 @@ public class Perso extends Vivant {
          int[] pos = Labyrinthe.getSuivant(this.getX(), this.getY(), this.getDirection());
          // Si la case suivante n'est pas un mur
          if (!Labyrinthe.murs[pos[0]][pos[1]]) {
-            Fleche f = new Fleche(pos[0], pos[1], this.getDirection(), 5);
+            Fleche f = new Fleche(pos[0], pos[1], this.getDirection());
             f.setDirection(this.getDirection());
             this.peutLancerFleche = false;
          }

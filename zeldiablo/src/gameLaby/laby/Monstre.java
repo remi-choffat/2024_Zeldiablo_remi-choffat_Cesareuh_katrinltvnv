@@ -25,10 +25,9 @@ public class Monstre extends Vivant {
     *
     * @param dx position selon x
     * @param dy position selon y
-    * @param speed vitesse de deplacement
     */
-   public Monstre(int dx, int dy, double speed) {
-      super(dx, dy, 1, 4, speed);
+   public Monstre(int dx, int dy) {
+      super(dx, dy, 1);
 
       // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
       int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.2));
@@ -51,7 +50,7 @@ public class Monstre extends Vivant {
     */
    public void deplacer(double deltaTime) {
       this.setDirection(vers_joueur());
-      super.deplacer(deltaTime);
+      super.deplacer();
    }
 
 
@@ -105,14 +104,8 @@ public class Monstre extends Vivant {
       int case_monstre = Labyrinthe.murs[0].length * getX() + getY();
       int case_perso = Labyrinthe.murs[0].length * Labyrinthe.pj.getX() + Labyrinthe.pj.getY();
 
-      ArrayList<Integer> prochaines_positions = A_star.path(case_monstre, case_perso);
 
-      // verifier qu'il y a suffisamment d'elements dans la liste
-      if (prochaines_positions == null || prochaines_positions.size() < 2) {
-         return "";
-      }
-
-      int next_pos = prochaines_positions.get(prochaines_positions.size() - 2);
+      int next_pos = ia.nextDirection(case_monstre, case_perso);
 
       if (next_pos == case_monstre + 1) {
          return Labyrinthe.BAS;

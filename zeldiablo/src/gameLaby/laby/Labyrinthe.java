@@ -88,7 +88,7 @@ public class Labyrinthe {
     */
    public Labyrinthe(String nom) throws IOException {
 
-      pj = new Perso(1, 1, 1.5);
+      pj = new Perso(1, 1);
       murs = GenerationLaby.creer(10, 5);
       placerEntites(1);
 
@@ -136,7 +136,7 @@ public class Labyrinthe {
       // Ajoute les monstres
       for (int i = 0; i < nbMonstres; i++) {
          int[] pos = positionsPossibles.remove(0);
-         new Monstre(pos[0], pos[1], 1.1);
+         new Monstre(pos[0], pos[1]);
       }
 
       // Ajoute l'escalier de sortie
@@ -161,7 +161,7 @@ public class Labyrinthe {
       for (Entite e : entites) {
          // Si l'élément est déplaçable, on le déplace
          if (e instanceof Deplacable) {
-            ((Deplacable) e).deplacer(deltaTime);
+            ((Deplacable) e).deplacer();
          }
          // Si élément doit être supprimé, on l'ajoute à la liste des éléments à supprimer
          if (e.supprimer()) {

@@ -83,9 +83,9 @@ public class LabyDessin implements DessinJeu {
             double dist_y = Math.abs(l-pj.getY());
             double dist_totale = dist_y + dist_x;
             if(dist_totale > 0){
-               double oui = dist_totale/((laby.getLengthY()+laby.getLengthX()))*Labyrinthe.prochainNiveau*.5;
-               if(oui > 1){oui = 1;};
-               gc.setFill(Color.rgb(0,0,0, oui));
+               double opacite = dist_totale/((laby.getLengthY()+laby.getLengthX()))*Labyrinthe.prochainNiveau*.5;
+               if(opacite > 1){opacite = 1;};
+               gc.setFill(Color.rgb(0,0,0, opacite));
                gc.fillRect(x,y,w,h);
 
             }

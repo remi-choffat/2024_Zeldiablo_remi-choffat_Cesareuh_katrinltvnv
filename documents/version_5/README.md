@@ -42,16 +42,13 @@ personnage.
 - [X] Ajout des règles du jeu par un bouton sur le menu (descriptif des conditions de passage de niveau, des points, des
   points de vie, des flèches...) 📜
 - [X] Taille du labyrinthe qui grandit en fonction du niveau 🏗️
-- [ ] Vitesse des objets `Deplacable` : certaines entités attendent plus longtemps avant de bouger 🏎️
-- [ ] Mouvements fluides 🐇
-- [ ] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
-  🙋🏻‍♂️🙋🏼‍♂️🙋🏽‍♂️🙋🏾‍♂️🙋🏿‍♂️
+- [X] Zone de vision diminuée : Plus c'est loin, plus c'est sombre : Intensité selon niveau
 
 ## Répartition des tâches
 
 Rémi :  Configuration du clavier, Règles du jeu, Taille du labyrinthe  
-Kateryna :  Gestion du menu
-Mathieu :  Intelligence des monstres
+Kateryna :  Gestion du menu, Déplacements
+Mathieu :  Intelligence des monstres, luminosité
 
 ## Diagrammes
 

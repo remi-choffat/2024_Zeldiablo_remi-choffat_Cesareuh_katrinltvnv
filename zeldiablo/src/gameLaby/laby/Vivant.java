@@ -21,12 +21,10 @@ public abstract class Vivant extends Deplacable implements Attaque, Victime {
     *
     * @param dx position selon x
     * @param dy position selon y
-    * @param mv nombre de mouvements
     * @param pv nombre de points de vie
-    * @param speed vitesse de deplacement
     */
-   public Vivant(int dx, int dy, int mv, int pv, double speed) {
-      super(dx, dy, mv, speed);
+   public Vivant(int dx, int dy, int pv) {
+      super(dx, dy);
       this.pv = pv;
       this.initialPv = pv;
    }

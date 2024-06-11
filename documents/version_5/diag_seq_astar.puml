@@ -1,0 +1,68 @@
+@startuml
+participant "m : Monstre" as monstre
+participant Intelligent
+participant "A_star" as astar
+
+create Intelligent
+monstre -> Intelligent : new()
+monstre -> Intelligent : nextDirection(10, 12)
+activate Intelligent
+Intelligent -> astar : path(10,12)
+activate astar
+
+create "openSet : ArrayList<Integer>" as openSet
+astar -> openSet : new()
+create "cameFrom : HashMap<Integer, Integer>" as cameFrom
+astar -> cameFrom : new()
+create "gScore : HashMap<Integer, Integer>" as gScore
+astar -> gScore : new()
+create "fScore : HashMap<Integer, Integer>" as fScore
+astar -> fScore : new()
+
+astar -> gScore : put(case, Infinity) pour chaque case
+astar -> fScore : put(case, Infinity) pour chaque case
+
+astar -> openSet : add(10)
+astar -> gScore : put(10, 0)
+astar -> fScore : put(10, 3)
+
+loop !openSet.sEmpty()
+
+astar -> openSet : get( case avec le plus petit fScore)
+activate openSet
+openSet --> astar : current
+deactivate openSet
+
+alt current == 12
+astar --> Intelligent : [10, 14, 13, 12]
+else
+astar -> openSet : remove(current)
+
+create "neighbors : ArrayList<Integer>" as neighbors
+astar -> neighbors : new()
+
+loop pour chaque voisin de current
+astar -> neighbors : add(voisin)
+end
+
+loop pour chaque voisin
+alt gScore.get(current) + 1 < gScore.get(voisin)
+astar -> cameFrom : put(voisin, current)
+astar -> gScore : put(voisin, gScore.get(current) + 1)
+astar -> fScore : put(voisin, gScore.get(current) + 1 + distance avec le perso)
+alt !openSet.contains(voisin))
+astar -> openSet : add(voisin)
+end
+end
+end
+
+end
+end
+
+astar --> Intelligent : null
+
+deactivate astar
+Intelligent --> monstre : 14
+deactivate Intelligent
+
+@enduml

@@ -47,7 +47,7 @@ personnage.
 ## Répartition des tâches
 
 Rémi :  Configuration du clavier, Règles du jeu, Taille du labyrinthe  
-Kateryna :  Gestion du menu, Déplacements
+Kateryna :  Gestion du menu, Déplacements  
 Mathieu :  Intelligence des monstres, luminosité
 
 ## Diagrammes
@@ -67,4 +67,8 @@ Mathieu :  Intelligence des monstres, luminosité
 #### Configuration du clavier
 
 <img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_seq_clavier.png" alt="Diagramme de séquence configuration du clavier"></img>
+
+#### Monstres intelligents : A*
+
+<img src="https://github.com/remi-choffat/2024_Zeldiablo_remi-choffat_Cesareuh_katrinltvnv/blob/main/documents/version_5/diag_seq_astar.png" alt="Diagramme de séquence algorithme A*"></img>
 

@@ -2,8 +2,6 @@ package gameLaby.laby;
 
 import gameLaby.laby.ia_monstres.*;
 
-import java.util.ArrayList;
-
 /**
  * Représente un monstre
  */
@@ -30,7 +28,7 @@ public class Monstre extends Vivant {
       super(dx, dy, 4);
 
       // Choisit aléatoirement un niveau d'intelligence en fonction du niveau (plus le niveau est élevé, plus l'IA est intelligente)
-      int index_ia = (int)(Math.random()*((ias.length-1)*Labyrinthe.prochainNiveau*.2));
+      int index_ia = (int) (Math.random() * ((ias.length - 1) * Labyrinthe.prochainNiveau * .2));
 
       if (index_ia >= ias.length - 1) {
          ia = ias[ias.length - 1];
@@ -44,11 +42,8 @@ public class Monstre extends Vivant {
 
    /**
     * deplace le monstre
-    * le monstre se déplace aléatoirement
-    *
-    * @param deltaTime temps écoulé depuis la dernière mise à jour
     */
-   public void deplacer(double deltaTime) {
+   public void deplacer() {
       this.setDirection(vers_joueur());
       super.deplacer();
    }

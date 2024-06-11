@@ -34,6 +34,7 @@ public class Perso extends Vivant {
 
    /**
     * déplace le personnage
+    *
     * @param deltaTime temps écoulé depuis la dernière mise à jour
     */
    public void deplacer(double deltaTime) {
@@ -67,7 +68,6 @@ public class Perso extends Vivant {
             this.peutLancerFleche = false;
          }
          this.nbFleches--;
-         System.out.println(this.nbFleches + " flèches restantes");
       }
    }
 

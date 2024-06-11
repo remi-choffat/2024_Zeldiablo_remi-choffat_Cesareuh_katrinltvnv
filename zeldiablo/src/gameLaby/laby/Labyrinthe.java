@@ -145,7 +145,6 @@ public class Labyrinthe {
 
       // Ajoute autant de flèches au personnage que de monstres dans le niveau
       pj.addFleches(nbMonstres);
-      System.out.println("Flèches ajoutées : " + nbMonstres);
    }
 
 

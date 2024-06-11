@@ -17,7 +17,7 @@ public class KeyConfig {
    /**
     * Fichier de configuration des touches
     */
-   private static final String CONFIG_FILE = "configTouches.txt";
+   public static String CONFIG_FILE = "configTouches.txt";
 
    /**
     * Map des touches
